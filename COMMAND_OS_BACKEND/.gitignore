@@ -1,0 +1,7 @@
+.env
+__pycache__
+.venv
+Dockerfile
+docker-compose.yml
+DEPLOYMENT_GUIDE.MD
+MASTER_README.MD

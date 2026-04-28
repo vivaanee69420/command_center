@@ -1,0 +1,5388 @@
+{
+  "team": [
+    "Gaurav",
+    "Nadia Reinolds",
+    "Ruhith",
+    "Maryam",
+    "Nikhil",
+    "Fatima",
+    "Veena",
+    "Group COO (TBH)",
+    "AI Generator"
+  ],
+  "columns": [
+    "AI Suggested",
+    "Backlog",
+    "This Week",
+    "In Progress",
+    "Blocked",
+    "Review",
+    "Done"
+  ],
+  "priorities": [
+    "P0",
+    "P1",
+    "P2",
+    "P3"
+  ],
+  "tasks": [
+    {
+      "id": "T-0001",
+      "title": "Warwick Lodge: lift to \u00a3160k/m via TC + 4th-surgery design.",
+      "description": "Quarterly OKR \u2014 Q2 2026 (Apr\u2013Jun). KPIs: WL \u00a3160k+; P4G cohort 80%+; Elevate 30 beta users; 5 Tier-1 IM packs ready; COO offer accepted.. Decision gate: If Warwick <\u00a3150k by Jun-end \u2192 revisit pricing & marketing channel mix.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P0",
+      "due": "2026-06-03",
+      "status": "This Week",
+      "tags": [
+        "OKR",
+        "Q2 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0002",
+      "title": "Plan4Growth: confirm \u00a3100k/m net via Aug cohort fill rate \u226580%.",
+      "description": "Quarterly OKR \u2014 Q2 2026 (Apr\u2013Jun). KPIs: WL \u00a3160k+; P4G cohort 80%+; Elevate 30 beta users; 5 Tier-1 IM packs ready; COO offer accepted.. Decision gate: If Warwick <\u00a3150k by Jun-end \u2192 revisit pricing & marketing channel mix.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P0",
+      "due": "2026-06-10",
+      "status": "This Week",
+      "tags": [
+        "OKR",
+        "Q2 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0003",
+      "title": "Elevate: complete beta MVP for 1 July launch.",
+      "description": "Quarterly OKR \u2014 Q2 2026 (Apr\u2013Jun). KPIs: WL \u00a3160k+; P4G cohort 80%+; Elevate 30 beta users; 5 Tier-1 IM packs ready; COO offer accepted.. Decision gate: If Warwick <\u00a3150k by Jun-end \u2192 revisit pricing & marketing channel mix.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-06-17",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0004",
+      "title": "M&A: lock Christie & Co + 1 broker as deal-flow partners; CIM template ready.",
+      "description": "Quarterly OKR \u2014 Q2 2026 (Apr\u2013Jun). KPIs: WL \u00a3160k+; P4G cohort 80%+; Elevate 30 beta users; 5 Tier-1 IM packs ready; COO offer accepted.. Decision gate: If Warwick <\u00a3150k by Jun-end \u2192 revisit pricing & marketing channel mix.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-24",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0005",
+      "title": "Group: appoint Group COO (post-COO interim Nadia Reinolds \u2192 permanent search).",
+      "description": "Quarterly OKR \u2014 Q2 2026 (Apr\u2013Jun). KPIs: WL \u00a3160k+; P4G cohort 80%+; Elevate 30 beta users; 5 Tier-1 IM packs ready; COO offer accepted.. Decision gate: If Warwick <\u00a3150k by Jun-end \u2192 revisit pricing & marketing channel mix.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-07-01",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0006",
+      "title": "Elevate beta launch 1 Jul; first 30 paying owner subs by 30 Sep.",
+      "description": "Quarterly OKR \u2014 Q3 2026 (Jul\u2013Sep). KPIs: Elevate 30 paid; WL \u00a3180k; 5 NDAs; BC cohort 12+ students; Lab 10 ext.. Decision gate: Tier-1 outreach: if <2 LOIs Q3 \u2192 adjust valuation framework.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P0",
+      "due": "2026-09-01",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0007",
+      "title": "Warwick Lodge: \u00a3180k/m run-rate.",
+      "description": "Quarterly OKR \u2014 Q3 2026 (Jul\u2013Sep). KPIs: Elevate 30 paid; WL \u00a3180k; 5 NDAs; BC cohort 12+ students; Lab 10 ext.. Decision gate: Tier-1 outreach: if <2 LOIs Q3 \u2192 adjust valuation framework.",
+      "owner": "Ruhith",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P0",
+      "due": "2026-09-08",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0008",
+      "title": "M&A: open Tier-1 outreach (25 targets); 5 NDAs signed.",
+      "description": "Quarterly OKR \u2014 Q3 2026 (Jul\u2013Sep). KPIs: Elevate 30 paid; WL \u00a3180k; 5 NDAs; BC cohort 12+ students; Lab 10 ext.. Decision gate: Tier-1 outreach: if <2 LOIs Q3 \u2192 adjust valuation framework.",
+      "owner": "Ruhith",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-09-15",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0009",
+      "title": "Plan4Growth: Biological Clinician launch cohort live.",
+      "description": "Quarterly OKR \u2014 Q3 2026 (Jul\u2013Sep). KPIs: Elevate 30 paid; WL \u00a3180k; 5 NDAs; BC cohort 12+ students; Lab 10 ext.. Decision gate: Tier-1 outreach: if <2 LOIs Q3 \u2192 adjust valuation framework.",
+      "owner": "Ruhith",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-09-22",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0010",
+      "title": "Lab open-market BD: 10 non-GM dentists onboarded.",
+      "description": "Quarterly OKR \u2014 Q3 2026 (Jul\u2013Sep). KPIs: Elevate 30 paid; WL \u00a3180k; 5 NDAs; BC cohort 12+ students; Lab 10 ext.. Decision gate: Tier-1 outreach: if <2 LOIs Q3 \u2192 adjust valuation framework.",
+      "owner": "Ruhith",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-09-29",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0011",
+      "title": "M&A: close practice #1 acquisition (Tier-1 Kent target).",
+      "description": "Quarterly OKR \u2014 Q4 2026 (Oct\u2013Dec). KPIs: 1 deal closed; Elevate \u00a340k MRR; WL \u00a3200k; central hub live.. Decision gate: If first deal slips past Dec \u2192 review M&A advisor selection.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2026-11-30",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0012",
+      "title": "Elevate: 80 paid (\u00a340k MRR run-rate to \u00a31m ARR by mid-2027).",
+      "description": "Quarterly OKR \u2014 Q4 2026 (Oct\u2013Dec). KPIs: 1 deal closed; Elevate \u00a340k MRR; WL \u00a3200k; central hub live.. Decision gate: If first deal slips past Dec \u2192 review M&A advisor selection.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P0",
+      "due": "2026-12-07",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0013",
+      "title": "Warwick Lodge: \u00a3200k/m hit.",
+      "description": "Quarterly OKR \u2014 Q4 2026 (Oct\u2013Dec). KPIs: 1 deal closed; Elevate \u00a340k MRR; WL \u00a3200k; central hub live.. Decision gate: If first deal slips past Dec \u2192 review M&A advisor selection.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-12-14",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0014",
+      "title": "Plan4Growth: BC cohort scale (3 cohorts running).",
+      "description": "Quarterly OKR \u2014 Q4 2026 (Oct\u2013Dec). KPIs: 1 deal closed; Elevate \u00a340k MRR; WL \u00a3200k; central hub live.. Decision gate: If first deal slips past Dec \u2192 review M&A advisor selection.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-12-21",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0015",
+      "title": "Group: internal central admin hub stood up (HR, Finance, Marketing, IT).",
+      "description": "Quarterly OKR \u2014 Q4 2026 (Oct\u2013Dec). KPIs: 1 deal closed; Elevate \u00a340k MRR; WL \u00a3200k; central hub live.. Decision gate: If first deal slips past Dec \u2192 review M&A advisor selection.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-12-28",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2026 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0016",
+      "title": "Integrate practice #1; lift acquired EBITDA margin by 200 bps in 90 days.",
+      "description": "Quarterly OKR \u2014 Q1 2027 (Jan\u2013Mar). KPIs: +200bps margin; 1 deal closed + 1 LOI; P4G \u00a3125k; Elevate \u00a360k MRR.. Decision gate: If integration EBITDA <90% of model \u2192 pause Tier-1 #4 outreach.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-02-28",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0017",
+      "title": "M&A: close practice #2; sign LOI on #3.",
+      "description": "Quarterly OKR \u2014 Q1 2027 (Jan\u2013Mar). KPIs: +200bps margin; 1 deal closed + 1 LOI; P4G \u00a3125k; Elevate \u00a360k MRR.. Decision gate: If integration EBITDA <90% of model \u2192 pause Tier-1 #4 outreach.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-03-07",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0018",
+      "title": "Plan4Growth: hit \u00a3125k/m net (over \u00a3100k target).",
+      "description": "Quarterly OKR \u2014 Q1 2027 (Jan\u2013Mar). KPIs: +200bps margin; 1 deal closed + 1 LOI; P4G \u00a3125k; Elevate \u00a360k MRR.. Decision gate: If integration EBITDA <90% of model \u2192 pause Tier-1 #4 outreach.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2027-03-14",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0019",
+      "title": "Elevate: 150 paid (\u00a360k MRR run-rate).",
+      "description": "Quarterly OKR \u2014 Q1 2027 (Jan\u2013Mar). KPIs: +200bps margin; 1 deal closed + 1 LOI; P4G \u00a3125k; Elevate \u00a360k MRR.. Decision gate: If integration EBITDA <90% of model \u2192 pause Tier-1 #4 outreach.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2027-03-21",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0020",
+      "title": "Group: launch group brand architecture (GM Dental / Plan4Growth / Elevate).",
+      "description": "Quarterly OKR \u2014 Q1 2027 (Jan\u2013Mar). KPIs: +200bps margin; 1 deal closed + 1 LOI; P4G \u00a3125k; Elevate \u00a360k MRR.. Decision gate: If integration EBITDA <90% of model \u2192 pause Tier-1 #4 outreach.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2027-03-28",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0021",
+      "title": "Close practice #3; LOI on practice #4.",
+      "description": "Quarterly OKR \u2014 Q2 2027 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a31m ARR Elevate; P4G \u00a3150k; 5 PE intros logged.. Decision gate: If PE multiple feedback <8.5x EBITDA \u2192 rebalance toward Scenario C platform narrative.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-05-29",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0022",
+      "title": "Plan4Growth: lock \u00a3150k/m net run-rate.",
+      "description": "Quarterly OKR \u2014 Q2 2027 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a31m ARR Elevate; P4G \u00a3150k; 5 PE intros logged.. Decision gate: If PE multiple feedback <8.5x EBITDA \u2192 rebalance toward Scenario C platform narrative.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P0",
+      "due": "2027-06-05",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0023",
+      "title": "Elevate: hit \u00a31m ARR (210 owner + 200 associate subs).",
+      "description": "Quarterly OKR \u2014 Q2 2027 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a31m ARR Elevate; P4G \u00a3150k; 5 PE intros logged.. Decision gate: If PE multiple feedback <8.5x EBITDA \u2192 rebalance toward Scenario C platform narrative.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2027-06-12",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0024",
+      "title": "Lab: 25 non-GM external clients (Lab \u00a380k/m run-rate).",
+      "description": "Quarterly OKR \u2014 Q2 2027 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a31m ARR Elevate; P4G \u00a3150k; 5 PE intros logged.. Decision gate: If PE multiple feedback <8.5x EBITDA \u2192 rebalance toward Scenario C platform narrative.",
+      "owner": "Gaurav",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2027-06-19",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0025",
+      "title": "Initial PE soft-conversation round (5 mid-market PE introductions).",
+      "description": "Quarterly OKR \u2014 Q2 2027 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a31m ARR Elevate; P4G \u00a3150k; 5 PE intros logged.. Decision gate: If PE multiple feedback <8.5x EBITDA \u2192 rebalance toward Scenario C platform narrative.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2027-06-26",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0026",
+      "title": "Close practice #4; LOI on practice #5.",
+      "description": "Quarterly OKR \u2014 Q3 2027 (Jul\u2013Sep). KPIs: 1 deal closed + 1 LOI; audited accounts; \u00a330k/m India; \u00a31.5m ARR.. Decision gate: Confirm Series A vs trade vs hold decision based on advisor diligence.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-08-27",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0027",
+      "title": "Group: Audited group accounts in place (Yr1 of full consolidation).",
+      "description": "Quarterly OKR \u2014 Q3 2027 (Jul\u2013Sep). KPIs: 1 deal closed + 1 LOI; audited accounts; \u00a330k/m India; \u00a31.5m ARR.. Decision gate: Confirm Series A vs trade vs hold decision based on advisor diligence.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-09-03",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0028",
+      "title": "Plan4Growth: international (India) hits \u00a330k/m run-rate.",
+      "description": "Quarterly OKR \u2014 Q3 2027 (Jul\u2013Sep). KPIs: 1 deal closed + 1 LOI; audited accounts; \u00a330k/m India; \u00a31.5m ARR.. Decision gate: Confirm Series A vs trade vs hold decision based on advisor diligence.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2027-09-10",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0029",
+      "title": "Elevate: \u00a31.5m ARR.",
+      "description": "Quarterly OKR \u2014 Q3 2027 (Jul\u2013Sep). KPIs: 1 deal closed + 1 LOI; audited accounts; \u00a330k/m India; \u00a31.5m ARR.. Decision gate: Confirm Series A vs trade vs hold decision based on advisor diligence.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2027-09-17",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0030",
+      "title": "Begin formal advisor selection for Series A or strategic minority deal (\u00a310\u201320m).",
+      "description": "Quarterly OKR \u2014 Q3 2027 (Jul\u2013Sep). KPIs: 1 deal closed + 1 LOI; audited accounts; \u00a330k/m India; \u00a31.5m ARR.. Decision gate: Confirm Series A vs trade vs hold decision based on advisor diligence.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2027-09-24",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q3 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0031",
+      "title": "Close practice #5; pipeline #6 in diligence.",
+      "description": "Quarterly OKR \u2014 Q4 2027 (Oct\u2013Dec). KPIs: Series A closed; \u00a34m EBITDA; 6 practices in group; Elevate \u00a32m ARR.. Decision gate: If Series A multiple <9x EBITDA \u2192 push pause and continue organic + accelerate Plan4Growth/Elevate to lift mix.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-11-25",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0032",
+      "title": "Series A close (\u00a310\u201320m, dilution 15\u201325% target).",
+      "description": "Quarterly OKR \u2014 Q4 2027 (Oct\u2013Dec). KPIs: Series A closed; \u00a34m EBITDA; 6 practices in group; Elevate \u00a32m ARR.. Decision gate: If Series A multiple <9x EBITDA \u2192 push pause and continue organic + accelerate Plan4Growth/Elevate to lift mix.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2027-12-02",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0033",
+      "title": "Plan4Growth \u00a3200k/m blended (UK + India + BC).",
+      "description": "Quarterly OKR \u2014 Q4 2027 (Oct\u2013Dec). KPIs: Series A closed; \u00a34m EBITDA; 6 practices in group; Elevate \u00a32m ARR.. Decision gate: If Series A multiple <9x EBITDA \u2192 push pause and continue organic + accelerate Plan4Growth/Elevate to lift mix.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2027-12-09",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0034",
+      "title": "Elevate \u00a32m ARR.",
+      "description": "Quarterly OKR \u2014 Q4 2027 (Oct\u2013Dec). KPIs: Series A closed; \u00a34m EBITDA; 6 practices in group; Elevate \u00a32m ARR.. Decision gate: If Series A multiple <9x EBITDA \u2192 push pause and continue organic + accelerate Plan4Growth/Elevate to lift mix.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2027-12-16",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0035",
+      "title": "Group EBITDA run-rate \u00a34m+.",
+      "description": "Quarterly OKR \u2014 Q4 2027 (Oct\u2013Dec). KPIs: Series A closed; \u00a34m EBITDA; 6 practices in group; Elevate \u00a32m ARR.. Decision gate: If Series A multiple <9x EBITDA \u2192 push pause and continue organic + accelerate Plan4Growth/Elevate to lift mix.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2027-12-23",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q4 2027 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0036",
+      "title": "Close practices #6 + #7 (acquisition acceleration on Series A capital).",
+      "description": "Quarterly OKR \u2014 Q1 2028 (Jan\u2013Mar). KPIs: 2 deals closed; \u00a35.5m EBITDA; \u00a3225k/m P4G; \u00a3120k/m Lab.. Decision gate: Confirm Q3 pipeline of 4 more deals \u2014 if <4 LOIs \u2192 scale outreach.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2028-02-23",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0037",
+      "title": "Plan4Growth \u00a3225k/m blended.",
+      "description": "Quarterly OKR \u2014 Q1 2028 (Jan\u2013Mar). KPIs: 2 deals closed; \u00a35.5m EBITDA; \u00a3225k/m P4G; \u00a3120k/m Lab.. Decision gate: Confirm Q3 pipeline of 4 more deals \u2014 if <4 LOIs \u2192 scale outreach.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P0",
+      "due": "2028-03-01",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0038",
+      "title": "Elevate \u00a32.5m ARR; introduce Group module pricing.",
+      "description": "Quarterly OKR \u2014 Q1 2028 (Jan\u2013Mar). KPIs: 2 deals closed; \u00a35.5m EBITDA; \u00a3225k/m P4G; \u00a3120k/m Lab.. Decision gate: Confirm Q3 pipeline of 4 more deals \u2014 if <4 LOIs \u2192 scale outreach.",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2028-03-08",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0039",
+      "title": "Lab \u00a3120k/m run-rate.",
+      "description": "Quarterly OKR \u2014 Q1 2028 (Jan\u2013Mar). KPIs: 2 deals closed; \u00a35.5m EBITDA; \u00a3225k/m P4G; \u00a3120k/m Lab.. Decision gate: Confirm Q3 pipeline of 4 more deals \u2014 if <4 LOIs \u2192 scale outreach.",
+      "owner": "Gaurav",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2028-03-15",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0040",
+      "title": "Group EBITDA run-rate \u00a35.5m.",
+      "description": "Quarterly OKR \u2014 Q1 2028 (Jan\u2013Mar). KPIs: 2 deals closed; \u00a35.5m EBITDA; \u00a3225k/m P4G; \u00a3120k/m Lab.. Decision gate: Confirm Q3 pipeline of 4 more deals \u2014 if <4 LOIs \u2192 scale outreach.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2028-03-22",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q1 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0041",
+      "title": "Close practice #8.",
+      "description": "Quarterly OKR \u2014 Q2 2028 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a36.5m EBITDA; \u00a33m ARR; data room scaffold built.. Decision gate: If Group ARR <2.8m by Q2-end \u2192 re-rate Elevate strategy (channel partners, pricing).",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2028-05-23",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0042",
+      "title": "Group EBITDA run-rate \u00a36.5m.",
+      "description": "Quarterly OKR \u2014 Q2 2028 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a36.5m EBITDA; \u00a33m ARR; data room scaffold built.. Decision gate: If Group ARR <2.8m by Q2-end \u2192 re-rate Elevate strategy (channel partners, pricing).",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2028-05-30",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0043",
+      "title": "Plan4Growth \u00a3250k/m blended.",
+      "description": "Quarterly OKR \u2014 Q2 2028 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a36.5m EBITDA; \u00a33m ARR; data room scaffold built.. Decision gate: If Group ARR <2.8m by Q2-end \u2192 re-rate Elevate strategy (channel partners, pricing).",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2028-06-06",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0044",
+      "title": "Elevate \u00a33m ARR.",
+      "description": "Quarterly OKR \u2014 Q2 2028 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a36.5m EBITDA; \u00a33m ARR; data room scaffold built.. Decision gate: If Group ARR <2.8m by Q2-end \u2192 re-rate Elevate strategy (channel partners, pricing).",
+      "owner": "Gaurav",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2028-06-13",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0045",
+      "title": "Begin Series B / strategic exit prep narrative \u2014 2030 target window.",
+      "description": "Quarterly OKR \u2014 Q2 2028 (Apr\u2013Jun). KPIs: 1 deal closed; \u00a36.5m EBITDA; \u00a33m ARR; data room scaffold built.. Decision gate: If Group ARR <2.8m by Q2-end \u2192 re-rate Elevate strategy (channel partners, pricing).",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2028-06-20",
+      "status": "Backlog",
+      "tags": [
+        "OKR",
+        "Q2 2028 "
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0046",
+      "title": "Convert to 4-surgery layout (capex c.\u00a3180k); add associate implantologist working 2 days/w",
+      "description": "Entity diagnostic \u2014 Warwick Lodge Dental Implant Centre. Current \u00a3125,000/m \u2192 target \u00a3200,000/m.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Warwick Lodge Dent"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0047",
+      "title": "Implement Dengro/LeadDoctor + Bland AI inbound triage to lift consult-to-conversion from c",
+      "description": "Entity diagnostic \u2014 Warwick Lodge Dental Implant Centre. Current \u00a3125,000/m \u2192 target \u00a3200,000/m.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Warwick Lodge Dent"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0048",
+      "title": "Cross-refer model: every Ashford/Rochester/Barnet/FTS implant case routed to Warwick Lodge",
+      "description": "Entity diagnostic \u2014 Warwick Lodge Dental Implant Centre. Current \u00a3125,000/m \u2192 target \u00a3200,000/m.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Warwick Lodge Dent"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0049",
+      "title": "Co-brand with Warwick Lodge on full-arch (single all-on-4 funnel; two locations).",
+      "description": "Entity diagnostic \u2014 Fixed Teeth Solutions (Bexleyheath). Current \u00a360,000/m \u2192 target \u00a3120,000/m.",
+      "owner": "Maryam",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Fixed Teeth Soluti"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0050",
+      "title": "Add weekly visiting principal sessions to lift personal-placement frequency.",
+      "description": "Entity diagnostic \u2014 Fixed Teeth Solutions (Bexleyheath). Current \u00a360,000/m \u2192 target \u00a3120,000/m.",
+      "owner": "Maryam",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Fixed Teeth Soluti"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0051",
+      "title": "Invest \u00a330k/m in paid social full-arch direct-response with shared case bank.",
+      "description": "Entity diagnostic \u2014 Fixed Teeth Solutions (Bexleyheath). Current \u00a360,000/m \u2192 target \u00a3120,000/m.",
+      "owner": "Maryam",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Fixed Teeth Soluti"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0052",
+      "title": "Drop NHS UDA volume by 15% post-Apr 2026 reform; redeploy chair-time to private hygiene + ",
+      "description": "Entity diagnostic \u2014 Ashford Dental Practice. Current \u00a390,000/m \u2192 target \u00a3150,000/m.",
+      "owner": "Maryam",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Ashford Dental Pra"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0053",
+      "title": "Establish formal implant-referral protocol \u2192 Warwick Lodge.",
+      "description": "Entity diagnostic \u2014 Ashford Dental Practice. Current \u00a390,000/m \u2192 target \u00a3150,000/m.",
+      "owner": "Maryam",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Ashford Dental Pra"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0054",
+      "title": "Hygienist direct-access channel + 6-monthly recall automation.",
+      "description": "Entity diagnostic \u2014 Ashford Dental Practice. Current \u00a390,000/m \u2192 target \u00a3150,000/m.",
+      "owner": "Maryam",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Ashford Dental Pra"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0055",
+      "title": "Same private-pivot playbook as Ashford.",
+      "description": "Entity diagnostic \u2014 Rochester Dental Practice. Current \u00a380,000/m \u2192 target \u00a3130,000/m.",
+      "owner": "Maryam",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Rochester Dental P"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0056",
+      "title": "Rochester catchment supports cosmetic \u2014 composite bonding + aligners.",
+      "description": "Entity diagnostic \u2014 Rochester Dental Practice. Current \u00a380,000/m \u2192 target \u00a3130,000/m.",
+      "owner": "Maryam",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Rochester Dental P"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0057",
+      "title": "Implant referral funnel to Warwick Lodge.",
+      "description": "Entity diagnostic \u2014 Rochester Dental Practice. Current \u00a380,000/m \u2192 target \u00a3130,000/m.",
+      "owner": "Maryam",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Rochester Dental P"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0058",
+      "title": "Private-only re-positioning post-Apr 2026 NHS contract reform.",
+      "description": "Entity diagnostic \u2014 Barnet Dental Practice. Current \u00a385,000/m \u2192 target \u00a3140,000/m.",
+      "owner": "Maryam",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Barnet Dental Prac"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0059",
+      "title": "Aligner & cosmetic specialist sessions.",
+      "description": "Entity diagnostic \u2014 Barnet Dental Practice. Current \u00a385,000/m \u2192 target \u00a3140,000/m.",
+      "owner": "Maryam",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Barnet Dental Prac"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0060",
+      "title": "Implant referral funnel.",
+      "description": "Entity diagnostic \u2014 Barnet Dental Practice. Current \u00a385,000/m \u2192 target \u00a3140,000/m.",
+      "owner": "Maryam",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Barnet Dental Prac"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0061",
+      "title": "Open-market BD: target 50 non-GM Kent/SE dentists for zirconia all-on-X work.",
+      "description": "Entity diagnostic \u2014 GM Dental Lab. Current \u00a330,000/m \u2192 target \u00a380,000/m.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "GM Dental Lab"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0062",
+      "title": "Digital workflow upgrade (intra-oral scan \u2192 CAD/CAM all internal).",
+      "description": "Entity diagnostic \u2014 GM Dental Lab. Current \u00a330,000/m \u2192 target \u00a380,000/m.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "GM Dental Lab"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0063",
+      "title": "Add zirconia all-on-X specialism \u2014 premium pricing.",
+      "description": "Entity diagnostic \u2014 GM Dental Lab. Current \u00a330,000/m \u2192 target \u00a380,000/m.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "GM Dental Lab"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0064",
+      "title": "Cohort cadence: increase from quarterly to monthly cohort starts; lifts pipeline conversio",
+      "description": "Entity diagnostic \u2014 Plan4Growth Academy (incl. Biological Clinician + India). Current \u00a370,000/m \u2192 target \u00a3100,000/m.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Plan4Growth Academ"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0065",
+      "title": "Biological Clinician sub-brand: structured launch with 3 founder cohorts (\u00a31m Y1 attainabl",
+      "description": "Entity diagnostic \u2014 Plan4Growth Academy (incl. Biological Clinician + India). Current \u00a370,000/m \u2192 target \u00a3100,000/m.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Plan4Growth Academ"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0066",
+      "title": "India Implant Diploma: dedicated Mumbai/Delhi sales + on-ground training partner.",
+      "description": "Entity diagnostic \u2014 Plan4Growth Academy (incl. Biological Clinician + India). Current \u00a370,000/m \u2192 target \u00a3100,000/m.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Plan4Growth Academ"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0067",
+      "title": "Channel-led GTM: 5 dental accountancy firms as referral partners on rev-share.",
+      "description": "Entity diagnostic \u2014 Elevate Accounts. Current \u00a30/m \u2192 target \u00a383,000/m.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Elevate Accounts"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0068",
+      "title": "Embed Elevate into every Plan4Growth cohort onboarding.",
+      "description": "Entity diagnostic \u2014 Elevate Accounts. Current \u00a30/m \u2192 target \u00a383,000/m.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Elevate Accounts"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0069",
+      "title": "Bundle IR35/CEST determination service as paid annual add-on.",
+      "description": "Entity diagnostic \u2014 Elevate Accounts. Current \u00a30/m \u2192 target \u00a383,000/m.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "Entity-leverage",
+        "Elevate Accounts"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0070",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: \"You don't have to live with missing teeth. Most people don't realise implants are now done in one day.\" | Offer: Free 30-min implant consultation + 3D CT scan (worth \u00a3250) for first 20 enquiries this month | KPIs: CPL \u00a325\u201360; Cost per booked consult \u00a3100\u2013180; Booked-to-consult conversion 60%+; Consult-to-treat 30%+",
+      "owner": "Ruhith",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0071",
+      "title": "Write 5 hook variants for Warwick Lodge Dental Implant Centre Facebook/Instagram",
+      "description": "Hook: \"You don't have to live with missing teeth. Most people don't realise implants are now done in one day.\" | Offer: Free 30-min implant consultation + 3D CT scan (worth \u00a3250) for first 20 enquiries this month | KPIs: CPL \u00a325\u201360; Cost per booked consult \u00a3100\u2013180; Booked-to-consult conversion 60%+; Consult-to-treat 30%+",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0072",
+      "title": "Produce 3 creative variants for Warwick Lodge Dental Implant Centre Facebook/Instagram",
+      "description": "Hook: \"You don't have to live with missing teeth. Most people don't realise implants are now done in one day.\" | Offer: Free 30-min implant consultation + 3D CT scan (worth \u00a3250) for first 20 enquiries this month | KPIs: CPL \u00a325\u201360; Cost per booked consult \u00a3100\u2013180; Booked-to-consult conversion 60%+; Consult-to-treat 30%+",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0073",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a33500/m \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: \"You don't have to live with missing teeth. Most people don't realise implants are now done in one day.\" | Offer: Free 30-min implant consultation + 3D CT scan (worth \u00a3250) for first 20 enquiries this month | KPIs: CPL \u00a325\u201360; Cost per booked consult \u00a3100\u2013180; Booked-to-consult conversion 60%+; Consult-to-treat 30%+",
+      "owner": "Ruhith",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0074",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: Same-day implants by a 1,000-implant/year specialist. Kent's leading implant centre. | Offer: Free CT scan + consultation; 0% finance; 10-year guarantee | KPIs: CPC \u00a34.50\u20138.50; CPL \u00a340\u201390; Booked consult \u00a3120\u2013220",
+      "owner": "Ruhith",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0075",
+      "title": "Write 5 hook variants for Warwick Lodge Dental Implant Centre Google Search",
+      "description": "Hook: Same-day implants by a 1,000-implant/year specialist. Kent's leading implant centre. | Offer: Free CT scan + consultation; 0% finance; 10-year guarantee | KPIs: CPC \u00a34.50\u20138.50; CPL \u00a340\u201390; Booked consult \u00a3120\u2013220",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0076",
+      "title": "Produce 3 creative variants for Warwick Lodge Dental Implant Centre Google Search",
+      "description": "Hook: Same-day implants by a 1,000-implant/year specialist. Kent's leading implant centre. | Offer: Free CT scan + consultation; 0% finance; 10-year guarantee | KPIs: CPC \u00a34.50\u20138.50; CPL \u00a340\u201390; Booked consult \u00a3120\u2013220",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0077",
+      "title": "Launch Google Search campaign \u2014 \u00a33500/m \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: Same-day implants by a 1,000-implant/year specialist. Kent's leading implant centre. | Offer: Free CT scan + consultation; 0% finance; 10-year guarantee | KPIs: CPC \u00a34.50\u20138.50; CPL \u00a340\u201390; Booked consult \u00a3120\u2013220",
+      "owner": "Ruhith",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0078",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Fixed Teeth Solutions",
+      "description": "Hook: \"Throw away your dentures. Wake up tomorrow with new permanent teeth.\" | Offer: Free same-day-teeth consultation + 3D scan + same-day finance pre-approval | KPIs: CPL \u00a335\u201380; Booked consult \u00a3140\u2013250; Treat conversion 25%+",
+      "owner": "Ruhith",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0079",
+      "title": "Write 5 hook variants for Fixed Teeth Solutions Facebook/Instagram",
+      "description": "Hook: \"Throw away your dentures. Wake up tomorrow with new permanent teeth.\" | Offer: Free same-day-teeth consultation + 3D scan + same-day finance pre-approval | KPIs: CPL \u00a335\u201380; Booked consult \u00a3140\u2013250; Treat conversion 25%+",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0080",
+      "title": "Produce 3 creative variants for Fixed Teeth Solutions Facebook/Instagram",
+      "description": "Hook: \"Throw away your dentures. Wake up tomorrow with new permanent teeth.\" | Offer: Free same-day-teeth consultation + 3D scan + same-day finance pre-approval | KPIs: CPL \u00a335\u201380; Booked consult \u00a3140\u2013250; Treat conversion 25%+",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0081",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a34000/m \u2014 Fixed Teeth Solutions",
+      "description": "Hook: \"Throw away your dentures. Wake up tomorrow with new permanent teeth.\" | Offer: Free same-day-teeth consultation + 3D scan + same-day finance pre-approval | KPIs: CPL \u00a335\u201380; Booked consult \u00a3140\u2013250; Treat conversion 25%+",
+      "owner": "Ruhith",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0082",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Fixed Teeth Solutions",
+      "description": "Hook: Same-day full-arch by an experienced full-arch team | Offer: Free consult + CT scan; 0% finance; same-day teeth from \u00a314,000 | KPIs: CPC \u00a35\u201310; CPL \u00a350\u2013110; Booked consult \u00a3150\u2013280",
+      "owner": "Ruhith",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0083",
+      "title": "Write 5 hook variants for Fixed Teeth Solutions Google Search",
+      "description": "Hook: Same-day full-arch by an experienced full-arch team | Offer: Free consult + CT scan; 0% finance; same-day teeth from \u00a314,000 | KPIs: CPC \u00a35\u201310; CPL \u00a350\u2013110; Booked consult \u00a3150\u2013280",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0084",
+      "title": "Produce 3 creative variants for Fixed Teeth Solutions Google Search",
+      "description": "Hook: Same-day full-arch by an experienced full-arch team | Offer: Free consult + CT scan; 0% finance; same-day teeth from \u00a314,000 | KPIs: CPC \u00a35\u201310; CPL \u00a350\u2013110; Booked consult \u00a3150\u2013280",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0085",
+      "title": "Launch Google Search campaign \u2014 \u00a33000/m \u2014 Fixed Teeth Solutions",
+      "description": "Hook: Same-day full-arch by an experienced full-arch team | Offer: Free consult + CT scan; 0% finance; same-day teeth from \u00a314,000 | KPIs: CPC \u00a35\u201310; CPL \u00a350\u2013110; Booked consult \u00a3150\u2013280",
+      "owner": "Ruhith",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0086",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Ashford Dental Practice",
+      "description": "Hook: \"Tired of NHS waiting lists? Same-day private appointments in Ashford.\" | Offer: New patient exam + scale & polish \u00a349 (worth \u00a3150) | KPIs: CPL \u00a38\u201318; Booked patient \u00a325\u201345; LTV \u00a3900+",
+      "owner": "Ruhith",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0087",
+      "title": "Write 5 hook variants for Ashford Dental Practice Facebook/Instagram",
+      "description": "Hook: \"Tired of NHS waiting lists? Same-day private appointments in Ashford.\" | Offer: New patient exam + scale & polish \u00a349 (worth \u00a3150) | KPIs: CPL \u00a38\u201318; Booked patient \u00a325\u201345; LTV \u00a3900+",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0088",
+      "title": "Produce 3 creative variants for Ashford Dental Practice Facebook/Instagram",
+      "description": "Hook: \"Tired of NHS waiting lists? Same-day private appointments in Ashford.\" | Offer: New patient exam + scale & polish \u00a349 (worth \u00a3150) | KPIs: CPL \u00a38\u201318; Booked patient \u00a325\u201345; LTV \u00a3900+",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0089",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a31200/m \u2014 Ashford Dental Practice",
+      "description": "Hook: \"Tired of NHS waiting lists? Same-day private appointments in Ashford.\" | Offer: New patient exam + scale & polish \u00a349 (worth \u00a3150) | KPIs: CPL \u00a38\u201318; Booked patient \u00a325\u201345; LTV \u00a3900+",
+      "owner": "Ruhith",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0090",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Ashford Dental Practice",
+      "description": "Hook: Friendly private dentist Ashford \u2014 same-week appointments | Offer: New patient \u00a349 exam + clean | KPIs: CPC \u00a32.50\u20135.50; CPL \u00a320\u201345; Booked \u00a345\u201390",
+      "owner": "Ruhith",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0091",
+      "title": "Write 5 hook variants for Ashford Dental Practice Google Search",
+      "description": "Hook: Friendly private dentist Ashford \u2014 same-week appointments | Offer: New patient \u00a349 exam + clean | KPIs: CPC \u00a32.50\u20135.50; CPL \u00a320\u201345; Booked \u00a345\u201390",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0092",
+      "title": "Produce 3 creative variants for Ashford Dental Practice Google Search",
+      "description": "Hook: Friendly private dentist Ashford \u2014 same-week appointments | Offer: New patient \u00a349 exam + clean | KPIs: CPC \u00a32.50\u20135.50; CPL \u00a320\u201345; Booked \u00a345\u201390",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0093",
+      "title": "Launch Google Search campaign \u2014 \u00a3600/m \u2014 Ashford Dental Practice",
+      "description": "Hook: Friendly private dentist Ashford \u2014 same-week appointments | Offer: New patient \u00a349 exam + clean | KPIs: CPC \u00a32.50\u20135.50; CPL \u00a320\u201345; Booked \u00a345\u201390",
+      "owner": "Ruhith",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0094",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Rochester Dental Practice",
+      "description": "Hook: \"Smile makeover starts here \u2014 Rochester's modern cosmetic dentist.\" | Offer: Free smile assessment (composite bonding / aligners) \u2014 book this month, save \u00a3300 | KPIs: CPL \u00a310\u201322; Booked \u00a330\u201360",
+      "owner": "Ruhith",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0095",
+      "title": "Write 5 hook variants for Rochester Dental Practice Facebook/Instagram",
+      "description": "Hook: \"Smile makeover starts here \u2014 Rochester's modern cosmetic dentist.\" | Offer: Free smile assessment (composite bonding / aligners) \u2014 book this month, save \u00a3300 | KPIs: CPL \u00a310\u201322; Booked \u00a330\u201360",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0096",
+      "title": "Produce 3 creative variants for Rochester Dental Practice Facebook/Instagram",
+      "description": "Hook: \"Smile makeover starts here \u2014 Rochester's modern cosmetic dentist.\" | Offer: Free smile assessment (composite bonding / aligners) \u2014 book this month, save \u00a3300 | KPIs: CPL \u00a310\u201322; Booked \u00a330\u201360",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0097",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a31200/m \u2014 Rochester Dental Practice",
+      "description": "Hook: \"Smile makeover starts here \u2014 Rochester's modern cosmetic dentist.\" | Offer: Free smile assessment (composite bonding / aligners) \u2014 book this month, save \u00a3300 | KPIs: CPL \u00a310\u201322; Booked \u00a330\u201360",
+      "owner": "Ruhith",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0098",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Rochester Dental Practice",
+      "description": "Hook: Modern cosmetic + private dentist Rochester | Offer: Free smile assessment | KPIs: CPC \u00a32.50\u20136.00; CPL \u00a325\u201355",
+      "owner": "Ruhith",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0099",
+      "title": "Write 5 hook variants for Rochester Dental Practice Google Search",
+      "description": "Hook: Modern cosmetic + private dentist Rochester | Offer: Free smile assessment | KPIs: CPC \u00a32.50\u20136.00; CPL \u00a325\u201355",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0100",
+      "title": "Produce 3 creative variants for Rochester Dental Practice Google Search",
+      "description": "Hook: Modern cosmetic + private dentist Rochester | Offer: Free smile assessment | KPIs: CPC \u00a32.50\u20136.00; CPL \u00a325\u201355",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0101",
+      "title": "Launch Google Search campaign \u2014 \u00a3600/m \u2014 Rochester Dental Practice",
+      "description": "Hook: Modern cosmetic + private dentist Rochester | Offer: Free smile assessment | KPIs: CPC \u00a32.50\u20136.00; CPL \u00a325\u201355",
+      "owner": "Ruhith",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0102",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Barnet Dental Practice",
+      "description": "Hook: \"Premium private dentistry \u2014 Barnet & North London.\" | Offer: Free new-patient consultation + smile assessment | KPIs: CPL \u00a312\u201328; Booked \u00a340\u201380; LTV \u00a31,500+",
+      "owner": "Ruhith",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0103",
+      "title": "Write 5 hook variants for Barnet Dental Practice Facebook/Instagram",
+      "description": "Hook: \"Premium private dentistry \u2014 Barnet & North London.\" | Offer: Free new-patient consultation + smile assessment | KPIs: CPL \u00a312\u201328; Booked \u00a340\u201380; LTV \u00a31,500+",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0104",
+      "title": "Produce 3 creative variants for Barnet Dental Practice Facebook/Instagram",
+      "description": "Hook: \"Premium private dentistry \u2014 Barnet & North London.\" | Offer: Free new-patient consultation + smile assessment | KPIs: CPL \u00a312\u201328; Booked \u00a340\u201380; LTV \u00a31,500+",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0105",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a31500/m \u2014 Barnet Dental Practice",
+      "description": "Hook: \"Premium private dentistry \u2014 Barnet & North London.\" | Offer: Free new-patient consultation + smile assessment | KPIs: CPL \u00a312\u201328; Booked \u00a340\u201380; LTV \u00a31,500+",
+      "owner": "Ruhith",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0106",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Barnet Dental Practice",
+      "description": "Hook: Premium private dentist Barnet | Offer: Free consultation + smile assessment | KPIs: CPC \u00a33.50\u20137.50; CPL \u00a330\u201370",
+      "owner": "Ruhith",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0107",
+      "title": "Write 5 hook variants for Barnet Dental Practice Google Search",
+      "description": "Hook: Premium private dentist Barnet | Offer: Free consultation + smile assessment | KPIs: CPC \u00a33.50\u20137.50; CPL \u00a330\u201370",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0108",
+      "title": "Produce 3 creative variants for Barnet Dental Practice Google Search",
+      "description": "Hook: Premium private dentist Barnet | Offer: Free consultation + smile assessment | KPIs: CPC \u00a33.50\u20137.50; CPL \u00a330\u201370",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0109",
+      "title": "Launch Google Search campaign \u2014 \u00a3800/m \u2014 Barnet Dental Practice",
+      "description": "Hook: Premium private dentist Barnet | Offer: Free consultation + smile assessment | KPIs: CPC \u00a33.50\u20137.50; CPL \u00a330\u201370",
+      "owner": "Ruhith",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0110",
+      "title": "Build LinkedIn pixels & conversion tracking \u2014 GM Dental Lab",
+      "description": "Hook: \"All-on-X zirconia in 5 days, by a UK lab that places implants daily.\" | Offer: First all-on-X case \u00a31,200 fee waived for new dentists | KPIs: CPL \u00a340\u201390; Demo-call booking \u00a3120\u2013260; First case 25%",
+      "owner": "Ruhith",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0111",
+      "title": "Write 5 hook variants for GM Dental Lab LinkedIn",
+      "description": "Hook: \"All-on-X zirconia in 5 days, by a UK lab that places implants daily.\" | Offer: First all-on-X case \u00a31,200 fee waived for new dentists | KPIs: CPL \u00a340\u201390; Demo-call booking \u00a3120\u2013260; First case 25%",
+      "owner": "Nikhil",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0112",
+      "title": "Produce 3 creative variants for GM Dental Lab LinkedIn",
+      "description": "Hook: \"All-on-X zirconia in 5 days, by a UK lab that places implants daily.\" | Offer: First all-on-X case \u00a31,200 fee waived for new dentists | KPIs: CPL \u00a340\u201390; Demo-call booking \u00a3120\u2013260; First case 25%",
+      "owner": "Nikhil",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0113",
+      "title": "Launch LinkedIn campaign \u2014 \u00a31500/m \u2014 GM Dental Lab",
+      "description": "Hook: \"All-on-X zirconia in 5 days, by a UK lab that places implants daily.\" | Offer: First all-on-X case \u00a31,200 fee waived for new dentists | KPIs: CPL \u00a340\u201390; Demo-call booking \u00a3120\u2013260; First case 25%",
+      "owner": "Ruhith",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0114",
+      "title": "Build Google Search pixels & conversion tracking \u2014 GM Dental Lab",
+      "description": "Hook: UK clinician-led dental lab | Offer: First case fee waived | KPIs: CPC \u00a34\u20139; CPL \u00a360\u2013140",
+      "owner": "Ruhith",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0115",
+      "title": "Write 5 hook variants for GM Dental Lab Google Search",
+      "description": "Hook: UK clinician-led dental lab | Offer: First case fee waived | KPIs: CPC \u00a34\u20139; CPL \u00a360\u2013140",
+      "owner": "Nikhil",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0116",
+      "title": "Produce 3 creative variants for GM Dental Lab Google Search",
+      "description": "Hook: UK clinician-led dental lab | Offer: First case fee waived | KPIs: CPC \u00a34\u20139; CPL \u00a360\u2013140",
+      "owner": "Nikhil",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0117",
+      "title": "Launch Google Search campaign \u2014 \u00a3700/m \u2014 GM Dental Lab",
+      "description": "Hook: UK clinician-led dental lab | Offer: First case fee waived | KPIs: CPC \u00a34\u20139; CPL \u00a360\u2013140",
+      "owner": "Ruhith",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0118",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Plan4Growth Academy",
+      "description": "Hook: \"Place implants confidently AND build a \u00a31m practice \u2014 the only diploma that does both.\" | Offer: Free 60-min masterclass: 'How I place 1,000+ implants/year and run a \u00a315m group' \u2014 Tuesday 8 PM live | KPIs: CPL \u00a34\u201312; Webinar reg \u00a38\u201325; Webinar\u2192sale 6\u201312% (blended ASP \u00a38k)",
+      "owner": "Ruhith",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0119",
+      "title": "Write 5 hook variants for Plan4Growth Academy Facebook/Instagram",
+      "description": "Hook: \"Place implants confidently AND build a \u00a31m practice \u2014 the only diploma that does both.\" | Offer: Free 60-min masterclass: 'How I place 1,000+ implants/year and run a \u00a315m group' \u2014 Tuesday 8 PM live | KPIs: CPL \u00a34\u201312; Webinar reg \u00a38\u201325; Webinar\u2192sale 6\u201312% (blended ASP \u00a38k)",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0120",
+      "title": "Produce 3 creative variants for Plan4Growth Academy Facebook/Instagram",
+      "description": "Hook: \"Place implants confidently AND build a \u00a31m practice \u2014 the only diploma that does both.\" | Offer: Free 60-min masterclass: 'How I place 1,000+ implants/year and run a \u00a315m group' \u2014 Tuesday 8 PM live | KPIs: CPL \u00a34\u201312; Webinar reg \u00a38\u201325; Webinar\u2192sale 6\u201312% (blended ASP \u00a38k)",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0121",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a34500/m \u2014 Plan4Growth Academy",
+      "description": "Hook: \"Place implants confidently AND build a \u00a31m practice \u2014 the only diploma that does both.\" | Offer: Free 60-min masterclass: 'How I place 1,000+ implants/year and run a \u00a315m group' \u2014 Tuesday 8 PM live | KPIs: CPL \u00a34\u201312; Webinar reg \u00a38\u201325; Webinar\u2192sale 6\u201312% (blended ASP \u00a38k)",
+      "owner": "Ruhith",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0122",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Plan4Growth Academy",
+      "description": "Hook: EduQual L7 Implant Diploma + practice growth in one programme | Offer: Free masterclass + cohort discovery call | KPIs: CPC \u00a33\u20137; CPL \u00a315\u201340",
+      "owner": "Ruhith",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0123",
+      "title": "Write 5 hook variants for Plan4Growth Academy Google Search",
+      "description": "Hook: EduQual L7 Implant Diploma + practice growth in one programme | Offer: Free masterclass + cohort discovery call | KPIs: CPC \u00a33\u20137; CPL \u00a315\u201340",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0124",
+      "title": "Produce 3 creative variants for Plan4Growth Academy Google Search",
+      "description": "Hook: EduQual L7 Implant Diploma + practice growth in one programme | Offer: Free masterclass + cohort discovery call | KPIs: CPC \u00a33\u20137; CPL \u00a315\u201340",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0125",
+      "title": "Launch Google Search campaign \u2014 \u00a31500/m \u2014 Plan4Growth Academy",
+      "description": "Hook: EduQual L7 Implant Diploma + practice growth in one programme | Offer: Free masterclass + cohort discovery call | KPIs: CPC \u00a33\u20137; CPL \u00a315\u201340",
+      "owner": "Ruhith",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0126",
+      "title": "Build Facebook/Instagram pixels & conversion tracking \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Hook: \"Stop drilling teeth. Start healing patients. The Biological Clinician Diploma.\" | Offer: Free 'Biological Dentistry 101' webinar + cohort waitlist | KPIs: CPL \u00a35\u201314; Webinar reg \u00a310\u201330; Cohort sale 5\u201310%",
+      "owner": "Ruhith",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0127",
+      "title": "Write 5 hook variants for Biological Clinician (Plan4Growth sub-brand) Facebook/Instagram",
+      "description": "Hook: \"Stop drilling teeth. Start healing patients. The Biological Clinician Diploma.\" | Offer: Free 'Biological Dentistry 101' webinar + cohort waitlist | KPIs: CPL \u00a35\u201314; Webinar reg \u00a310\u201330; Cohort sale 5\u201310%",
+      "owner": "Nikhil",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0128",
+      "title": "Produce 3 creative variants for Biological Clinician (Plan4Growth sub-brand) Facebook/Instagram",
+      "description": "Hook: \"Stop drilling teeth. Start healing patients. The Biological Clinician Diploma.\" | Offer: Free 'Biological Dentistry 101' webinar + cohort waitlist | KPIs: CPL \u00a35\u201314; Webinar reg \u00a310\u201330; Cohort sale 5\u201310%",
+      "owner": "Nikhil",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0129",
+      "title": "Launch Facebook/Instagram campaign \u2014 \u00a32500/m \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Hook: \"Stop drilling teeth. Start healing patients. The Biological Clinician Diploma.\" | Offer: Free 'Biological Dentistry 101' webinar + cohort waitlist | KPIs: CPL \u00a35\u201314; Webinar reg \u00a310\u201330; Cohort sale 5\u201310%",
+      "owner": "Ruhith",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Facebook/Instagram"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0130",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Hook: The UK's first L7 Diploma in Integrative Dental Medicine | Offer: Free webinar | KPIs: CPC \u00a32.50\u20136; CPL \u00a320\u201355",
+      "owner": "Ruhith",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0131",
+      "title": "Write 5 hook variants for Biological Clinician (Plan4Growth sub-brand) Google Search",
+      "description": "Hook: The UK's first L7 Diploma in Integrative Dental Medicine | Offer: Free webinar | KPIs: CPC \u00a32.50\u20136; CPL \u00a320\u201355",
+      "owner": "Nikhil",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0132",
+      "title": "Produce 3 creative variants for Biological Clinician (Plan4Growth sub-brand) Google Search",
+      "description": "Hook: The UK's first L7 Diploma in Integrative Dental Medicine | Offer: Free webinar | KPIs: CPC \u00a32.50\u20136; CPL \u00a320\u201355",
+      "owner": "Nikhil",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0133",
+      "title": "Launch Google Search campaign \u2014 \u00a3900/m \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Hook: The UK's first L7 Diploma in Integrative Dental Medicine | Offer: Free webinar | KPIs: CPC \u00a32.50\u20136; CPL \u00a320\u201355",
+      "owner": "Ruhith",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0134",
+      "title": "Build LinkedIn pixels & conversion tracking \u2014 Elevate Accounts",
+      "description": "Hook: \"Dental-specialist accounting that handles your IR35 risk for you. \u00a3397/month.\" | Offer: Free IR35 / CEST risk audit + 60-min consult; first 30 days free | KPIs: CPL \u00a325\u201370; Demo booking \u00a380\u2013200; Trial\u2192paid 30%+",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0135",
+      "title": "Write 5 hook variants for Elevate Accounts LinkedIn",
+      "description": "Hook: \"Dental-specialist accounting that handles your IR35 risk for you. \u00a3397/month.\" | Offer: Free IR35 / CEST risk audit + 60-min consult; first 30 days free | KPIs: CPL \u00a325\u201370; Demo booking \u00a380\u2013200; Trial\u2192paid 30%+",
+      "owner": "Nikhil",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0136",
+      "title": "Produce 3 creative variants for Elevate Accounts LinkedIn",
+      "description": "Hook: \"Dental-specialist accounting that handles your IR35 risk for you. \u00a3397/month.\" | Offer: Free IR35 / CEST risk audit + 60-min consult; first 30 days free | KPIs: CPL \u00a325\u201370; Demo booking \u00a380\u2013200; Trial\u2192paid 30%+",
+      "owner": "Nikhil",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0137",
+      "title": "Launch LinkedIn campaign \u2014 \u00a32200/m \u2014 Elevate Accounts",
+      "description": "Hook: \"Dental-specialist accounting that handles your IR35 risk for you. \u00a3397/month.\" | Offer: Free IR35 / CEST risk audit + 60-min consult; first 30 days free | KPIs: CPL \u00a325\u201370; Demo booking \u00a380\u2013200; Trial\u2192paid 30%+",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "LinkedIn"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0138",
+      "title": "Build Google Search pixels & conversion tracking \u2014 Elevate Accounts",
+      "description": "Hook: Dental-specialist accounting + IR35 protection | Offer: Free IR35 audit + 30-day trial | KPIs: CPC \u00a34\u20139; CPL \u00a340\u2013100",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0139",
+      "title": "Write 5 hook variants for Elevate Accounts Google Search",
+      "description": "Hook: Dental-specialist accounting + IR35 protection | Offer: Free IR35 audit + 30-day trial | KPIs: CPC \u00a34\u20139; CPL \u00a340\u2013100",
+      "owner": "Nikhil",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0140",
+      "title": "Produce 3 creative variants for Elevate Accounts Google Search",
+      "description": "Hook: Dental-specialist accounting + IR35 protection | Offer: Free IR35 audit + 30-day trial | KPIs: CPC \u00a34\u20139; CPL \u00a340\u2013100",
+      "owner": "Nikhil",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0141",
+      "title": "Launch Google Search campaign \u2014 \u00a3900/m \u2014 Elevate Accounts",
+      "description": "Hook: Dental-specialist accounting + IR35 protection | Offer: Free IR35 audit + 30-day trial | KPIs: CPC \u00a34\u20139; CPL \u00a340\u2013100",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P0",
+      "due": "2026-05-28",
+      "status": "Backlog",
+      "tags": [
+        "Ad-campaign",
+        "Google Search"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0142",
+      "title": "Touch 1 \u2014 Send personalised letter to Kent Smile Studio",
+      "description": "Region: Kent. Postcode: ME14. Score: 8.5/10. Strategic rationale: Bolt-on Maidstone \u2014 feeds Warwick Lodge implant referrals. Approach: Direct (founder).",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-11",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0143",
+      "title": "Touch 2 \u2014 Follow-up call to Kent Smile Studio",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0144",
+      "title": "Touch 1 \u2014 Send personalised letter to Folkestone Dental Centre",
+      "description": "Region: Kent. Postcode: CT20. Score: 8.0/10. Strategic rationale: Geographic infill (East Kent); patient pool feeder for Warwick Lodge. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-13",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0145",
+      "title": "Touch 2 \u2014 Follow-up call to Folkestone Dental Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-23",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0146",
+      "title": "Touch 1 \u2014 Send personalised letter to Whitstable Dental Care",
+      "description": "Region: Kent. Postcode: CT5. Score: 8.5/10. Strategic rationale: Adjacent Warwick Lodge catchment; principal age 60+. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-15",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0147",
+      "title": "Touch 2 \u2014 Follow-up call to Whitstable Dental Care",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0148",
+      "title": "Touch 1 \u2014 Send personalised letter to Canterbury Dental Practice",
+      "description": "Region: Kent. Postcode: CT1. Score: 9.0/10. Strategic rationale: Cathedral city; high-spend demographic; refer-in to Warwick Lodge. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-17",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0149",
+      "title": "Touch 2 \u2014 Follow-up call to Canterbury Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-27",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0150",
+      "title": "Touch 1 \u2014 Send personalised letter to Dover Dental Practice",
+      "description": "Region: Kent. Postcode: CT16. Score: 7.0/10. Strategic rationale: NHS-heavy; conversion play. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-19",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0151",
+      "title": "Touch 2 \u2014 Follow-up call to Dover Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-29",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0152",
+      "title": "Touch 1 \u2014 Send personalised letter to Sittingbourne Smile Centre",
+      "description": "Region: Kent. Postcode: ME10. Score: 7.5/10. Strategic rationale: Bolt-on; lab volume feeder. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0153",
+      "title": "Touch 2 \u2014 Follow-up call to Sittingbourne Smile Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-31",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0154",
+      "title": "Touch 1 \u2014 Send personalised letter to Maidstone Modern Dentistry",
+      "description": "Region: Kent. Postcode: ME14. Score: 8.5/10. Strategic rationale: Implant capability fit. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-23",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0155",
+      "title": "Touch 2 \u2014 Follow-up call to Maidstone Modern Dentistry",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-02",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0156",
+      "title": "Touch 1 \u2014 Send personalised letter to Tunbridge Wells Smile Studio",
+      "description": "Region: Kent. Postcode: TN1. Score: 9.0/10. Strategic rationale: Affluent area; high-private; implant-friendly. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0157",
+      "title": "Touch 2 \u2014 Follow-up call to Tunbridge Wells Smile Studio",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0158",
+      "title": "Touch 1 \u2014 Send personalised letter to Rochester Riverside Dental",
+      "description": "Region: Kent. Postcode: ME1. Score: 8.5/10. Strategic rationale: Adjacent to GM Rochester practice. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-27",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0159",
+      "title": "Touch 2 \u2014 Follow-up call to Rochester Riverside Dental",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-06",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0160",
+      "title": "Touch 1 \u2014 Send personalised letter to Ashford Smile Clinic",
+      "description": "Region: Kent. Postcode: TN24. Score: 8.5/10. Strategic rationale: Adjacent to GM Ashford practice; lab feed. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-29",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0161",
+      "title": "Touch 2 \u2014 Follow-up call to Ashford Smile Clinic",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-08",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0162",
+      "title": "Touch 1 \u2014 Send personalised letter to Bromley Dental Practice",
+      "description": "Region: Greater London. Postcode: BR1. Score: 8.5/10. Strategic rationale: London infill; Warwick Lodge referral path. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-31",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0163",
+      "title": "Touch 2 \u2014 Follow-up call to Bromley Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-10",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0164",
+      "title": "Touch 1 \u2014 Send personalised letter to Sevenoaks Family Dental",
+      "description": "Region: Kent. Postcode: TN13. Score: 9.0/10. Strategic rationale: Affluent; high-private. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-02",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0165",
+      "title": "Touch 2 \u2014 Follow-up call to Sevenoaks Family Dental",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-12",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0166",
+      "title": "Touch 1 \u2014 Send personalised letter to Tonbridge Dental Centre",
+      "description": "Region: Kent. Postcode: TN9. Score: 8.0/10. Strategic rationale: Bolt-on. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-04",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0167",
+      "title": "Touch 2 \u2014 Follow-up call to Tonbridge Dental Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-14",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0168",
+      "title": "Touch 1 \u2014 Send personalised letter to Margate Dental Practice",
+      "description": "Region: Kent. Postcode: CT9. Score: 7.5/10. Strategic rationale: East Kent corridor. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-06",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0169",
+      "title": "Touch 2 \u2014 Follow-up call to Margate Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-16",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0170",
+      "title": "Touch 1 \u2014 Send personalised letter to Ramsgate Smile Centre",
+      "description": "Region: Kent. Postcode: CT11. Score: 7.0/10. Strategic rationale: East Kent. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-08",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0171",
+      "title": "Touch 2 \u2014 Follow-up call to Ramsgate Smile Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-18",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0172",
+      "title": "Touch 1 \u2014 Send personalised letter to Tenterden Dental Practice",
+      "description": "Region: Kent. Postcode: TN30. Score: 7.5/10. Strategic rationale: Rural-affluent. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-10",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0173",
+      "title": "Touch 2 \u2014 Follow-up call to Tenterden Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-20",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0174",
+      "title": "Touch 1 \u2014 Send personalised letter to Bexley Dental Care",
+      "description": "Region: Greater London. Postcode: DA5. Score: 8.0/10. Strategic rationale: Adjacent to Fixed Teeth Solutions Bexleyheath. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-12",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0175",
+      "title": "Touch 2 \u2014 Follow-up call to Bexley Dental Care",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-22",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0176",
+      "title": "Touch 1 \u2014 Send personalised letter to Sidcup Dental Practice",
+      "description": "Region: Greater London. Postcode: DA15. Score: 8.0/10. Strategic rationale: Adjacent FTS catchment. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-14",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0177",
+      "title": "Touch 2 \u2014 Follow-up call to Sidcup Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-24",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0178",
+      "title": "Touch 1 \u2014 Send personalised letter to Crayford Smile Centre",
+      "description": "Region: Greater London. Postcode: DA1. Score: 7.5/10. Strategic rationale: Adjacent FTS. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-16",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0179",
+      "title": "Touch 2 \u2014 Follow-up call to Crayford Smile Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-26",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0180",
+      "title": "Touch 1 \u2014 Send personalised letter to Swanley Dental Practice",
+      "description": "Region: Kent. Postcode: BR8. Score: 7.5/10. Strategic rationale: Geographic infill. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-18",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0181",
+      "title": "Touch 2 \u2014 Follow-up call to Swanley Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-28",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0182",
+      "title": "Touch 1 \u2014 Send personalised letter to Croydon Dental Centre",
+      "description": "Region: Greater London. Postcode: CR0. Score: 8.0/10. Strategic rationale: London south; high-throughput. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-20",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0183",
+      "title": "Touch 2 \u2014 Follow-up call to Croydon Dental Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-30",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0184",
+      "title": "Touch 1 \u2014 Send personalised letter to Sutton Smile Studio",
+      "description": "Region: Greater London. Postcode: SM1. Score: 8.5/10. Strategic rationale: Affluent; private-led. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-22",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0185",
+      "title": "Touch 2 \u2014 Follow-up call to Sutton Smile Studio",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-07-02",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0186",
+      "title": "Touch 1 \u2014 Send personalised letter to Reigate Dental Practice",
+      "description": "Region: Surrey. Postcode: RH2. Score: 9.0/10. Strategic rationale: Affluent; high-spend. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-24",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0187",
+      "title": "Touch 2 \u2014 Follow-up call to Reigate Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-07-04",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0188",
+      "title": "Touch 1 \u2014 Send personalised letter to Guildford Dental Centre",
+      "description": "Region: Surrey. Postcode: GU1. Score: 9.0/10. Strategic rationale: Affluent; large surgical capacity. Approach: Broker (Christie & Co).",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-26",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0189",
+      "title": "Touch 2 \u2014 Follow-up call to Guildford Dental Centre",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-07-06",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0190",
+      "title": "Touch 1 \u2014 Send personalised letter to Horsham Dental Practice",
+      "description": "Region: West Sussex. Postcode: RH12. Score: 8.0/10. Strategic rationale: Sussex bridgehead. Approach: Direct.",
+      "owner": "Gaurav",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-06-28",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0191",
+      "title": "Touch 2 \u2014 Follow-up call to Horsham Dental Practice",
+      "description": "Confirm receipt; offer 3 calendar slots.",
+      "owner": "Nadia Reinolds",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-07-08",
+      "status": "Backlog",
+      "tags": [
+        "M&A",
+        "Tier-1"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0192",
+      "title": "Partnership outreach \u2014 Aston University & Cambridge Academy of Dental Implantology (CADI) (UK)",
+      "description": "Type: University + private. Programs: 12-mo MSc Advanced Dental Implantology. Contact: admissions@aston.ac.uk. Angle: Top-of-funnel for P4G grads who want MSc",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-03",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0193",
+      "title": "Partnership outreach \u2014 UCL Eastman Dental Institute (UK)",
+      "description": "Type: University. Programs: MSc Implant Dentistry (3-yr part-time). Contact: ce-eastman@ucl.ac.uk. Angle: Top-tier academic comp; not direct rival on price",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-07",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0194",
+      "title": "Partnership outreach \u2014 University of Lancashire (UK)",
+      "description": "Type: University. Programs: MSc Clinical Implantology (1 yr FT / 2 yr PT). Contact: admissions@lancashire.ac.uk. Angle: Academic alternative",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-11",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0195",
+      "title": "Partnership outreach \u2014 Royal College of Surgeons (RCS Eng) \u2014 Diploma in Implant Dentistry (UK)",
+      "description": "Type: Charitable college. Programs: Diploma examination. Contact: education@rcseng.ac.uk. Angle: Authority brand; P4G grads can route here for diploma",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-15",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0196",
+      "title": "Partnership outreach \u2014 ICDE \u2014 Implant Centre for Dental Education (UK)",
+      "description": "Type: Private academy. Programs: Implant placement diplomas. Contact: info@icde.co.uk. Angle: Direct competitor",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-19",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0197",
+      "title": "Partnership outreach \u2014 Spot On Business Mastery (UK)",
+      "description": "Type: Coaching. Programs: 12-mo programme, quarterly delivery. Contact: contact via site. Angle: Pure-business comp to PFF",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-23",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0198",
+      "title": "Partnership outreach \u2014 Dental Business Mentor (Dr Grant McAree) (UK)",
+      "description": "Type: Coaching. Programs: 12-mo advisory: squat / existing practice. Contact: contact via site. Angle: Pure-business comp",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-27",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0199",
+      "title": "Partnership outreach \u2014 Institute of Dental Business (IODB) (UK)",
+      "description": "Type: Coaching. Programs: Associate dental coaching. Contact: contact via site. Angle: Junior segment \u2014 feeder for P4G PFF",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-01",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0200",
+      "title": "Partnership outreach \u2014 Dental Wealth Builder (Drs Rahul & Bhavna Doshi) (UK)",
+      "description": "Type: Coaching. Programs: Dental business coaching + courses. Contact: contact via site. Angle: Pure-business comp",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-05",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0201",
+      "title": "Partnership outreach \u2014 Manor Dental Suite (training arm) (UK)",
+      "description": "Type: Private. Programs: Hands-on cosmetic + implant. Contact: info via site. Angle: Affiliate angle: Tipton ecosystem",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-09",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0202",
+      "title": "Partnership outreach \u2014 Gargiulo Education (USA)",
+      "description": "Type: Private academy. Programs: Implant + GBR + sinus. Contact: contact via site. Angle: Sub-segment authority; reference",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-13",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0203",
+      "title": "Partnership outreach \u2014 NYU Linhart CE \u2014 Implantology (USA)",
+      "description": "Type: University CE. Programs: 2-yr part-time, 1 day/wk \u00d7 35 sessions/yr. Contact: ce.dental@nyu.edu. Angle: Academic comp; out-of-budget for most P4G ICP",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-17",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0204",
+      "title": "Partnership outreach \u2014 UIC (Univ Illinois Chicago) Periodontics & Implantology Fellowship (USA)",
+      "description": "Type: University. Programs: Advanced fellowship. Contact: periofellowship@uic.edu. Angle: Academic; not direct comp",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-21",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0205",
+      "title": "Partnership outreach \u2014 Aspen Dental / ClearChoice training (internal) (USA)",
+      "description": "Type: Corporate. Programs: Internal full-arch protocols. Contact: \u2014. Angle: Reference benchmark for full-arch ops",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-25",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0206",
+      "title": "Partnership outreach \u2014 Spear Education (USA)",
+      "description": "Type: Private academy. Programs: Comprehensive restorative + implant. Contact: info@speareducation.com. Angle: Tier-1 US CE brand; not specifically implant-only",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-29",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0207",
+      "title": "Partnership outreach \u2014 Kois Center (USA)",
+      "description": "Type: Private academy. Programs: Restorative + implant continuum. Contact: info@koiscenter.com. Angle: Authority brand",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-08-02",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0208",
+      "title": "Partnership outreach \u2014 Dawson Academy (USA)",
+      "description": "Type: Private academy. Programs: Comprehensive dentistry. Contact: info@thedawsonacademy.com. Angle: CE brand; reference",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-08-06",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0209",
+      "title": "Partnership outreach \u2014 Paridhi Dental Institute (India)",
+      "description": "Type: Private academy. Programs: Implant courses. Contact: contact via site. Angle: Direct competitor",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-08-10",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Partnership",
+        "India"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0210",
+      "title": "Competitive intel + content positioning vs Tipton Training",
+      "description": "Direct competitor. Programs: Diploma in Restorative & Cosmetic + Implant courses; RCS-aligned. Price: \u00a38,000\u2013\u00a315,000 by program. Weakness/angle: Cross-referral on graduates; benchmark for \u00a39,997 P4G L7 pricing",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-18",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0211",
+      "title": "Competitive intel + content positioning vs BAIRD Academy (British Academy of Implant & Restorative Dentistry)",
+      "description": "Direct competitor. Programs: One-Year Evidence-Based Clinical Course in Implant Dentistry. Price: \u00a312,000\u2013\u00a318,000 (e). Weakness/angle: Direct competitor \u2014 affiliate or contrast positioning",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-21",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0212",
+      "title": "Competitive intel + content positioning vs London College of Oral Implantology (LCOI)",
+      "description": "Direct competitor. Programs: 10-module Diploma; clinical placement; Saturdays Apr 2026 \u2013 Feb 2027. Price: \u00a39,000\u2013\u00a312,000 (e). Weakness/angle: Direct competitor",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-24",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0213",
+      "title": "Competitive intel + content positioning vs The Implant Diploma",
+      "description": "Direct competitor. Programs: 2-yr EduQual L7 Diploma + optional MSc. Price: \u00a315,000\u2013\u00a322,000 (e). Weakness/angle: Direct competitor at 2-yr length",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-27",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0214",
+      "title": "Competitive intel + content positioning vs Smile Dental Academy",
+      "description": "Direct competitor. Programs: Diploma in Implant Dentistry (12 mo, 18 days teaching) + Diploma in Dental Business. Price: \u00a38,000\u2013\u00a314,000. Weakness/angle: Direct competitor \u2014 also offers business diploma like P4G",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-30",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0215",
+      "title": "Competitive intel + content positioning vs London Dental Institute",
+      "description": "Direct competitor. Programs: PG Diploma in Dental Implantology & Oral Surgery (L7). Price: \u00a310,000\u2013\u00a315,000 (e). Weakness/angle: Direct competitor",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-02",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0216",
+      "title": "Competitive intel + content positioning vs Campbell Academy (Colin Campbell)",
+      "description": "Direct competitor. Programs: Dental Entrepreneurial Bootcamp; clinical CPD. Price: \u00a33,000\u2013\u00a312,000 by program. Weakness/angle: Strongest UK comp on business/entrepreneurial side",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-05",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0217",
+      "title": "Competitive intel + content positioning vs Hughes Dental Training / Academy of Private Dentistry",
+      "description": "Direct competitor. Programs: 1-yr 10-module clinical + business course. Price: \u00a37,500\u2013\u00a312,000 (e). Weakness/angle: Direct competitor on 'clinical + business'",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-08",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0218",
+      "title": "Competitive intel + content positioning vs Chris Barrow \u2014 Extreme Business",
+      "description": "Direct competitor. Programs: UK's highest-rated dental business coaching. Price: \u00a33,000\u2013\u00a324,000 by tier. Weakness/angle: Authority business coach \u2014 consider partnership",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-11",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0219",
+      "title": "Competitive intel + content positioning vs Dentinal Tubules",
+      "description": "Direct competitor. Programs: Online CPD subscription + premium courses. Price: \u00a340\u2013\u00a380/mo + course fees. Weakness/angle: Volume CPD; affiliate / advertise to their audience",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-14",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "UK"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0220",
+      "title": "Competitive intel + content positioning vs Misch Implant Institute",
+      "description": "Direct competitor. Programs: Surgical & Prosthetic Continuum; ICOI fellowship-eligible. Price: $15,000\u2013$30,000 (multi-session). Weakness/angle: Authority brand \u2014 partnership / co-host UK seminar opportunity",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-17",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0221",
+      "title": "Competitive intel + content positioning vs Pikos Institute",
+      "description": "Direct competitor. Programs: Live & online dental implant CE; symposiums. Price: $3,500\u2013$15,000 by symposium. Weakness/angle: Authority brand for full-arch; co-marketing potential",
+      "owner": "Nikhil",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-20",
+      "status": "Backlog",
+      "tags": [
+        "Academy",
+        "Competitive",
+        "USA"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0222",
+      "title": "[Mon] Patient story reel (full-arch transformation; 30s) \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0223",
+      "title": "[Tue] Surgical day-of behind-the-scenes (30s reel; consent-gated) \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0224",
+      "title": "[Wed] FAQ carousel \u2014 'Are implants right for me?' \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0225",
+      "title": "[Thu] Principal-talking-head (Gaurav, 60s) \u2014 clinical authority \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0226",
+      "title": "[Fri] Before/After grid post + story poll \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0227",
+      "title": "[Mon] Denture-to-implant patient reel \u2014 Fixed Teeth Solutions",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0228",
+      "title": "[Tue] Same-day-of timeline carousel (8am \u2192 6pm) \u2014 Fixed Teeth Solutions",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0229",
+      "title": "[Wed] Cost / finance carousel \u2014 Fixed Teeth Solutions",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0230",
+      "title": "[Thu] Lab + technology B-roll reel \u2014 Fixed Teeth Solutions",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0231",
+      "title": "[Fri] Patient testimonial reel + free consult CTA \u2014 Fixed Teeth Solutions",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0232",
+      "title": "[Mon] Hygienist or new associate intro \u2014 Ashford Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0233",
+      "title": "[Tue] Patient education carousel (gum health / aligners) \u2014 Ashford Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0234",
+      "title": "[Wed] Practice tour reel \u2014 Ashford Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0235",
+      "title": "[Thu] Local story (Ashford community) \u2014 Ashford Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0236",
+      "title": "[Fri] Composite/aligner before/after \u2014 Ashford Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0237",
+      "title": "[Mon] Composite bonding before/after \u2014 Rochester Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0238",
+      "title": "[Tue] Aligners journey carousel \u2014 Rochester Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0239",
+      "title": "[Wed] Cosmetic-team intro reel \u2014 Rochester Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0240",
+      "title": "[Thu] Local Medway content \u2014 Rochester Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0241",
+      "title": "[Fri] Smile-makeover testimonial \u2014 Rochester Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0242",
+      "title": "[Mon] Premium private positioning reel \u2014 Barnet Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0243",
+      "title": "[Tue] Aesthetic dentistry carousel (composite/aligner/whitening) \u2014 Barnet Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0244",
+      "title": "[Wed] Practice elegance video \u2014 Barnet Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0245",
+      "title": "[Thu] Hygiene + prevention content \u2014 Barnet Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0246",
+      "title": "[Fri] Cosmetic case showcase \u2014 Barnet Dental Practice",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0247",
+      "title": "[Mon] CAD/CAM workflow time-lapse reel \u2014 GM Dental Lab",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0248",
+      "title": "[Tue] Case-of-the-week (clinician-tagged) \u2014 GM Dental Lab",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0249",
+      "title": "[Wed] LinkedIn long-form post \u2014 clinical insight \u2014 GM Dental Lab",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0250",
+      "title": "[Thu] Behind-the-scenes lab tour \u2014 GM Dental Lab",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0251",
+      "title": "[Fri] Dentist testimonial reel \u2014 GM Dental Lab",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Fatima",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0252",
+      "title": "[Mon] Student win story reel \u2014 case + revenue \u2014 Plan4Growth Academy",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0253",
+      "title": "[Tue] Gaurav talking-head clinical tip (60s) \u2014 Plan4Growth Academy",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0254",
+      "title": "[Wed] Webinar promo reel + carousel \u2014 Plan4Growth Academy",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0255",
+      "title": "[Thu] Curriculum deep-dive carousel (1 module/week) \u2014 Plan4Growth Academy",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0256",
+      "title": "[Fri] Founder-story reel \u2014 Gaurav's principle/lesson \u2014 Plan4Growth Academy",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0257",
+      "title": "[Mon] Biological vs traditional carousel \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0258",
+      "title": "[Tue] Gaurav talking-head \u2014 biological dentistry tip \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0259",
+      "title": "[Wed] Patient case reel (mercury removal SMART, etc) \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0260",
+      "title": "[Thu] Long-form YouTube release (twice-monthly) \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0261",
+      "title": "[Fri] Curriculum module preview \u2014 Biological Clinician (Plan4Growth sub-brand)",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Gaurav",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0262",
+      "title": "[Mon] LinkedIn IR35 / CEST tip \u2014 Elevate Accounts",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P2",
+      "due": "2026-05-05",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0263",
+      "title": "[Tue] Carousel \u2014 'Things your accountant should be doing' \u2014 Elevate Accounts",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P2",
+      "due": "2026-05-06",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0264",
+      "title": "[Wed] Customer success story (anonymised) \u2014 Elevate Accounts",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P2",
+      "due": "2026-05-07",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0265",
+      "title": "[Thu] Founder Q&A (Gaurav + Ruhith) \u2014 Elevate Accounts",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P2",
+      "due": "2026-05-08",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0266",
+      "title": "[Fri] Industry update \u2014 Apr 2026 NHS reform implications \u2014 Elevate Accounts",
+      "description": "Recurring weekly post. See Social Media Strategy doc for full template.",
+      "owner": "Ruhith",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P2",
+      "due": "2026-05-09",
+      "status": "This Week",
+      "tags": [
+        "Social",
+        "Recurring"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0267",
+      "title": "Shoot \u2014 How a 1,000-implant-a-year specialist plans your case (Reel 45s) \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: \"Most implant cases are planned in 30 minutes. Mine take 3 days.\" | CTA: Book a free CT scan + consultation \u2014 link in bio.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0268",
+      "title": "Shoot \u2014 Same-day full-arch \u2014 what happens at 8am, 12pm, and 6pm (Reel 30s) \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: \"By 6pm you'll be eating with new teeth. Here's how.\" | CTA: DM 'TEETH' to learn if you qualify.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0269",
+      "title": "Shoot \u2014 The truth about cheap dental implants (YouTube 8 min) \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: \"If you've seen a \u00a3999 implant ad, you need to watch this.\" | CTA: Free CT scan + consult booking link in description.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "YouTube"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0270",
+      "title": "Shoot \u2014 Patient story \u2014 Margaret, age 68, retired teacher (Reel 60s) \u2014 Warwick Lodge Dental Implant Centre",
+      "description": "Hook: \"For 12 years I refused to smile in photos.\" | CTA: You don't have to live with this. Free consultation in bio.",
+      "owner": "Gaurav",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0271",
+      "title": "Shoot \u2014 Throw away your dentures (Reel 30s) \u2014 Fixed Teeth Solutions",
+      "description": "Hook: \"You don't have to live another day with dentures.\" | CTA: Free same-day-teeth consult \u2014 link in bio.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0272",
+      "title": "Shoot \u2014 3 things they don't tell you about All-on-4 (Reel 45s) \u2014 Fixed Teeth Solutions",
+      "description": "Hook: \"Three things every All-on-4 patient should know \u2014 but most clinics won't tell you.\" | CTA: Book your free consultation.",
+      "owner": "Nikhil",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0273",
+      "title": "Shoot \u2014 Same-week appointments. Friendly team. (Reel 30s) \u2014 Ashford Dental Practice",
+      "description": "Hook: \"Tired of NHS waiting lists?\" | CTA: Tap link to book.",
+      "owner": "Nikhil",
+      "business": "ashford",
+      "businessName": "Ashford Dental Practice",
+      "color": "#2E8B57",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0274",
+      "title": "Shoot \u2014 Composite bonding from \u00a3150 (Reel 30s) \u2014 Rochester Dental Practice",
+      "description": "Hook: \"Composite bonding \u2014 natural smile in 90 minutes.\" | CTA: Book your free smile assessment.",
+      "owner": "Nikhil",
+      "business": "rochester",
+      "businessName": "Rochester Dental Practice",
+      "color": "#5B9F61",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0275",
+      "title": "Shoot \u2014 Premium private dentistry, North London (Reel 30s) \u2014 Barnet Dental Practice",
+      "description": "Hook: \"Calm. Modern. Different.\" | CTA: Book your free new-patient consultation.",
+      "owner": "Nikhil",
+      "business": "barnet",
+      "businessName": "Barnet Dental Practice",
+      "color": "#8AB87C",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0276",
+      "title": "Shoot \u2014 All-on-X zirconia in 5 days \u2014 workflow (LinkedIn carousel 10 slides) \u2014 GM Dental Lab",
+      "description": "Hook: \"Most labs take 3 weeks. We take 5 days. Here's how.\" | CTA: Email lab@gmdental.co.uk for first case onboarding.",
+      "owner": "Nikhil",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "LinkedIn carousel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0277",
+      "title": "Shoot \u2014 Behind-the-scenes \u2014 clinician-led QC (Reel 45s) \u2014 GM Dental Lab",
+      "description": "Hook: \"Why your lab tech should be a clinician.\" | CTA: DM for first-case onboarding.",
+      "owner": "Nikhil",
+      "business": "gm_lab",
+      "businessName": "GM Dental Lab",
+      "color": "#444444",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0278",
+      "title": "Shoot \u2014 How I place 1,000 implants a year and run a \u00a315m group (YouTube long 20 min) \u2014 Plan4Growth Academy",
+      "description": "Hook: \"This is the blueprint nobody is teaching dentists.\" | CTA: Free masterclass Tuesday 8 PM \u2014 link in description.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "YouTube long"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0279",
+      "title": "Shoot \u2014 The \u00a39,997 question every dentist should ask (Reel 60s) \u2014 Plan4Growth Academy",
+      "description": "Hook: \"What's it costing you to NOT place implants?\" | CTA: Free masterclass \u2014 tap link.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0280",
+      "title": "Shoot \u2014 Student win \u2014 Dr Sarah, year 1 (Reel 45s) \u2014 Plan4Growth Academy",
+      "description": "Hook: \"In 12 months I went from \u00a315k/m to \u00a345k/m placing implants.\" | CTA: Free masterclass \u2014 link in bio.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0281",
+      "title": "Shoot \u2014 Why your \u00a320k full-arch case is killing your day rate (Reel 60s) \u2014 Plan4Growth Academy",
+      "description": "Hook: \"Big cases are not always good business. Here's the math.\" | CTA: Free masterclass \u2014 link in bio.",
+      "owner": "Gaurav",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "Backlog",
+      "tags": [
+        "Video",
+        "Reel"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": "Gaurav"
+    },
+    {
+      "id": "T-0282",
+      "title": "Send NPS survey to all Plan4Growth alumni Q1 2027 \u2192 Q2 2027",
+      "description": "AI inferred from cohort cadence \u2014 feedback loop missing.",
+      "owner": "AI Generator",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-08-02",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0283",
+      "title": "Set up zapier: Warwick Lodge new patient \u2192 Bland AI welcome call",
+      "description": "AI inferred from WL improvements \u2014 TC capacity limited; auto-triage solves Q3 ramp.",
+      "owner": "AI Generator",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0284",
+      "title": "Audit IR35 status of all Ashford / Rochester / Barnet associates",
+      "description": "AI inferred from regulatory section \u2014 pre-acquisition diligence parity.",
+      "owner": "AI Generator",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2026-05-25",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0285",
+      "title": "Negotiate volume pricing with Nobel / Straumann for Q4 2026",
+      "description": "AI inferred from implant volume scaling.",
+      "owner": "AI Generator",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-07-03",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0286",
+      "title": "Draft press release: Bridgepoint\u2013MyDentist context piece",
+      "description": "AI inferred from market study \u2014 positioning content.",
+      "owner": "AI Generator",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-06-18",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0287",
+      "title": "Build Plan4Growth referral programme (Alumni \u2192 cohort)",
+      "description": "AI inferred from cohort fill-rate sensitivity in WS5.",
+      "owner": "AI Generator",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-06-03",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0288",
+      "title": "Set up Elevate co-marketing webinar with Chris Barrow",
+      "description": "AI inferred from competitor mktg analysis \u2014 Chris Barrow is authority business coach.",
+      "owner": "AI Generator",
+      "business": "elevate",
+      "businessName": "Elevate Accounts",
+      "color": "#7A3B9B",
+      "priority": "P2",
+      "due": "2026-07-03",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0289",
+      "title": "Create patient-finance 0% partnership with Tabeo & Chrysalis for FTS",
+      "description": "AI inferred from full-arch financing benchmarks.",
+      "owner": "AI Generator",
+      "business": "fixed_teeth_solutions",
+      "businessName": "Fixed Teeth Solutions",
+      "color": "#1F6FB5",
+      "priority": "P1",
+      "due": "2026-05-25",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0290",
+      "title": "Submit Plan4Growth flagship cohort case to ICOI for Mastership-eligible CE credit",
+      "description": "AI inferred from credentialing strategy.",
+      "owner": "AI Generator",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P2",
+      "due": "2026-07-03",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0291",
+      "title": "Build automated weekly NHS reform reform tracker into briefing system",
+      "description": "AI inferred from briefing system spec \u2014 NHS reform momentum.",
+      "owner": "AI Generator",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0292",
+      "title": "Contract patient testimonial creator for 12 stories/m",
+      "description": "AI inferred from social calendar \u2014 patient stories beat clinician monologue 3-1.",
+      "owner": "AI Generator",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P1",
+      "due": "2026-05-18",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0293",
+      "title": "Apply Companies House paid bulk-filing on 25 Tier-1 targets",
+      "description": "AI inferred from explicit data gap \u2014 converts score \u2192 firm valuation grid.",
+      "owner": "AI Generator",
+      "business": "cross",
+      "businessName": "cross",
+      "color": "#444",
+      "priority": "P0",
+      "due": "2026-05-11",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0294",
+      "title": "Audit & reduce capex on Warwick 4th-surgery design (target -10%)",
+      "description": "AI inferred from Q2 2026 capex envelope of \u00a3250k.",
+      "owner": "AI Generator",
+      "business": "warwick_lodge",
+      "businessName": "Warwick Lodge Dental Implant Centre",
+      "color": "#0E2A47",
+      "priority": "P2",
+      "due": "2026-06-03",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0295",
+      "title": "Schedule Gaurav podcast tour: Dom Nischwitz, Pikos, Resnik for Biological Clinician launch",
+      "description": "AI inferred from authority partnership tier in academy directory.",
+      "owner": "AI Generator",
+      "business": "biological_clinician",
+      "businessName": "Biological Clinician (Plan4Growth sub-brand)",
+      "color": "#3B7A3B",
+      "priority": "P1",
+      "due": "2026-07-03",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    },
+    {
+      "id": "T-0296",
+      "title": "Map Mumbai + Delhi training-venue partner for India Implant Diploma",
+      "description": "AI inferred from India revenue ramp in WS5.",
+      "owner": "AI Generator",
+      "business": "plan4growth",
+      "businessName": "Plan4Growth Academy",
+      "color": "#C9A227",
+      "priority": "P1",
+      "due": "2026-06-18",
+      "status": "AI Suggested",
+      "tags": [
+        "AI",
+        "Pending Approval"
+      ],
+      "created": "2026-05-04",
+      "approvedBy": ""
+    }
+  ]
+}
