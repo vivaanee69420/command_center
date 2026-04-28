@@ -1,5 +1,5 @@
 [build]
-builder = "nixpacks"
+builder = "railpack"
 buildCommand = "pip install -r COMMAND_OS_BACKEND/requirements.txt"
 
 [deploy]
