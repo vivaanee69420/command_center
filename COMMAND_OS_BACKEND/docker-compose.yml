@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: commandos
+      POSTGRES_PASSWORD: commandos_dev
+      POSTGRES_DB: commandos
+    ports: ["5432:5432"]
+    volumes:
+      - cos_pg:/var/lib/postgresql/data
+      - ./app/migrations/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U commandos -d commandos"]
+      interval: 4s
+      timeout: 3s
+      retries: 8
+
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    volumes:
+      - cos_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 4s
+      timeout: 2s
+      retries: 8
+
+  api:
+    build: .
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis:    { condition: service_healthy }
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://commandos:commandos_dev@postgres:5432/commandos
+      REDIS_URL:    redis://redis:6379/0
+    ports: ["8765:8765"]
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8765 --reload
+    volumes:
+      - .:/code
+
+  worker:
+    build: .
+    depends_on:
+      postgres: { condition: service_healthy }
+      redis:    { condition: service_healthy }
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://commandos:commandos_dev@postgres:5432/commandos
+      REDIS_URL:    redis://redis:6379/0
+    command: python -m app.workers.scheduler
+    volumes:
+      - .:/code
+
+volumes:
+  cos_pg:
+  cos_redis:
