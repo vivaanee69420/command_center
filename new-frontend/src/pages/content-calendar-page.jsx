@@ -1,166 +1,169 @@
 import { useState } from "react";
 import Topbar from "@/components/layout/topbar";
-import PageHeader from "@/components/shared/page-header";
+import ModeFilter from "@/components/shared/mode-filter";
+import RightSidebar from "@/components/shared/right-sidebar";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, Plus, Sparkles } from "lucide-react";
 
-const ENTITY_TYPES = [
-  { label: "Practices", color: "#10b981", bg: "#f0fdf4", border: "#10b981", target: 5 },
-  { label: "Lab", color: "#3b82f6", bg: "#eff6ff", border: "#3b82f6", target: 5 },
-  { label: "Academy", color: "#f97316", bg: "#fff7ed", border: "#f97316", target: 5 },
-  { label: "Accounts", color: "#ec4899", bg: "#fdf2f8", border: "#ec4899", target: 5 },
+// ─── Static Data ─────────────────────────────────────────────────────────────
+
+const DAYS = [
+  { label: "MON 19", key: "mon" },
+  { label: "TUE 20", key: "tue" },
+  { label: "WED 21", key: "wed" },
+  { label: "THU 22", key: "thu" },
+  { label: "FRI 23", key: "fri" },
+  { label: "SAT 24", key: "sat" },
+  { label: "SUN 25", key: "sun" },
 ];
 
-// Week: 26 Apr - 2 May 2026 (Sun=27 Apr ... wait, spec says Sun-Sat)
-// Today is Tue 28 Apr 2026
-const WEEK_DAYS = [
-  { day: "Sun", date: 26, month: "Apr", isToday: false },
-  { day: "Mon", date: 27, month: "Apr", isToday: false },
-  { day: "Tue", date: 28, month: "Apr", isToday: true },
-  { day: "Wed", date: 29, month: "Apr", isToday: false },
-  { day: "Thu", date: 30, month: "Apr", isToday: false },
-  { day: "Fri", date: 1, month: "May", isToday: false },
-  { day: "Sat", date: 2, month: "May", isToday: false },
+const HOURS = [
+  "9 AM",
+  "10 AM",
+  "11 AM",
+  "12 PM",
+  "1 PM",
+  "2 PM",
+  "3 PM",
+  "4 PM",
 ];
 
-const VIEWS = ["Daily", "Weekly", "Monthly"];
+// Events keyed by [hourIndex][dayIndex]
+// hourIndex: 0=9AM, 1=10AM, 2=11AM, 3=12PM, 4=1PM, 5=2PM, 6=3PM, 7=4PM
+// dayIndex:  0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun
+const EVENTS = {
+  "0-0": { title: "Team Standup", color: "bg-green-500" },
+  "0-3": { title: "Content Meeting", color: "bg-green-500" },
+  "1-1": { title: "Facebook Ads Review", color: "bg-amber-500" },
+  "1-5": { title: "Sat Open Day", color: "bg-blue-500" },
+  "2-2": { title: "Project Review", color: "bg-green-500" },
+  "2-4": { title: "Team Training", color: "bg-blue-500" },
+  "3-0": { title: "Client Edit · Ascend", color: "bg-green-500" },
+  "3-3": { title: "Webinar Run-thru", color: "bg-green-500" },
+  "4-1": { title: "Strategy Call", color: "bg-green-500" },
+  "5-2": { title: "Google Ads Sync", color: "bg-green-500" },
+  "5-4": { title: "Monthly Report", color: "bg-blue-500" },
+};
+
+// ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function ContentCalendarPage() {
-  const [activeView, setActiveView] = useState("Weekly");
-  const [weekLabel] = useState("26 Apr - 2 May 2026");
+  const [view, setView] = useState("week");
 
   return (
     <>
-      <Topbar title="Content Calendar" />
+      <Topbar title="Calendar" />
       <main className="p-6 max-w-[1500px] mx-auto w-full">
-        <PageHeader
-          title="Content Calendar"
-          subtitle="Schedule and track content across all businesses"
-          right={
-            <div className="flex items-center gap-3">
-              <button className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #7c3aed, #a855f7)" }}>
-                <Sparkles size={14} />
-                AI Generate
-              </button>
-              <button className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary-hover transition">
-                <Plus size={14} />
-                Add Content
-              </button>
-            </div>
-          }
-        />
+        {/* Page Header */}
+        <div className="mb-5">
+          <h1 className="text-xl font-bold text-ink">Calendar</h1>
+          <p className="text-sm text-muted mt-0.5">View all events, tasks and meetings</p>
+        </div>
 
-        {/* Today's Content Target */}
-        <div className="bg-white border border-line rounded-xl p-5 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-bold text-ink">Today's Content Target</h2>
-            <span className="text-2xl font-bold text-red-500">0 / 20</span>
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {ENTITY_TYPES.map((entity) => (
-              <div
-                key={entity.label}
-                className="rounded-xl p-4 border-t-4"
-                style={{ backgroundColor: entity.bg, borderTopColor: entity.border }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold" style={{ color: entity.color }}>{entity.label}</span>
-                  <span className="text-xs font-bold text-muted">0/{entity.target}</span>
-                </div>
-                <div className="h-1.5 bg-white rounded-full overflow-hidden border border-line">
-                  <div className="h-full rounded-full" style={{ width: "0%", backgroundColor: entity.color }} />
-                </div>
+        {/* Mode Filter */}
+        <ModeFilter />
+
+        {/* Content */}
+        <div className="flex gap-6 mt-6 items-start">
+          {/* Main */}
+          <div className="flex-1 min-w-0">
+            {/* Navigation Bar */}
+            <div className="flex items-center justify-between mb-4">
+              {/* Left side */}
+              <div className="flex items-center gap-2">
+                <button className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary text-white">
+                  Today
+                </button>
+                <button className="w-7 h-7 rounded-lg border border-line text-muted hover:bg-bg-soft text-sm flex items-center justify-center">
+                  ‹
+                </button>
+                <button className="w-7 h-7 rounded-lg border border-line text-muted hover:bg-bg-soft text-sm flex items-center justify-center">
+                  ›
+                </button>
+                <span className="text-sm font-bold text-ink ml-2">May 19 — May 25, 2025</span>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Week navigation + view toggle */}
-        <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1">
-              <button className="p-1.5 border border-line rounded-lg hover:bg-bg-soft transition">
-                <ChevronLeft size={14} className="text-muted" />
-              </button>
-              <button className="p-1.5 border border-line rounded-lg hover:bg-bg-soft transition">
-                <ChevronRight size={14} className="text-muted" />
-              </button>
-            </div>
-            <span className="text-sm font-semibold text-ink">{weekLabel}</span>
-            <button className="px-3 py-1.5 border border-line rounded-lg text-xs font-medium text-muted hover:text-ink hover:bg-bg-soft transition">
-              Today
-            </button>
-          </div>
-          <div className="flex items-center bg-bg-soft border border-line rounded-lg p-0.5">
-            {VIEWS.map((v) => (
-              <button
-                key={v}
-                onClick={() => setActiveView(v)}
-                className={cn(
-                  "px-3 py-1.5 rounded-md text-xs font-semibold transition",
-                  activeView === v ? "bg-white shadow-sm text-ink" : "text-muted hover:text-ink"
-                )}
-              >
-                {v}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Weekly Calendar Grid */}
-        <div className="bg-white border border-line rounded-xl overflow-hidden mb-6">
-          <div className="grid grid-cols-7">
-            {WEEK_DAYS.map((day) => (
-              <div
-                key={day.day + day.date}
-                className={cn(
-                  "border-r border-line last:border-r-0 p-3 min-h-[200px] flex flex-col",
-                  day.isToday ? "ring-2 ring-inset ring-teal-400 bg-teal-50/30" : "bg-white"
-                )}
-              >
-                {/* Header */}
-                <div className="text-center mb-2">
-                  <p className={cn("text-[10px] font-semibold uppercase tracking-wide", day.isToday ? "text-teal-600" : "text-muted")}>
-                    {day.day}
-                  </p>
-                  <p className={cn("text-2xl font-bold leading-tight", day.isToday ? "text-teal-600" : "text-ink")}>
-                    {day.date}
-                  </p>
-                  <p className={cn("text-[10px] font-semibold mt-1", day.isToday ? "text-red-500" : "text-muted")}>
-                    0/20
-                  </p>
-                </div>
-
-                {/* Entity dots */}
-                <div className="space-y-1.5 mb-3">
-                  {ENTITY_TYPES.map((entity) => (
-                    <div key={entity.label} className="flex items-center gap-1.5">
-                      <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: entity.color }} />
-                      <span className="text-[9px] text-muted font-medium">0/{entity.target}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Add button */}
-                <button className="mt-auto flex items-center justify-center gap-1 w-full py-1.5 border border-dashed border-line rounded-lg text-[10px] font-medium text-muted hover:border-primary hover:text-primary transition">
-                  <Plus size={10} />
-                  Add
+              {/* Right side: view switcher */}
+              <div className="flex items-center gap-1 bg-bg-shell rounded-lg p-1">
+                <button
+                  onClick={() => setView("week")}
+                  className={cn(
+                    "px-3 py-1 rounded-md text-xs font-semibold",
+                    view === "week" ? "bg-primary text-white" : "text-muted"
+                  )}
+                >
+                  Week
+                </button>
+                <button
+                  onClick={() => setView("month")}
+                  className={cn(
+                    "px-3 py-1 rounded-md text-xs font-semibold",
+                    view === "month" ? "bg-primary text-white" : "text-muted"
+                  )}
+                >
+                  Month
                 </button>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Legend */}
-        <div className="flex items-center gap-5 flex-wrap">
-          <span className="text-xs font-semibold text-muted uppercase tracking-wide">Legend:</span>
-          {ENTITY_TYPES.map((entity) => (
-            <div key={entity.label} className="flex items-center gap-1.5">
-              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entity.color }} />
-              <span className="text-xs text-muted font-medium">{entity.label}</span>
             </div>
-          ))}
+
+            {/* Week Grid */}
+            <div className="bg-white border border-line rounded-xl overflow-hidden">
+              {/* Day Headers */}
+              <div className="grid border-b border-line" style={{ gridTemplateColumns: "60px repeat(7, 1fr)" }}>
+                <div className="border-line" />
+                {DAYS.map((day) => (
+                  <div
+                    key={day.key}
+                    className="text-center py-3 text-[10px] font-bold text-muted uppercase tracking-wider border-l border-line"
+                  >
+                    {day.label}
+                  </div>
+                ))}
+              </div>
+
+              {/* Time Rows */}
+              {HOURS.map((hour, hIdx) => (
+                <div
+                  key={hour}
+                  className={cn(
+                    "grid border-line",
+                    hIdx < HOURS.length - 1 ? "border-b" : ""
+                  )}
+                  style={{ gridTemplateColumns: "60px repeat(7, 1fr)", minHeight: "44px" }}
+                >
+                  {/* Time Label */}
+                  <div className="text-xs text-muted text-right pr-3 py-2 flex-shrink-0">
+                    {hour}
+                  </div>
+
+                  {/* Day Cells */}
+                  {DAYS.map((day, dIdx) => {
+                    const event = EVENTS[`${hIdx}-${dIdx}`];
+                    return (
+                      <div
+                        key={day.key}
+                        className="border-l border-line relative"
+                        style={{ minHeight: "44px" }}
+                      >
+                        {event && (
+                          <div
+                            className={cn(
+                              "absolute inset-x-1 top-1 bottom-1 px-2 py-1 rounded text-[11px] font-semibold text-white truncate",
+                              event.color
+                            )}
+                          >
+                            {event.title}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Sidebar */}
+          <RightSidebar />
         </div>
       </main>
     </>

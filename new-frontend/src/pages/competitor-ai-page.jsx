@@ -1,146 +1,179 @@
 import { useState } from "react";
 import Topbar from "@/components/layout/topbar";
-import PageHeader from "@/components/shared/page-header";
-import { cn } from "@/lib/utils";
-import { RefreshCw, ChevronDown, ChevronRight, Plus } from "lucide-react";
+import ModeFilter from "@/components/shared/mode-filter";
+import RightSidebar from "@/components/shared/right-sidebar";
+import { Plus } from "lucide-react";
 
-const COMPETITORS = [
-  { rank: 1, domain: "singletondental.co.uk", da: 61, fb: "5.3K", ads: "Active" },
-  { rank: 2, domain: "thedentalcentreashford.co.uk", da: 51, fb: "4.8K", ads: "Active" },
-  { rank: 3, domain: "ashforddentalcare.co.uk", da: 54, fb: "8.7K", ads: "No" },
-  { rank: 4, domain: "stanhopedental.co.uk", da: 33, fb: "42.9K", ads: "Active" },
-  { rank: 5, domain: "willesboroughdental.co.uk", da: 26, fb: "10.6K", ads: "No" },
-  { rank: 6, domain: "kenningtondental.co.uk", da: 50, fb: "15.2K", ads: "Active" },
+// ─── Static Data ──────────────────────────────────────────────────────────────
+
+const COMPETITORS_TABLE = [
+  { name: "Bright Smile Bexleyheath", dr: 70, visibility: "22,180", backlinks: "4,560", adSpend: "£5,200" },
+  { name: "Mydentist Group",          dr: 78, visibility: "68,500", backlinks: "31,200", adSpend: "£12,400" },
+  { name: "Bupa Dental",              dr: 82, visibility: "58,900", backlinks: "42,800", adSpend: "£18,600" },
+  { name: "Smile Direct UK",          dr: 65, visibility: "15,400", backlinks: "2,900",  adSpend: "£3,800" },
 ];
 
-const RANK_COLORS = ["#10b981", "#3b82f6", "#f59e0b", "#7c3aed", "#ef4444", "#14b8a6"];
-
-const RECENT_ACTIVITY = [
-  { initials: "SD", name: "Singleton Dental", action: "Published 3 new blog posts targeting 'invisible braces Ashford'", time: "2h ago", color: "#10b981" },
-  { initials: "DC", name: "The Dental Centre Ashford", action: "Started running new Google Ads campaign — estimated £800/mo budget", time: "5h ago", color: "#3b82f6" },
-  { initials: "SK", name: "Stanhope Dental", action: "Facebook page gained 320 new followers this week", time: "1d ago", color: "#7c3aed" },
+const MARKET_SHARE_LEGEND = [
+  { label: "You",           pct: "38%", color: "#10b981" },
+  { label: "Competitor A",  pct: "24%", color: "#8b5cf6" },
+  { label: "Competitor B",  pct: "21%", color: "#3b82f6" },
+  { label: "Competitor C",  pct: "9%",  color: "#94a3b8" },
+  { label: "Competitor D",  pct: "8%",  color: "#ef4444" },
 ];
 
-const TABS = ["Overview", "SEO Analysis", "Social Media", "Paid Ads", "Content Strategy", "Other Marketing", "AI Insights"];
-
-const KPI_CARDS = [
-  { label: "COMPETITORS TRACKED", value: 6, color: "#10b981", bg: "#f0fdf4", textColor: "#15803d" },
-  { label: "AVG DOMAIN AUTHORITY", value: 49, color: "#3b82f6", bg: "#eff6ff", textColor: "#1d4ed8" },
-  { label: "ON FACEBOOK ADS", value: 5, color: "#7c3aed", bg: "#faf5ff", textColor: "#7c3aed" },
-  { label: "ON GOOGLE ADS", value: 4, color: "#f97316", bg: "#fff7ed", textColor: "#c2410c" },
+const INSIGHTS = [
+  "1. Competitor A increased ad spend by 15% this month",
+  "2. Competitor B is ranking for 230 new keywords",
+  "3. We have 45 unlinked opportunities · audit ready",
 ];
+
+const RECOMMENDED_ACTIONS = [
+  "1. Counter Bright Smile with 'Master clinician supervision' messaging — quality over price",
+  "2. Launch P4G academy patient ad at £1,250 to absorb price-sensitive demand",
+  "3. Audit Bright Smile reviews — likely cracks within 30 days, prep response content",
+];
+
+// ─── Main Page ────────────────────────────────────────────────────────────────
 
 export default function CompetitorAiPage() {
-  const [activeTab, setActiveTab] = useState("Overview");
+  const [mode, setMode] = useState(null);
 
   return (
     <>
-      <Topbar title="Competitor Intelligence" />
+      <Topbar
+        title="Competitor Analysis"
+        subtitle="Track and analyse your competitors"
+        right={
+          <button className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 transition">
+            <Plus size={13} />
+            Add Competitor
+          </button>
+        }
+      />
+
       <main className="p-6 max-w-[1500px] mx-auto w-full">
-        <PageHeader
-          icon="🔍"
-          title="Competitor Intelligence"
-          subtitle="Track 5-10 competitors across SEO, Social, Ads & more"
-          right={
-            <div className="flex items-center gap-3">
-              <select className="text-xs border border-line rounded-lg px-3 py-2 bg-white text-ink font-medium focus:outline-none">
-                <option>GM Dental Ashford</option>
-                <option>GM Dental Rochester</option>
-                <option>GM Dental Barnet</option>
-              </select>
-              <button className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary-hover transition">
-                <Plus size={14} />
-                Add Competitor
-              </button>
-              <button className="p-2 border border-line rounded-lg hover:bg-bg-soft transition">
-                <RefreshCw size={14} className="text-muted" />
-              </button>
-            </div>
-          }
-        />
+        <ModeFilter value={mode} onChange={setMode} />
 
-        {/* KPI Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          {KPI_CARDS.map((card) => (
-            <div key={card.label} className="bg-white border border-line rounded-xl p-5" style={{ borderLeftWidth: 4, borderLeftColor: card.color }}>
-              <p className="text-[11px] font-semibold text-muted uppercase tracking-wide mb-2">{card.label}</p>
-              <p className="text-3xl font-bold" style={{ color: card.textColor }}>{card.value}</p>
-            </div>
-          ))}
-        </div>
+        <div className="flex gap-6 mt-6">
+          {/* ── Main Content ── */}
+          <div className="flex-1 min-w-0">
 
-        {/* Tabs */}
-        <div className="flex items-center gap-1 mb-6 flex-wrap">
-          {TABS.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={cn(
-                "px-4 py-2 rounded-lg text-xs font-semibold transition",
-                activeTab === tab
-                  ? "bg-primary text-white"
-                  : "bg-white border border-line text-muted hover:text-ink hover:bg-bg-soft"
-              )}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
+            {/* Top Row: Competitors Overview + Market Share */}
+            <div className="flex gap-6 mb-6">
 
-        {/* Competitor Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-8">
-          {COMPETITORS.map((comp) => (
-            <div key={comp.domain} className="bg-white border border-line rounded-xl p-5 hover:shadow-md transition">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
-                    style={{ backgroundColor: RANK_COLORS[comp.rank - 1] }}
-                  >
-                    {comp.rank}
+              {/* Competitors Overview */}
+              <div className="flex-1 bg-white border border-line rounded-xl p-5">
+                <p className="text-base font-bold text-ink mb-4">Competitors Overview</p>
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      {["COMPETITOR", "DR", "VISIBILITY", "BACKLINKS", "AD SPEND"].map((col) => (
+                        <th
+                          key={col}
+                          className="text-left text-[10px] font-bold text-muted uppercase tracking-wider px-4 py-2"
+                        >
+                          {col}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {COMPETITORS_TABLE.map((row, i) => (
+                      <tr
+                        key={i}
+                        className="text-sm border-b border-line last:border-0"
+                      >
+                        <td className="px-4 py-3 font-semibold text-ink whitespace-nowrap">{row.name}</td>
+                        <td className="px-4 py-3 text-muted">{row.dr}</td>
+                        <td className="px-4 py-3 text-muted">{row.visibility}</td>
+                        <td className="px-4 py-3 text-muted">{row.backlinks}</td>
+                        <td className="px-4 py-3 text-muted">{row.adSpend}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Market Share */}
+              <div className="bg-white border border-line rounded-xl p-5 w-[320px] flex-shrink-0">
+                <p className="text-base font-bold text-ink mb-4">Market Share</p>
+
+                {/* Donut chart */}
+                <div className="flex flex-col items-center">
+                  <div className="relative flex items-center justify-center">
+                    <svg viewBox="0 0 36 36" className="w-32 h-32">
+                      <circle cx="18" cy="18" r="15.9" fill="none" strokeWidth="3.5" stroke="#e5e7eb" />
+                      <circle cx="18" cy="18" r="15.9" fill="none" strokeWidth="3.5" stroke="#10b981" strokeDasharray="38 62" strokeDashoffset="25" />
+                      <circle cx="18" cy="18" r="15.9" fill="none" strokeWidth="3.5" stroke="#8b5cf6" strokeDasharray="24 76" strokeDashoffset="87" />
+                      <circle cx="18" cy="18" r="15.9" fill="none" strokeWidth="3.5" stroke="#3b82f6" strokeDasharray="21 79" strokeDashoffset="63" />
+                      <circle cx="18" cy="18" r="15.9" fill="none" strokeWidth="3.5" stroke="#94a3b8" strokeDasharray="9 91" strokeDashoffset="42" />
+                      <circle cx="18" cy="18" r="15.9" fill="none" strokeWidth="3.5" stroke="#ef4444" strokeDasharray="8 92" strokeDashoffset="33" />
+                    </svg>
+                    <div className="absolute flex flex-col items-center justify-center pointer-events-none">
+                      <span className="text-2xl font-bold text-ink leading-none">38%</span>
+                      <span className="text-[10px] text-muted uppercase tracking-wider mt-0.5">SHARE</span>
+                    </div>
                   </div>
-                  <span className="text-sm font-semibold text-ink truncate max-w-[180px]">{comp.domain}</span>
-                </div>
-                <ChevronRight size={16} className="text-muted flex-shrink-0" />
-              </div>
-              <div className="grid grid-cols-3 gap-3">
-                <div className="bg-blue-50 rounded-lg p-3 text-center">
-                  <p className="text-[10px] font-semibold text-blue-600 uppercase tracking-wide mb-1">DA</p>
-                  <p className="text-lg font-bold text-blue-700">{comp.da}</p>
-                </div>
-                <div className="bg-teal-50 rounded-lg p-3 text-center">
-                  <p className="text-[10px] font-semibold text-teal-600 uppercase tracking-wide mb-1">FB Followers</p>
-                  <p className="text-lg font-bold text-teal-700">{comp.fb}</p>
-                </div>
-                <div className={cn("rounded-lg p-3 text-center", comp.ads === "Active" ? "bg-green-50" : "bg-red-50")}>
-                  <p className={cn("text-[10px] font-semibold uppercase tracking-wide mb-1", comp.ads === "Active" ? "text-green-600" : "text-red-500")}>Ads</p>
-                  <p className={cn("text-sm font-bold", comp.ads === "Active" ? "text-green-700" : "text-red-600")}>{comp.ads}</p>
+
+                  {/* Legend */}
+                  <div className="space-y-2 w-full mt-4">
+                    {MARKET_SHARE_LEGEND.map((item) => (
+                      <div key={item.label} className="flex items-center gap-2">
+                        <span
+                          className="w-3 h-3 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: item.color }}
+                        />
+                        <span className="text-xs text-ink">{item.label}</span>
+                        <span className="text-xs font-semibold text-ink ml-auto">{item.pct}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Recent Competitor Activity */}
-        <div className="bg-white border border-line rounded-xl p-5">
-          <h2 className="text-sm font-bold text-ink mb-4">Recent Competitor Activity</h2>
-          <div className="space-y-3">
-            {RECENT_ACTIVITY.map((item, i) => (
-              <div key={i} className="flex items-start gap-3 p-3 rounded-lg hover:bg-bg-soft transition">
+            {/* Insights */}
+            <div className="bg-white border border-line rounded-xl p-5 mb-6">
+              <p className="text-base font-bold text-ink mb-3">Insights</p>
+              {INSIGHTS.map((insight, i) => (
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
-                  style={{ backgroundColor: item.color }}
+                  key={i}
+                  className="bg-bg-soft border border-line rounded-lg px-4 py-3 mb-2 text-sm text-ink"
                 >
-                  {item.initials}
+                  {insight}
                 </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-sm font-semibold text-ink">{item.name} </span>
-                  <span className="text-sm text-muted">{item.action}</span>
-                </div>
-                <span className="text-xs text-muted flex-shrink-0">{item.time}</span>
+              ))}
+              <p className="text-xs text-primary font-semibold mt-2 cursor-pointer hover:underline">
+                View Full Analysis →
+              </p>
+            </div>
+
+            {/* Weekly Competitor Brief */}
+            <div className="bg-white border border-line rounded-xl p-5">
+              <div className="flex justify-between items-center">
+                <p className="text-base font-bold text-ink">Weekly Competitor Brief</p>
+                <p className="text-xs text-muted">Auto-generated · 21 Apr 2026</p>
               </div>
-            ))}
+
+              <div className="bg-amber-50 border border-amber-100 rounded-lg px-4 py-3 mt-3 text-sm text-ink">
+                3 competitors increased Meta spend this week. Bright Smile launched price-led campaign at £950 implants — undercutting our backlog reactivation offer.
+              </div>
+
+              <p className="text-sm font-bold text-ink mt-4 mb-2">Recommended actions</p>
+              {RECOMMENDED_ACTIONS.map((action, i) => (
+                <div
+                  key={i}
+                  className="bg-bg-soft border border-line rounded-lg px-4 py-3 mb-2 text-sm text-ink"
+                >
+                  {action}
+                </div>
+              ))}
+            </div>
+
           </div>
+
+          {/* ── Right Sidebar ── */}
+          <RightSidebar />
         </div>
       </main>
     </>

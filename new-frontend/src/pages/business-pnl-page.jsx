@@ -1,234 +1,176 @@
 import { useState } from "react";
 import Topbar from "@/components/layout/topbar";
-import PageHeader from "@/components/shared/page-header";
-import { cn, formatCurrency } from "@/lib/utils";
+import ModeFilter from "@/components/shared/mode-filter";
+import RightSidebar from "@/components/shared/right-sidebar";
 
-const BUSINESSES_LIST = [
-  "GM Dental Ashford",
-  "GM Dental Rochester",
-  "GM Dental Barnet",
-  "GM Dental Bexleyheath",
-  "Warwick Lodge Dental",
-  "Rye Dental Practice",
-  "Elevate Dental Academy",
-  "GM Dental Lab",
-  "Elevate Accounts",
-];
+// ─── Static data ────────────────────────────────────────────────────────────
 
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const YEARS = ["2024", "2025", "2026"];
-
-const PNL_SECTIONS = [
+const KPI_CARDS = [
   {
-    title: "Revenue",
-    color: "#10b981",
-    bg: "#f0fdf4",
-    headerText: "#065f46",
-    items: [
-      "Treatment Revenue",
-      "Consultations",
-      "Hygiene Services",
-      "Cosmetic",
-      "Implants & Surgery",
-      "Orthodontics",
-      "Other Revenue",
-    ],
+    emoji: "💰",
+    iconBg: "bg-green-50",
+    label: "TARGET MTD",
+    value: "£535,000",
+    delta: "+12% vs last month",
+    deltaColor: "text-green-600",
+    sparkPoints: "0,18 10,12 20,14 30,8 40,10 50,4 60,2",
+    sparkColor: "#16a34a",
   },
   {
-    title: "Direct Costs",
-    color: "#3b82f6",
-    bg: "#eff6ff",
-    headerText: "#1e3a8a",
-    items: ["Dental Materials", "Lab Fees", "Clinician Pay", "Nursing Staff"],
+    emoji: "📈",
+    iconBg: "bg-blue-50",
+    label: "ACTUAL MTD",
+    value: "£396,100",
+    delta: "+8.4% vs last month",
+    deltaColor: "text-green-600",
+    sparkPoints: "0,18 10,14 20,16 30,10 40,8 50,6 60,3",
+    sparkColor: "#2563eb",
   },
   {
-    title: "Overheads",
-    color: "#ef4444",
-    bg: "#fef2f2",
-    headerText: "#7f1d1d",
-    items: [
-      "Rent & Rates",
-      "Utilities",
-      "Insurance",
-      "Software",
-      "Equipment",
-      "CQC",
-      "Admin & Reception",
-      "Practice Management",
-    ],
+    emoji: "🎯",
+    iconBg: "bg-amber-50",
+    label: "% OF TARGET",
+    value: "74%",
+    delta: "-3% behind plan",
+    deltaColor: "text-red-500",
+    sparkPoints: "0,8 10,10 20,9 30,12 40,14 50,16 60,18",
+    sparkColor: "#d97706",
   },
   {
-    title: "Marketing",
-    color: "#f97316",
-    bg: "#fff7ed",
-    headerText: "#7c2d12",
-    items: [
-      "Google Ads",
-      "Facebook/Meta Ads",
-      "SEO & Content",
-      "Social Media Mgmt",
-      "Other Marketing",
-    ],
-  },
-  {
-    title: "Other Costs",
-    color: "#6b7280",
-    bg: "#f9fafb",
-    headerText: "#111827",
-    items: ["Finance & Accounting", "Legal", "Training", "Miscellaneous"],
+    emoji: "📉",
+    iconBg: "bg-red-50",
+    label: "VARIANCE",
+    value: "-£138,900",
+    delta: "-3% vs target",
+    deltaColor: "text-red-500",
+    sparkPoints: "0,4 10,6 20,8 30,10 40,12 50,14 60,18",
+    sparkColor: "#dc2626",
   },
 ];
 
-function PnLCard({ section }) {
-  const [values, setValues] = useState(() =>
-    Object.fromEntries(section.items.map((item) => [item, ""]))
-  );
+const BAR_DATA = [
+  { week: "W14", value: 42, heightPct: 60 },
+  { week: "W15", value: 48, heightPct: 69 },
+  { week: "W16", value: 51, heightPct: 73 },
+  { week: "W17", value: 54, heightPct: 77 },
+  { week: "W18", value: 49, heightPct: 70 },
+  { week: "W19", value: 55, heightPct: 79 },
+  { week: "W20", value: 62, heightPct: 89 },
+  { week: "W21", value: 68, heightPct: 97 },
+];
 
-  const total = section.items.reduce((sum, item) => sum + (parseFloat(values[item]) || 0), 0);
-
-  return (
-    <div className="bg-white border border-line rounded-xl overflow-hidden">
-      <div className="px-4 py-3 flex items-center justify-between" style={{ backgroundColor: section.bg, borderBottom: `2px solid ${section.color}` }}>
-        <h3 className="text-sm font-bold" style={{ color: section.headerText }}>{section.title}</h3>
-        <span className="text-sm font-bold" style={{ color: section.color }}>
-          {total > 0 ? formatCurrency(total) : "£0"}
-        </span>
-      </div>
-      <div className="p-4 space-y-2">
-        {section.items.map((item) => (
-          <div key={item} className="flex items-center justify-between gap-3">
-            <label className="text-xs text-muted flex-1">{item}</label>
-            <input
-              type="number"
-              min="0"
-              value={values[item]}
-              onChange={(e) => setValues((prev) => ({ ...prev, [item]: e.target.value }))}
-              placeholder="0"
-              className="w-28 text-right text-xs border border-line rounded-lg px-3 py-1.5 focus:outline-none focus:border-primary text-ink bg-bg-soft"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+// ─── Main Page ───────────────────────────────────────────────────────────────
 
 export default function BusinessPnlPage() {
-  const [business, setBusiness] = useState("GM Dental Ashford");
-  const [month, setMonth] = useState("Apr");
-  const [year, setYear] = useState("2026");
-
-  const summaryRows = [
-    { label: "Revenue", value: 0, color: "#10b981" },
-    { label: "Direct Costs", value: 0, color: "#3b82f6" },
-    { label: "Overheads", value: 0, color: "#ef4444" },
-    { label: "Marketing", value: 0, color: "#f97316" },
-    { label: "Other Costs", value: 0, color: "#6b7280" },
-  ];
-
-  const totalCosts = 0;
-  const netProfit = 0;
-  const margin = 0;
+  const [mode, setMode] = useState("all");
 
   return (
     <>
-      <Topbar title="Business Profit & Loss" />
+      <Topbar title="Revenue & Finance" />
       <main className="p-6 max-w-[1500px] mx-auto w-full">
-        <PageHeader
-          title="Business Profit & Loss"
-          subtitle="Track monthly P&L by business against targets"
-          right={
-            <div className="flex items-center gap-3 flex-wrap">
-              <select
-                value={business}
-                onChange={(e) => setBusiness(e.target.value)}
-                className="text-xs border border-line rounded-lg px-3 py-2 bg-white text-ink font-medium focus:outline-none"
-              >
-                {BUSINESSES_LIST.map((b) => <option key={b}>{b}</option>)}
-              </select>
-              <select
-                value={month}
-                onChange={(e) => setMonth(e.target.value)}
-                className="text-xs border border-line rounded-lg px-3 py-2 bg-white text-ink font-medium focus:outline-none"
-              >
-                {MONTHS.map((m) => <option key={m}>{m}</option>)}
-              </select>
-              <select
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
-                className="text-xs border border-line rounded-lg px-3 py-2 bg-white text-ink font-medium focus:outline-none"
-              >
-                {YEARS.map((y) => <option key={y}>{y}</option>)}
-              </select>
-              <button className="px-4 py-2 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary-hover transition">
-                Save
-              </button>
-            </div>
-          }
-        />
+        {/* Page heading */}
+        <div className="mb-4">
+          <h1 className="text-xl font-bold text-ink">Revenue & Finance</h1>
+          <p className="text-xs text-muted mt-0.5">MTD vs target · per business</p>
+        </div>
 
-        {/* Business Header Card */}
-        <div className="bg-white border border-line rounded-xl p-5 mb-6">
-          <div className="flex items-start justify-between flex-wrap gap-4">
-            <div>
-              <h2 className="text-base font-bold text-ink">{business}</h2>
-              <p className="text-xs text-muted mt-0.5">
-                {business.toLowerCase().replace(/\s+/g, "") + ".co.uk"} · {month} {year}
-              </p>
-            </div>
-            <div className="flex items-center gap-6 flex-wrap">
-              {[
-                { label: "Revenue", value: "£0", color: "#10b981" },
-                { label: "Total Costs", value: "£0", color: "#ef4444" },
-                { label: "Net Profit", value: "£0", color: "#3b82f6" },
-                { label: "Margin %", value: "0%", color: "#7c3aed" },
-              ].map((k) => (
-                <div key={k.label} className="text-center">
-                  <p className="text-[10px] text-muted uppercase tracking-wide font-semibold">{k.label}</p>
-                  <p className="text-lg font-bold" style={{ color: k.color }}>{k.value}</p>
+        {/* Mode Filter */}
+        <ModeFilter value={mode} onChange={setMode} className="mb-6" />
+
+        {/* Body: main content + sidebar */}
+        <div className="flex gap-6">
+          {/* Main content */}
+          <div className="flex-1 min-w-0">
+            {/* KPI Strip */}
+            <div className="grid grid-cols-4 gap-4 mb-6">
+              {KPI_CARDS.map((card) => (
+                <div
+                  key={card.label}
+                  className="bg-white border border-line rounded-xl p-5"
+                >
+                  {/* Icon */}
+                  <div
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 ${card.iconBg}`}
+                  >
+                    <span className="text-base leading-none">{card.emoji}</span>
+                  </div>
+
+                  {/* Label */}
+                  <p className="text-[10px] font-bold text-muted uppercase tracking-wider mb-1">
+                    {card.label}
+                  </p>
+
+                  {/* Value */}
+                  <p className="text-2xl font-bold text-ink leading-tight">
+                    {card.value}
+                  </p>
+
+                  {/* Delta */}
+                  <p className={`text-xs mt-1 ${card.deltaColor}`}>
+                    {card.delta}
+                  </p>
+
+                  {/* Sparkline */}
+                  <div className="mt-3">
+                    <svg
+                      width="60"
+                      height="20"
+                      viewBox="0 0 60 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <polyline
+                        points={card.sparkPoints}
+                        fill="none"
+                        stroke={card.sparkColor}
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
 
-        {/* P&L Grid — 3 columns first row */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
-          {PNL_SECTIONS.slice(0, 3).map((section) => (
-            <PnLCard key={section.title} section={section} />
-          ))}
-        </div>
-
-        {/* Second row — 2 columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
-          {PNL_SECTIONS.slice(3).map((section) => (
-            <PnLCard key={section.title} section={section} />
-          ))}
-        </div>
-
-        {/* P&L Summary */}
-        <div className="bg-white border border-line rounded-xl p-5">
-          <h2 className="text-sm font-bold text-ink mb-4">P&L Summary</h2>
-          <div className="space-y-2 max-w-md">
-            {summaryRows.map((row) => (
-              <div key={row.label} className="flex items-center justify-between py-2 border-b border-line-soft">
-                <span className="text-sm text-muted">{row.label}</span>
-                <span className="text-sm font-semibold" style={{ color: row.color }}>{formatCurrency(row.value)}</span>
+            {/* Weekly Revenue Bar Chart */}
+            <div className="bg-white border border-line rounded-xl p-5">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-5">
+                <span className="text-base font-bold text-ink">
+                  Weekly revenue
+                </span>
+                <span className="text-xs text-muted">
+                  last 8 weeks · all businesses · £k
+                </span>
               </div>
-            ))}
-            <div className="flex items-center justify-between py-2 border-b border-line">
-              <span className="text-sm font-semibold text-red-500">Total Costs</span>
-              <span className="text-sm font-bold text-red-500">{formatCurrency(totalCosts)}</span>
-            </div>
-            <div className={cn("flex items-center justify-between py-3 px-3 rounded-lg mt-2", netProfit >= 0 ? "bg-green-50" : "bg-red-50")}>
-              <span className={cn("text-sm font-bold uppercase tracking-wide", netProfit >= 0 ? "text-green-700" : "text-red-700")}>
-                Net Profit
-              </span>
-              <span className={cn("text-base font-bold", netProfit >= 0 ? "text-green-700" : "text-red-700")}>
-                {formatCurrency(netProfit)} ({margin}%)
-              </span>
+
+              {/* Chart */}
+              <div className="flex gap-3 items-end h-[200px]">
+                {BAR_DATA.map((bar) => (
+                  <div
+                    key={bar.week}
+                    className="flex-1 flex flex-col items-center justify-end h-full"
+                  >
+                    {/* Value label above bar */}
+                    <span className="text-xs font-semibold text-ink mb-1">
+                      £{bar.value}k
+                    </span>
+                    {/* Bar */}
+                    <div
+                      className="w-full rounded-t-lg bg-[#14b8a6]"
+                      style={{ height: `${bar.heightPct}%` }}
+                    />
+                    {/* Week label */}
+                    <span className="text-xs text-muted mt-2">{bar.week}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+
+          {/* Right Sidebar */}
+          <RightSidebar />
         </div>
       </main>
     </>

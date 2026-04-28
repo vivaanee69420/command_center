@@ -1,276 +1,149 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "@/components/layout/topbar";
-import PageHeader from "@/components/shared/page-header";
+import ModeFilter from "@/components/shared/mode-filter";
+import RightSidebar from "@/components/shared/right-sidebar";
 import { cn, getInitials } from "@/lib/utils";
-import { Plus, Trash2, Sparkles, LayoutGrid, List, ChevronDown, ClipboardList } from "lucide-react";
+import { USERS_DEFAULT } from "@/lib/data";
+import { api } from "@/api/client";
+import { Plus, Loader2 } from "lucide-react";
 
-const TEAM = [
-  { name: "Gaurav", color: "#0e2a47" },
-  { name: "Fatima", color: "#ef4444" },
-  { name: "Abhishek", color: "#10b981" },
-  { name: "Nikhil", color: "#f59e0b" },
-  { name: "Maryam", color: "#16a34a" },
-  { name: "Veena", color: "#5b9f61" },
-  { name: "Sona", color: "#3b82f6" },
-  { name: "Ruhith", color: "#2e75b6" },
-];
-
-const TABS = [
-  { key: "tasks", label: "Tasks" },
-  { key: "automations", label: "Automations" },
-  { key: "content", label: "Content" },
-  { key: "scripts", label: "Scripts" },
-  { key: "documents", label: "Documents" },
-  { key: "communication", label: "Communication" },
-  { key: "report", label: "Report to Dev" },
-];
-
-const KANBAN_COLUMNS = [
-  { key: "todo", label: "Todo", count: 0, borderColor: "#3b82f6", bgColor: "bg-info-soft", textColor: "text-info" },
-  { key: "in_progress", label: "In Progress", count: 0, borderColor: "#f59e0b", bgColor: "bg-warning-soft", textColor: "text-warning" },
-  { key: "done", label: "Done", count: 0, borderColor: "#10b981", bgColor: "bg-primary-soft", textColor: "text-primary" },
-];
+const TASK_COUNTS = {
+  gaurav: 8, nadia: 5, nikhil: 4, ruhith: 5, maryam: 6, fatima: 3, veena: 7, contractor1: 3, abhishek: 4, sona: 6,
+};
 
 export default function TeamHubPage() {
-  const [activeTab, setActiveTab] = useState("tasks");
-  const [viewMode, setViewMode] = useState("kanban");
-  const [selectedMember, setSelectedMember] = useState("All Members");
-  const [selectedBusiness, setSelectedBusiness] = useState("All Businesses");
-  const [selectedDay, setSelectedDay] = useState("All Days");
+  const [mode, setMode] = useState("simple");
+  const [activeBiz, setActiveBiz] = useState("all");
+  const [members, setMembers] = useState(USERS_DEFAULT);
+  const [loading, setLoading] = useState(true);
+  const [taskCounts, setTaskCounts] = useState(TASK_COUNTS);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        const [people, tasks] = await Promise.all([api.people(), api.tasks()]);
+        if (cancelled) return;
+        if (people?.length) {
+          setMembers(people.map(p => ({
+            u: p.username || p.name?.toLowerCase().split(" ")[0],
+            name: p.name,
+            role: p.role,
+            color: USERS_DEFAULT.find(u => u.name === p.name)?.color || "#94a3b8",
+          })));
+        }
+        if (tasks?.length) {
+          const counts = {};
+          tasks.forEach(t => {
+            const owner = t.owner_name || t.owner || "";
+            const key = owner.toLowerCase().split(" ")[0];
+            counts[key] = (counts[key] || 0) + 1;
+          });
+          setTaskCounts(prev => ({ ...prev, ...counts }));
+        }
+      } catch {
+        // use defaults
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => { cancelled = true; };
+  }, []);
+
+  const admins = members.filter(m => ["CEO", "COO", "Developer"].includes(m.role)).length;
+  const managers = members.filter(m => m.role?.toLowerCase().includes("lead") || m.role?.toLowerCase().includes("manager") || m.role?.toLowerCase().includes("head") || ["CEO", "COO"].includes(m.role)).length;
 
   return (
     <>
-      <Topbar title="Team Hub" />
+      <Topbar title="Team / People" subtitle="Manage your team and roles" />
       <main className="p-6 max-w-[1500px] mx-auto w-full">
-        <PageHeader
-          icon="👥"
-          title="Team Hub"
-          subtitle="Unified task management, scripts, and communication"
-          actions={[
-            {
-              label: "Clear All Tasks",
-              variant: "danger-outline",
-              icon: <Trash2 size={13} />,
-            },
-            {
-              label: "AI Generate Tasks (25 per person)",
-              variant: "purple",
-              icon: <Sparkles size={13} />,
-            },
-          ]}
-          right={
-            <div className="flex items-center gap-2">
-              <button className="flex items-center gap-1.5 px-4 py-2 border border-danger text-danger rounded-lg text-xs font-semibold hover:bg-danger-soft transition">
-                <Trash2 size={13} />
-                Clear All Tasks
-              </button>
-              <button
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #7c3aed, #6d28d9)" }}
-              >
-                <Sparkles size={13} />
-                AI Generate Tasks (25 per person)
-              </button>
-            </div>
+        <ModeFilter
+          mode={mode}
+          setMode={setMode}
+          activeBiz={activeBiz}
+          setActiveBiz={setActiveBiz}
+          rightAction={
+            <button
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-white transition hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #7c3aed, #6d28d9)" }}
+            >
+              <Plus size={14} />
+              Invite Member
+            </button>
           }
         />
 
-        {/* Tabs */}
-        <div className="flex items-center gap-1 bg-bg-shell rounded-lg p-1 mb-5 w-fit flex-wrap">
-          {TABS.map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={cn(
-                "px-3 py-1.5 rounded-md text-xs font-semibold transition",
-                activeTab === tab.key ? "bg-primary text-white" : "text-muted hover:text-ink"
+        <div className="flex gap-6">
+          <div className="flex-1 min-w-0">
+            {/* KPI Strip */}
+            <div className="grid grid-cols-4 gap-4 mb-6">
+              {[
+                { label: "Total Members", value: members.length, color: "#7c3aed" },
+                { label: "Admins", value: admins, color: "#7c3aed" },
+                { label: "Managers", value: managers, color: "#7c3aed" },
+                { label: "Active", value: members.length, color: "#7c3aed" },
+              ].map((kpi) => (
+                <div key={kpi.label} className="bg-white border border-line rounded-xl p-5">
+                  <p className="text-[10px] font-bold text-muted uppercase tracking-wider mb-1">{kpi.label}</p>
+                  <p className="text-2xl font-bold" style={{ color: kpi.color }}>{kpi.value}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Team Table */}
+            <div className="bg-white border border-line rounded-xl overflow-hidden">
+              {loading ? (
+                <div className="flex items-center justify-center py-20">
+                  <Loader2 size={24} className="animate-spin text-primary" />
+                </div>
+              ) : (
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-line">
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Member</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Role</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Username</th>
+                      <th className="text-center px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Tasks</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {members.map((member) => (
+                      <tr key={member.u} className="border-b border-line last:border-b-0 hover:bg-bg-soft/50 transition">
+                        <td className="px-5 py-3.5">
+                          <div className="flex items-center gap-3">
+                            <div
+                              className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
+                              style={{ background: member.color }}
+                            >
+                              {getInitials(member.name)}
+                            </div>
+                            <span className="text-sm font-semibold text-ink">{member.name}</span>
+                          </div>
+                        </td>
+                        <td className="px-5 py-3.5 text-sm text-muted">{member.role}</td>
+                        <td className="px-5 py-3.5">
+                          <span className="text-sm text-muted font-mono">{member.u}</span>
+                        </td>
+                        <td className="px-5 py-3.5 text-center">
+                          <span className="text-sm font-semibold text-ink">{taskCounts[member.u] || 0}</span>
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-green-50 text-green-600">
+                            Active
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               )}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {activeTab === "tasks" && (
-          <>
-            {/* Main Task Banner */}
-            <div className="mb-5 bg-white border border-line rounded-xl p-4 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary-soft flex items-center justify-center shrink-0">
-                  <ClipboardList size={15} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-ink">Main Task → Micro-Tasks</p>
-                  <p className="text-xs text-muted">Enter a main objective and AI will break it down</p>
-                </div>
-              </div>
-              <button
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition hover:opacity-90 shrink-0"
-                style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}
-              >
-                <Plus size={13} />
-                Create Main Task
-              </button>
             </div>
-
-            {/* Team Member Avatars */}
-            <div className="mb-5 bg-white border border-line rounded-xl p-4">
-              <div className="flex items-center gap-3 flex-wrap">
-                {TEAM.map((member) => (
-                  <div key={member.name} className="flex flex-col items-center gap-1.5">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0 cursor-pointer hover:opacity-80 transition"
-                      style={{ background: member.color }}
-                      title={member.name}
-                    >
-                      {getInitials(member.name)}
-                    </div>
-                    <div className="text-center">
-                      <p className="text-[10px] font-semibold text-ink leading-none">{member.name}</p>
-                      <p className="text-[9px] text-muted mt-0.5">0/0</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Filters Row */}
-            <div className="flex items-center gap-3 mb-4 flex-wrap">
-              {/* Member Filter */}
-              <div className="relative">
-                <select
-                  value={selectedMember}
-                  onChange={(e) => setSelectedMember(e.target.value)}
-                  className="appearance-none border border-line rounded-lg px-3 py-2 pr-7 text-xs font-medium text-ink outline-none focus:border-primary transition bg-white cursor-pointer"
-                >
-                  <option>All Members</option>
-                  {TEAM.map((m) => <option key={m.name}>{m.name}</option>)}
-                </select>
-                <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
-              </div>
-
-              {/* Business Filter */}
-              <div className="relative">
-                <select
-                  value={selectedBusiness}
-                  onChange={(e) => setSelectedBusiness(e.target.value)}
-                  className="appearance-none border border-line rounded-lg px-3 py-2 pr-7 text-xs font-medium text-ink outline-none focus:border-primary transition bg-white cursor-pointer"
-                >
-                  <option>All Businesses</option>
-                  <option>GM Dental Practices</option>
-                  <option>Plan4Growth Academy</option>
-                  <option>GM Lab</option>
-                  <option>Elevate Accounts</option>
-                </select>
-                <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
-              </div>
-
-              {/* Day Filter */}
-              <div className="relative">
-                <select
-                  value={selectedDay}
-                  onChange={(e) => setSelectedDay(e.target.value)}
-                  className="appearance-none border border-line rounded-lg px-3 py-2 pr-7 text-xs font-medium text-ink outline-none focus:border-primary transition bg-white cursor-pointer"
-                >
-                  <option>All Days</option>
-                  <option>Today</option>
-                  <option>This Week</option>
-                  <option>This Month</option>
-                </select>
-                <ChevronDown size={12} className="absolute right-2 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
-              </div>
-
-              {/* Spacer */}
-              <div className="flex-1" />
-
-              {/* View Toggle */}
-              <div className="flex items-center gap-1 bg-bg-shell rounded-lg p-1">
-                <button
-                  onClick={() => setViewMode("kanban")}
-                  className={cn(
-                    "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition",
-                    viewMode === "kanban" ? "bg-white text-ink shadow-sm" : "text-muted hover:text-ink"
-                  )}
-                >
-                  <LayoutGrid size={13} />
-                  Kanban
-                </button>
-                <button
-                  onClick={() => setViewMode("list")}
-                  className={cn(
-                    "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition",
-                    viewMode === "list" ? "bg-white text-ink shadow-sm" : "text-muted hover:text-ink"
-                  )}
-                >
-                  <List size={13} />
-                  List
-                </button>
-              </div>
-
-              {/* Add Task */}
-              <button
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white transition hover:opacity-90"
-                style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}
-              >
-                <Plus size={13} />
-                Add Task
-              </button>
-            </div>
-
-            {/* Kanban Board */}
-            {viewMode === "kanban" && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {KANBAN_COLUMNS.map((col) => (
-                  <div
-                    key={col.key}
-                    className="bg-white border border-line rounded-xl overflow-hidden"
-                    style={{ borderTopWidth: 3, borderTopColor: col.borderColor }}
-                  >
-                    {/* Column Header */}
-                    <div className="flex items-center justify-between px-4 py-3 border-b border-line">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-ink">{col.label}</span>
-                        <span className={cn("text-[10px] font-bold px-2 py-0.5 rounded-full", col.bgColor, col.textColor)}>
-                          {col.count}
-                        </span>
-                      </div>
-                      <button className="w-6 h-6 rounded-md border border-line flex items-center justify-center text-muted hover:bg-bg-soft transition">
-                        <Plus size={12} />
-                      </button>
-                    </div>
-
-                    {/* Empty State */}
-                    <div className="p-4 min-h-[200px] flex flex-col items-center justify-center text-center">
-                      <div className="w-10 h-10 rounded-full bg-bg-shell flex items-center justify-center mb-2">
-                        <ClipboardList size={16} className="text-muted" strokeWidth={1.5} />
-                      </div>
-                      <p className="text-[11px] text-muted font-medium">No tasks</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* List View */}
-            {viewMode === "list" && (
-              <div className="bg-white border border-line rounded-xl p-12 flex flex-col items-center justify-center text-center min-h-[200px]">
-                <ClipboardList size={36} className="text-line mb-3" strokeWidth={1.5} />
-                <p className="text-sm font-semibold text-ink mb-1">No tasks yet</p>
-                <p className="text-xs text-muted">Add tasks or generate them with AI</p>
-              </div>
-            )}
-          </>
-        )}
-
-        {activeTab !== "tasks" && (
-          <div className="bg-white border border-line rounded-xl p-12 flex flex-col items-center justify-center text-center min-h-[300px]">
-            <Sparkles size={40} className="text-line mb-4" strokeWidth={1.5} />
-            <p className="text-sm font-semibold text-ink mb-1">
-              {TABS.find((t) => t.key === activeTab)?.label}
-            </p>
-            <p className="text-xs text-muted">This section is coming soon.</p>
           </div>
-        )}
+
+          <RightSidebar />
+        </div>
       </main>
     </>
   );

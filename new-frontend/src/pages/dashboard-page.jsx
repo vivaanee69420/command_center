@@ -1,569 +1,351 @@
-import { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Topbar from "@/components/layout/topbar";
-import PageHeader from "@/components/shared/page-header";
-import KpiCard from "@/components/shared/kpi-card";
-import AlertBanner from "@/components/shared/alert-banner";
-import { BUSINESSES } from "@/lib/data";
-import { formatCurrency, formatNumber, cn } from "@/lib/utils";
-import { api } from "@/api/client";
-import {
-  RefreshCw, Building2, Users, AlertTriangle, Activity,
-  Brain, Sparkles, Target, Phone, MousePointerClick, Zap,
-  XCircle, Send,
-} from "lucide-react";
+import ModeFilter from "@/components/shared/mode-filter";
+import RightSidebar from "@/components/shared/right-sidebar";
+import { cn } from "@/lib/utils";
 
-const FALLBACK_TEAM = [
-  { name: "Gaurav", role: "Director", tasksCompleted: 3, tasksTotal: 5, color: "#0e2a47" },
-  { name: "Fatima", role: "Content Manager", tasksCompleted: 4, tasksTotal: 6, color: "#ef4444" },
-  { name: "Abhishek", role: "Videographer", tasksCompleted: 2, tasksTotal: 4, color: "#10b981" },
-  { name: "Nikhil", role: "Marketing Manager", tasksCompleted: 5, tasksTotal: 8, color: "#f59e0b" },
-  { name: "Maryam", role: "GHL Expert", tasksCompleted: 3, tasksTotal: 5, color: "#16a34a" },
-  { name: "Veena", role: "SDR", tasksCompleted: 12, tasksTotal: 20, color: "#5b9f61" },
-  { name: "Sona", role: "SDR", tasksCompleted: 15, tasksTotal: 20, color: "#3b82f6" },
-  { name: "Ruhith", role: "Developer", tasksCompleted: 2, tasksTotal: 4, color: "#2e75b6" },
+// ─── Static Data ─────────────────────────────────────────────────────────────
+
+const KPI_CARDS = [
+  {
+    emoji: "💰",
+    bg: "bg-green-50",
+    label: "TOTAL REVENUE",
+    value: "£1,245,430",
+    delta: "+18.6% vs last 30 days",
+    sparkPoints: "0,28 10,22 20,26 30,18 40,14 50,20 60,10",
+  },
+  {
+    emoji: "📋",
+    bg: "bg-blue-50",
+    label: "TOTAL LEADS",
+    value: "4,320",
+    delta: "+14.3% vs last 30 days",
+    sparkPoints: "0,30 10,26 20,20 30,22 40,15 50,12 60,8",
+  },
+  {
+    emoji: "🎯",
+    bg: "bg-purple-50",
+    label: "CONVERSION RATE",
+    value: "23.7%",
+    delta: "+6.2% vs last 30 days",
+    sparkPoints: "0,32 10,28 20,30 30,24 40,20 50,16 60,12",
+  },
+  {
+    emoji: "✅",
+    bg: "bg-amber-50",
+    label: "TASKS COMPLETED",
+    value: "286",
+    delta: "+22.1% vs last 30 days",
+    sparkPoints: "0,30 10,26 20,28 30,20 40,16 50,10 60,6",
+  },
 ];
 
+const BUSINESSES = [
+  { name: "GM Dental — Warwick",      status: "green",  revenue: "£62,400", leads: "1,240", health: "92%", active: 12 },
+  { name: "GM Dental — FTS",          status: "green",  revenue: "£48,200", leads: "890",   health: "78%", active: 8  },
+  { name: "GM Dental — Strood",       status: "green",  revenue: "£51,100", leads: "620",   health: "85%", active: 9  },
+  { name: "GM Dental — Sittingbourne",status: "amber",  revenue: "£39,800", leads: "430",   health: "65%", active: 6  },
+  { name: "GM Dental — Maidstone",    status: "green",  revenue: "£54,600", leads: "730",   health: "84%", active: 7  },
+  { name: "Plan4Growth Academy",      status: "black",  revenue: "£71,500", leads: "980",   health: "88%", active: 14 },
+  { name: "GM Dental Lab",            status: "amber",  revenue: "£28,900", leads: "210",   health: "58%", active: 4  },
+  { name: "Biological Clinician",     status: "white",  revenue: "£18,200", leads: "340",   health: "73%", active: 5  },
+  { name: "Elevate Accounts",         status: "black",  revenue: "£21,400", leads: "190",   health: "81%", active: 3  },
+];
+
+const STATUS_DOT = {
+  green: "bg-green-500",
+  amber: "bg-amber-400",
+  black: "bg-gray-800",
+  white: "bg-gray-300 border border-gray-400",
+};
+
+function healthDotColor(healthStr) {
+  const pct = parseInt(healthStr, 10);
+  if (pct >= 80) return "bg-green-500";
+  if (pct >= 60) return "bg-amber-400";
+  return "bg-gray-400";
+}
+
+const MORNING_BRIEF_BULLETS = [
+  "12 tasks are due today · 5 high priority tasks need action",
+  "3 campaigns need optimisation — Google Ads spending is high",
+  "Revenue is up 18.6% — great job, keep the momentum",
+  "2 approvals are pending — waiting for your review",
+];
+
+const TABS = [
+  { label: "📋 Projects & Tasks", key: "tasks" },
+  { label: "🚀 Marketing OS",     key: "marketing" },
+  { label: "📊 CRM Pipeline",     key: "crm" },
+  { label: "✨ AI Insights",      key: "ai" },
+  { label: "📈 Reports",          key: "reports" },
+  { label: "📅 Calendar",         key: "calendar" },
+];
+
+const KANBAN_COLUMNS = [
+  {
+    label: "TO DO",
+    count: 3,
+    card: {
+      title: "Create Facebook Ad Campaign",
+      business: "Warwick",
+      avatarInitials: "NK",
+      avatarBg: "#f59e0b",
+      date: "22 MAY",
+    },
+  },
+  {
+    label: "IN PROGRESS",
+    count: 3,
+    card: {
+      title: "Google Ads Optimisation",
+      business: "Warwick",
+      avatarInitials: "RU",
+      avatarBg: "#2e75b6",
+      date: "20 MAY",
+    },
+  },
+  {
+    label: "REVIEW",
+    count: 2,
+    card: {
+      title: "Landing Page Review",
+      business: "FTS",
+      avatarInitials: "NR",
+      avatarBg: "#7c3aed",
+      date: "19 MAY",
+    },
+  },
+  {
+    label: "DONE",
+    count: 3,
+    card: {
+      title: "Monthly Report — May",
+      business: "All",
+      avatarInitials: "NR",
+      avatarBg: "#7c3aed",
+      date: "16 MAY",
+    },
+  },
+];
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function Sparkline({ points }) {
+  return (
+    <svg width="60" height="32" viewBox="0 0 60 32" fill="none" className="mt-2">
+      <polyline
+        points={points}
+        stroke="#10b981"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function KpiCard({ emoji, bg, label, value, delta, sparkPoints }) {
+  return (
+    <div className="bg-white border border-line rounded-xl p-5">
+      <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center text-lg", bg)}>
+        {emoji}
+      </div>
+      <div className="text-[10px] font-bold text-muted uppercase tracking-wider mt-2">{label}</div>
+      <div className="text-2xl font-bold text-ink mt-0.5">{value}</div>
+      <div className="text-xs text-green-600 mt-1">{delta}</div>
+      <Sparkline points={sparkPoints} />
+    </div>
+  );
+}
+
+function BusinessesOverview() {
+  return (
+    <div className="bg-white border border-line rounded-xl p-5 flex-1 min-w-0">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4">
+        <span className="text-base font-bold text-ink">Businesses Overview</span>
+        <button className="text-xs text-primary font-semibold hover:underline">
+          View All Businesses →
+        </button>
+      </div>
+
+      {/* Table */}
+      <table className="w-full">
+        <thead>
+          <tr className="border-b border-line">
+            {["BUSINESS", "REVENUE (30D)", "LEADS", "HEALTH SCORE", "ACTIVE"].map((col) => (
+              <th
+                key={col}
+                className="text-[10px] font-bold text-muted uppercase tracking-wider pb-2 text-left first:pr-4"
+              >
+                {col}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {BUSINESSES.map((biz) => (
+            <tr key={biz.name} className="border-b border-line/50 hover:bg-bg-soft transition">
+              <td className="py-2 pr-4">
+                <div className="flex items-center gap-2">
+                  <span
+                    className={cn(
+                      "w-2.5 h-2.5 rounded-full flex-shrink-0",
+                      healthDotColor(biz.health)
+                    )}
+                  />
+                  <span className="text-sm font-semibold text-ink whitespace-nowrap">{biz.name}</span>
+                </div>
+              </td>
+              <td className="py-2 text-sm text-ink">{biz.revenue}</td>
+              <td className="py-2 text-sm text-ink">{biz.leads}</td>
+              <td className="py-2 text-sm text-ink">{biz.health}</td>
+              <td className="py-2 text-sm text-ink">{biz.active}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function AIMorningBrief() {
+  return (
+    <div className="bg-white border border-line rounded-xl p-5 w-[360px] flex-shrink-0">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-3">
+        <span className="text-base font-bold text-ink">✨ AI Morning Brief</span>
+        <span className="text-xs text-muted">Just now</span>
+      </div>
+
+      {/* Greeting */}
+      <div className="text-sm font-semibold text-ink">Good morning, Gaurav 👋</div>
+      <div className="text-xs text-muted mt-1">Here's what needs your attention today.</div>
+
+      {/* Bullets */}
+      <ul className="mt-3 space-y-2">
+        {MORNING_BRIEF_BULLETS.map((bullet, i) => (
+          <li key={i} className="flex items-start gap-2">
+            <span className="text-primary font-bold leading-5 flex-shrink-0">›</span>
+            <span className="text-sm text-ink">{bullet}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* CTA */}
+      <button className="mt-4 w-full py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-teal-500 to-green-500 hover:opacity-90 transition">
+        📨 Send Morning Brief
+      </button>
+    </div>
+  );
+}
+
+function KanbanBoard() {
+  return (
+    <div className="flex gap-4">
+      {KANBAN_COLUMNS.map((col) => (
+        <div key={col.label} className="flex-1 min-w-0">
+          {/* Column header */}
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs font-bold text-muted uppercase tracking-wider">{col.label}</span>
+            <span className="text-xs font-bold text-muted">{col.count}</span>
+          </div>
+
+          {/* Single card */}
+          <div className="bg-white border border-line rounded-lg p-3">
+            <div className="text-sm font-semibold text-ink">{col.card.title}</div>
+            <div className="text-xs text-muted mt-0.5">{col.card.business}</div>
+            <div className="flex items-center gap-2 mt-2">
+              <div
+                className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0"
+                style={{ backgroundColor: col.card.avatarBg }}
+              >
+                {col.card.avatarInitials}
+              </div>
+              <span className="text-[10px] text-muted uppercase">{col.card.date}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function DashboardPage() {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
-  const [lastUpdated, setLastUpdated] = useState("");
-  const [refreshing, setRefreshing] = useState(false);
-
-  // Dashboard data
-  const [metrics, setMetrics] = useState({
-    revenue: { month: 0, target: 1000000, trend: 0 },
-    leads: { today: 0, week: 0, trend: 0 },
-    bookings: { today: 0, week: 0, conversionRate: 0 },
-    adSpend: { month: 0, roi: 0 },
-    tasks: { completed: 0, pending: 0, overdue: 0 },
-  });
-  const [businessMetrics, setBusinessMetrics] = useState([]);
-  const [teamPerformance, setTeamPerformance] = useState([]);
-  const [alerts, setAlerts] = useState([]);
-
-  // AI CEO
-  const [showAiCeo, setShowAiCeo] = useState(false);
-  const [aiCeoInsights, setAiCeoInsights] = useState(null);
-  const [aiCeoLoading, setAiCeoLoading] = useState(false);
-
-  const fetchDashboardData = useCallback(async () => {
-    try {
-      const data = await api.dashboardSummary();
-
-      setMetrics({
-        revenue: data.revenue || { month: 0, target: 1000000, trend: 0 },
-        leads: data.leads || { today: 0, week: 0, trend: 0 },
-        bookings: data.bookings || { today: 0, week: 0, conversionRate: 0 },
-        adSpend: data.adSpend || { month: 0, roi: 0 },
-        tasks: data.tasks || { completed: 0, pending: 0, overdue: 0 },
-      });
-
-      // Business metrics from API or fallback to static data
-      if (data.businessMetrics?.length > 0) {
-        setBusinessMetrics(data.businessMetrics.map((biz) => {
-          const staticBiz = BUSINESSES.find((b) => b.slug === biz.slug);
-          return {
-            ...biz,
-            emoji: staticBiz?.emoji || "🏢",
-            leads: biz.leadsThisWeek || 0,
-            bookings: 0,
-            adSpend: 0,
-            trend: biz.attainmentPct > 50 ? biz.attainmentPct - 50 : -(50 - biz.attainmentPct),
-          };
-        }));
-      } else {
-        setBusinessMetrics(BUSINESSES);
-      }
-
-      setTeamPerformance(data.teamPerformance?.length > 0 ? data.teamPerformance : FALLBACK_TEAM);
-
-      // Alerts
-      if (data.alerts?.length > 0) {
-        setAlerts(data.alerts.map((a) => ({
-          title: a.category?.replace("_", " ").replace(/\b\w/g, (l) => l.toUpperCase()) || "Alert",
-          description: a.message,
-          business: a.category || "Operations",
-          time: "Now",
-          severity: a.severity === "high" ? "danger" : "warning",
-        })));
-      } else {
-        setAlerts([]);
-      }
-
-      setLastUpdated(new Date().toLocaleTimeString("en-GB", { hour12: true }));
-    } catch (err) {
-      console.error("Dashboard fetch error:", err);
-      // Keep existing static data
-      setBusinessMetrics(BUSINESSES);
-      setTeamPerformance(FALLBACK_TEAM);
-      setLastUpdated(new Date().toLocaleTimeString("en-GB", { hour12: true }));
-    } finally {
-      setLoading(false);
-      setRefreshing(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchDashboardData();
-    const interval = setInterval(fetchDashboardData, 300000); // 5 min
-    return () => clearInterval(interval);
-  }, [fetchDashboardData]);
-
-  const handleRefresh = () => {
-    setRefreshing(true);
-    fetchDashboardData();
-  };
-
-  const fetchAiCeoInsights = async () => {
-    setAiCeoLoading(true);
-    try {
-      const data = await api.aiCeoInsights({
-        metrics,
-        teamPerformance,
-        alerts,
-      }, "overall");
-      if (data.success) {
-        setAiCeoInsights(data.insights);
-      }
-    } catch (err) {
-      console.error("AI CEO error:", err);
-    }
-    setAiCeoLoading(false);
-  };
-
-  const generateAiTasks = async () => {
-    try {
-      const data = await api.aiCeoGenerateTasks(
-        { metrics, alerts },
-        new Date().toLocaleDateString("en-US", { weekday: "long" }).toUpperCase()
-      );
-      if (data.success) {
-        alert(`${data.tasksGenerated} AI-powered tasks generated for the team!`);
-        fetchDashboardData();
-      }
-    } catch (err) {
-      console.error("Task generation error:", err);
-    }
-  };
-
-  const kpis = {
-    revenue: {
-      label: "Monthly Revenue",
-      value: metrics.revenue.month,
-      icon: "$",
-      delta: metrics.revenue.trend,
-      target: metrics.revenue.target,
-      borderColor: "#7c3aed",
-    },
-    leads: {
-      label: "Leads Today",
-      value: metrics.leads.today,
-      icon: "people",
-      delta: metrics.leads.trend,
-      subtitle: `${formatNumber(metrics.leads.week)} this week`,
-      borderColor: "#3b82f6",
-    },
-    bookings: {
-      label: "Bookings Today",
-      value: metrics.bookings.today,
-      icon: "calendar",
-      delta: null,
-      subtitle: `${metrics.bookings.conversionRate.toFixed(1)}% conv.`,
-      extra: `${formatNumber(metrics.bookings.week)} this week`,
-      borderColor: "#8b5cf6",
-    },
-    adSpend: {
-      label: "Monthly Ad Spend",
-      value: metrics.adSpend.month,
-      icon: "sparkle",
-      delta: null,
-      subtitle: `${metrics.adSpend.roi.toFixed(1)}x ROI`,
-      extra: `${formatCurrency(Math.round(metrics.adSpend.month / 30))}/day`,
-      borderColor: "#f59e0b",
-    },
-    tasks: {
-      label: "Tasks Completed",
-      value: `${metrics.tasks.completed}/${metrics.tasks.completed + metrics.tasks.pending}`,
-      icon: "check",
-      delta: null,
-      subtitle: metrics.tasks.overdue > 0 ? `${metrics.tasks.overdue} overdue` : "On track",
-      borderColor: "#ec4899",
-    },
-  };
-
-  if (loading) {
-    return (
-      <>
-        <Topbar title="Command Centre" subtitle="Overview of your entire business ecosystem" />
-        <main className="flex items-center justify-center h-96">
-          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary" />
-        </main>
-      </>
-    );
-  }
+  const [activeTab, setActiveTab] = useState("tasks");
 
   return (
     <>
-      <Topbar title="Command Centre" subtitle="Overview of your entire business ecosystem" />
-      <main className="p-6 max-w-[1500px] mx-auto w-full space-y-5">
-        <PageHeader
-          icon="🏢"
-          title="Group Dashboard"
-          subtitle="Real-time overview of all GM Dental Group businesses"
-          right={
-            <div className="flex items-center gap-3">
-              <span className="text-xs text-muted">
-                Last Updated<br />
-                <span className="font-semibold text-ink">{lastUpdated}</span>
-              </span>
-              <button
-                onClick={handleRefresh}
-                disabled={refreshing}
-                className="flex items-center gap-1.5 px-4 py-2 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary-hover transition disabled:opacity-50"
-              >
-                <RefreshCw size={14} className={refreshing ? "animate-spin" : ""} />
-                Refresh
-              </button>
+      <Topbar
+        title="Command Centre"
+        subtitle="Overview of your entire business ecosystem"
+      />
+
+      <main className="p-6 max-w-[1500px] mx-auto w-full">
+        {/* Mode Filter */}
+        <ModeFilter />
+
+        {/* Main layout: content + sidebar */}
+        <div className="flex gap-6 mt-6">
+          {/* Main content */}
+          <div className="flex-1 min-w-0">
+
+            {/* 1. KPI Strip */}
+            <div className="grid grid-cols-4 gap-4 mb-6">
+              {KPI_CARDS.map((card) => (
+                <KpiCard key={card.label} {...card} />
+              ))}
             </div>
-          }
-        />
 
-        {/* Critical Alerts */}
-        <AlertBanner alerts={alerts} />
+            {/* 2. Middle row */}
+            <div className="flex gap-6 mb-6">
+              <BusinessesOverview />
+              <AIMorningBrief />
+            </div>
 
-        {/* KPI Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          <KpiCard {...kpis.revenue} />
-          <KpiCard {...kpis.leads} />
-          <KpiCard {...kpis.bookings} />
-          <KpiCard {...kpis.adSpend} />
-          <KpiCard {...kpis.tasks} />
-        </div>
+            {/* 3. Bottom section: tabs + kanban */}
+            <div className="bg-white border border-line rounded-xl p-5">
+              {/* Tab row */}
+              <div className="flex items-center gap-1 border-b border-line mb-4">
+                {TABS.map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => setActiveTab(tab.key)}
+                    className={cn(
+                      "pb-2 px-3 text-sm transition-colors",
+                      activeTab === tab.key
+                        ? "font-semibold text-primary border-b-2 border-primary"
+                        : "font-medium text-muted hover:text-ink"
+                    )}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
 
-        {/* Business Performance Table */}
-        <div className="bg-white border border-line rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <Building2 size={18} className="text-primary" />
-            <h2 className="text-base font-bold text-ink">Business Performance</h2>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-line">
-                  <th className="text-left py-3 px-2 text-[11px] font-semibold text-muted uppercase tracking-wide">Business</th>
-                  <th className="text-right py-3 px-2 text-[11px] font-semibold text-muted uppercase tracking-wide">Revenue</th>
-                  <th className="text-right py-3 px-2 text-[11px] font-semibold text-muted uppercase tracking-wide">Leads</th>
-                  <th className="text-right py-3 px-2 text-[11px] font-semibold text-muted uppercase tracking-wide">Active Tasks</th>
-                  <th className="text-right py-3 px-2 text-[11px] font-semibold text-muted uppercase tracking-wide">Target</th>
-                  <th className="text-right py-3 px-2 text-[11px] font-semibold text-muted uppercase tracking-wide">Attainment</th>
-                </tr>
-              </thead>
-              <tbody>
-                {businessMetrics.map((biz) => {
-                  const attainment = biz.attainmentPct ?? (biz.target ? Math.round(biz.revenue / biz.target * 100) : 0);
-                  return (
-                    <tr
-                      key={biz.slug || biz.id}
-                      className="border-b border-line-soft hover:bg-bg-soft transition cursor-pointer"
-                      onClick={() => navigate(`/practices/${biz.slug}`)}
-                    >
-                      <td className="py-3 px-2">
-                        <div className="flex items-center gap-3">
-                          <span className="text-lg">{biz.emoji || "🏢"}</span>
-                          <span className="font-semibold text-ink">{biz.name}</span>
-                        </div>
-                      </td>
-                      <td className="py-3 px-2 text-right font-medium text-ink">{formatCurrency(biz.revenue)}</td>
-                      <td className="py-3 px-2 text-right text-ink">{biz.leads ?? biz.leadsThisWeek ?? 0}</td>
-                      <td className="py-3 px-2 text-right text-ink">{biz.activeTasks ?? 0}</td>
-                      <td className="py-3 px-2 text-right text-muted">{formatCurrency(biz.target ?? biz.target_monthly ?? 0)}</td>
-                      <td className="py-3 px-2 text-right">
-                        <span className={cn(
-                          "text-xs font-semibold",
-                          attainment >= 80 ? "text-primary" : attainment >= 50 ? "text-amber-500" : "text-danger"
-                        )}>
-                          {attainment}%
-                        </span>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Team Performance */}
-        <div className="bg-white border border-line rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-4">
-            <Users size={18} className="text-violet-500" />
-            <h2 className="text-base font-bold text-ink">Team Accountability</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {teamPerformance.map((member) => {
-              const done = member.tasksCompleted ?? member.tasks?.done ?? 0;
-              const total = member.tasksTotal ?? member.tasks?.total ?? 1;
-              const completion = Math.round((done / total) * 100);
-              const isLow = completion < 50;
-              return (
-                <div
-                  key={member.name || member.id}
-                  className={cn(
-                    "p-4 rounded-xl border",
-                    isLow ? "border-danger/30 bg-danger/5" : "border-line bg-bg-soft"
-                  )}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold"
-                        style={{ backgroundColor: member.color || "#64748b" }}
-                      >
-                        {(member.name || "?")[0]}
-                      </div>
-                      <div>
-                        <div className="font-semibold text-sm text-ink">{member.name}</div>
-                        <div className="text-[11px] text-muted">{member.role}</div>
-                      </div>
-                    </div>
-                    {isLow && <AlertTriangle className="text-danger" size={14} />}
-                  </div>
-                  <div className="flex items-center gap-2 mt-2">
-                    <div className="flex-1 h-2 bg-line rounded-full overflow-hidden">
-                      <div
-                        className={cn("h-full rounded-full", isLow ? "bg-danger" : "bg-primary")}
-                        style={{ width: `${completion}%` }}
-                      />
-                    </div>
-                    <span className="text-xs font-bold text-muted">{done}/{total}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Quick Actions */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          <button
-            onClick={() => { setShowAiCeo(true); fetchAiCeoInsights(); }}
-            className="bg-white border-2 border-violet-200 rounded-xl p-4 text-left hover:border-violet-400 hover:shadow-md transition-all"
-          >
-            <Brain className="text-violet-500 mb-2" size={22} />
-            <div className="font-semibold text-sm text-ink">AI CEO</div>
-            <div className="text-[11px] text-violet-400 mt-0.5">Strategic Advisor</div>
-          </button>
-          <button
-            onClick={() => navigate("/voice-tasks")}
-            className="bg-white border border-line rounded-xl p-4 text-left hover:bg-bg-soft transition"
-          >
-            <Phone className="text-primary mb-2" size={22} />
-            <div className="font-semibold text-sm text-ink">Voice Tasks</div>
-            <div className="text-[11px] text-primary mt-0.5">AI Capture</div>
-          </button>
-          <button
-            onClick={() => navigate("/marketing/ads")}
-            className="bg-white border border-line rounded-xl p-4 text-left hover:bg-bg-soft transition"
-          >
-            <MousePointerClick className="text-blue-500 mb-2" size={22} />
-            <div className="font-semibold text-sm text-ink">Ads Dashboard</div>
-            <div className="text-[11px] text-muted mt-0.5">Google + Facebook</div>
-          </button>
-          <button
-            onClick={() => navigate("/marketing/ghl-automation")}
-            className="bg-white border border-line rounded-xl p-4 text-left hover:bg-bg-soft transition"
-          >
-            <Target className="text-violet-500 mb-2" size={22} />
-            <div className="font-semibold text-sm text-ink">GHL CRM</div>
-            <div className="text-[11px] text-muted mt-0.5">Pipeline Overview</div>
-          </button>
-          <button
-            onClick={() => navigate("/team-hub")}
-            className="bg-white border border-line rounded-xl p-4 text-left hover:bg-bg-soft transition"
-          >
-            <Zap className="text-amber-500 mb-2" size={22} />
-            <div className="font-semibold text-sm text-ink">Team Hub</div>
-            <div className="text-[11px] text-muted mt-0.5">Tasks & Automations</div>
-          </button>
-        </div>
-
-        {/* AI CEO Modal */}
-        {showAiCeo && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowAiCeo(false)}>
-            <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-              {/* Modal Header */}
-              <div className="p-5 border-b border-line flex items-center justify-between sticky top-0 bg-white z-10 rounded-t-xl">
+              {/* Kanban header */}
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-base font-bold text-ink">Kanban Board</span>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-violet-600 to-blue-600 flex items-center justify-center">
-                    <Brain className="text-white" size={20} />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-bold text-ink">AI CEO - Strategic Advisor</h2>
-                    <p className="text-xs text-muted">Powered by Claude &middot; Analysing GM Dental Group</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={generateAiTasks}
-                    className="px-3 py-2 bg-primary text-white rounded-lg text-xs font-semibold hover:bg-primary-hover flex items-center gap-1.5"
-                  >
-                    <Send size={12} />
-                    Generate Tasks
-                  </button>
-                  <button
-                    onClick={fetchAiCeoInsights}
-                    disabled={aiCeoLoading}
-                    className="px-3 py-2 bg-violet-600 text-white rounded-lg text-xs font-semibold hover:bg-violet-700 flex items-center gap-1.5 disabled:opacity-50"
-                  >
-                    <RefreshCw size={12} className={aiCeoLoading ? "animate-spin" : ""} />
-                    Refresh
-                  </button>
-                  <button onClick={() => setShowAiCeo(false)} className="p-2 hover:bg-bg-soft rounded-lg">
-                    <XCircle size={18} className="text-muted" />
-                  </button>
+                  <span className="text-xs text-muted cursor-pointer hover:text-ink transition">⚙ Filter</span>
+                  <span className="text-xs text-muted">Group: Status</span>
                 </div>
               </div>
 
-              {/* Modal Body */}
-              <div className="p-5">
-                {aiCeoLoading && !aiCeoInsights ? (
-                  <div className="flex flex-col items-center justify-center py-16">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-violet-500 mb-4" />
-                    <p className="text-sm text-muted">AI CEO is analysing business performance...</p>
-                  </div>
-                ) : aiCeoInsights ? (
-                  <div className="space-y-5">
-                    {/* Executive Summary */}
-                    <div className="bg-gradient-to-r from-violet-50 to-blue-50 border border-violet-200 rounded-xl p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Sparkles className="text-violet-500" size={16} />
-                        <h3 className="font-semibold text-sm text-ink">Executive Summary</h3>
-                      </div>
-                      <p className="text-sm text-ink/80">{aiCeoInsights.executiveSummary}</p>
-                    </div>
-
-                    {/* Urgent Actions */}
-                    {aiCeoInsights.urgentActions?.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-sm text-ink mb-3 flex items-center gap-2">
-                          <AlertTriangle className="text-danger" size={16} />
-                          Urgent Actions Required
-                        </h3>
-                        <div className="space-y-2">
-                          {aiCeoInsights.urgentActions.map((action, idx) => (
-                            <div key={idx} className="border border-line rounded-xl p-4 border-l-4 border-l-danger">
-                              <div className="font-medium text-sm text-ink">{action.action}</div>
-                              <div className="text-xs text-muted mt-1">
-                                Assign to: <span className="text-danger font-medium">{action.owner || action.assignTo}</span>
-                                {action.deadline && <> &middot; Due: {action.deadline}</>}
-                              </div>
-                              {(action.reason || action.impact) && (
-                                <div className="text-xs text-primary mt-1">Impact: {action.impact || action.expectedImpact || action.reason}</div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Weekly Priorities */}
-                    {aiCeoInsights.weeklyPriorities?.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-sm text-ink mb-3 flex items-center gap-2">
-                          <Target className="text-blue-500" size={16} />
-                          This Week's Priorities
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {aiCeoInsights.weeklyPriorities.map((p, idx) => (
-                            <div key={idx} className="border border-line rounded-xl p-4">
-                              <div className="font-medium text-sm text-ink">{p.priority}</div>
-                              {p.rationale && <div className="text-xs text-muted mt-1">{p.rationale}</div>}
-                              <div className="text-xs text-blue-500 mt-1">KPI: {p.kpi}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Task Recommendations */}
-                    {aiCeoInsights.taskRecommendations?.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-sm text-ink mb-3 flex items-center gap-2">
-                          <Activity className="text-primary" size={16} />
-                          Recommended Tasks
-                        </h3>
-                        <div className="space-y-2">
-                          {aiCeoInsights.taskRecommendations.map((t, idx) => (
-                            <div key={idx} className="flex items-center justify-between border border-line rounded-lg p-3">
-                              <div>
-                                <div className="text-sm font-medium text-ink">{t.title || t.task}</div>
-                                <div className="text-xs text-muted mt-0.5">
-                                  {t.assignTo || t.member} &middot; Due in {t.dueIn || t.dueDay || "24"}h
-                                </div>
-                              </div>
-                              <span className={cn(
-                                "text-[10px] font-bold px-2 py-1 rounded-md",
-                                (t.priority === "P0" || t.priority === "HIGH") ? "bg-danger/10 text-danger" :
-                                (t.priority === "P1" || t.priority === "MEDIUM") ? "bg-amber-100 text-amber-600" :
-                                "bg-bg-soft text-muted"
-                              )}>
-                                {t.priority}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Risk Alerts */}
-                    {aiCeoInsights.riskAlerts?.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-sm text-ink mb-3 flex items-center gap-2">
-                          <AlertTriangle className="text-amber-500" size={16} />
-                          Risk Alerts
-                        </h3>
-                        <div className="space-y-2">
-                          {aiCeoInsights.riskAlerts.map((r, idx) => (
-                            <div key={idx} className="border border-amber-200 bg-amber-50 rounded-xl p-3">
-                              <div className="text-sm font-medium text-ink">{r.risk}</div>
-                              <div className="text-xs text-muted mt-1">Mitigation: {r.mitigation}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Growth Opportunities */}
-                    {aiCeoInsights.growthOpportunities?.length > 0 && (
-                      <div>
-                        <h3 className="font-semibold text-sm text-ink mb-3 flex items-center gap-2">
-                          <Sparkles className="text-primary" size={16} />
-                          Growth Opportunities
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {aiCeoInsights.growthOpportunities.map((g, idx) => (
-                            <div key={idx} className="border border-primary/20 bg-primary/5 rounded-xl p-4">
-                              <div className="text-sm font-medium text-ink">{g.opportunity}</div>
-                              <div className="flex items-center gap-3 mt-2">
-                                <span className="text-xs text-primary font-semibold">{g.revenueImpact || g.estimatedRevenue}</span>
-                                <span className="text-xs text-muted">Effort: {g.effort || g.requiredResources}</span>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <div className="text-center py-16 text-muted text-sm">
-                    Click Refresh to generate AI CEO insights.
-                  </div>
-                )}
-              </div>
+              {/* Mini kanban */}
+              <KanbanBoard />
             </div>
+
           </div>
-        )}
+
+          {/* Right sidebar */}
+          <RightSidebar />
+        </div>
       </main>
     </>
   );

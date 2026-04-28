@@ -6,27 +6,29 @@ import { BUSINESSES } from "@/lib/data";
 import { getInitials, cn } from "@/lib/utils";
 import {
   LayoutGrid, Globe, ChevronRight, ChevronLeft, ChevronDown,
-  Users, Sparkles, Settings, HelpCircle, LogOut,
+  Users, Sparkles, Settings, LogOut,
   Search, CalendarDays, BarChart3,
   Link, Inbox, BookOpen, PenTool, ShieldCheck, Phone, Zap, Megaphone, BarChart,
   Brain, TrendingUp, Bell, Puzzle, Building2, FolderKanban, UserCheck,
-  ClipboardList, Map, Clock,
+  ClipboardList, Clock, FileText, MessageSquare, DollarSign,
 } from "lucide-react";
 
 const practices = BUSINESSES.filter((b) => b.type === "practice");
 const otherBiz = BUSINESSES.filter((b) => b.type !== "practice");
 
-// ── Navigation structure matching CommandOS.html ──────────────────────────────
+// ── Navigation structure matching CommandOS.html screenshot ──────────────────
 
-const CORE_ITEMS = [
-  { key: "home",          label: "Command Centre",      icon: LayoutGrid,    path: "/",                  badge: null },
-  { key: "businesses",    label: "Businesses",          icon: Building2,     path: "/businesses",         badge: "9" },
-  { key: "projects",      label: "Projects & Tasks",    icon: FolderKanban,  path: "/projects",           badge: "73" },
-  { key: "crm",           label: "CRM / Sales",         icon: UserCheck,     path: "/crm",                badge: "155" },
-  { key: "team_hub",      label: "Team / People",       icon: Users,         path: "/team-hub",           badge: null },
-  { key: "daily_routines",label: "Daily Routines · 90-Day", icon: ClipboardList, path: "/daily-routines", badge: "CEO+COO" },
-  { key: "content_cal",   label: "Calendar",            icon: CalendarDays,  path: "/content-calendar",   badge: null },
-  { key: "documents",     label: "Documents",           icon: BookOpen,      path: "/documents",          badge: null },
+const COMMAND_ITEMS = [
+  { key: "home",       label: "Command Centre",  icon: LayoutGrid,   path: "/",                 badge: "5" },
+  { key: "projects",   label: "All Tasks",       icon: ClipboardList, path: "/simple-tasks",    badge: null },
+  { key: "projects",   label: "Kanban",          icon: FolderKanban,  path: "/kanban",           badge: null },
+  { key: "content_cal",label: "Calendar",         icon: CalendarDays,  path: "/content-calendar", badge: null },
+];
+
+const PLANS_ITEMS = [
+  { key: "projects",      label: "£250k Recovery",    icon: TrendingUp,   path: "/projects",        badge: null },
+  { key: "daily_routines",label: "90-Day Plan",        icon: ClipboardList, path: "/daily-routines",  badge: null },
+  { key: "daily_routines",label: "Daily Routines",     icon: Clock,         path: "/daily-routines",  badge: null },
 ];
 
 const MARKETING_SUBITEMS = [
@@ -41,44 +43,51 @@ const MARKETING_SUBITEMS = [
   { key: "ghl_dash",     label: "GHL Dashboard",    icon: BarChart,   path: "/marketing/ghl-dashboard" },
 ];
 
-const GROWTH_ITEMS = [
-  // Marketing OS is handled separately (has submenu)
-  { key: "seo",           label: "SEO & Rankings",      icon: Search,       path: "/seo",              badge: null },
-  { key: "ads",           label: "Ads Manager",         icon: Megaphone,    path: "/marketing/ads",    badge: null },
-  { key: "competitors",   label: "Competitor Analysis", icon: Sparkles,     path: "/competitor-ai",    badge: null },
-  { key: "backlinks",     label: "Backlink Monitor",    icon: Link,         path: "/backlinks",         badge: null },
+const MARKETING_TOP_ITEMS = [
+  { key: "seo",         label: "SEO & Rankings",       icon: Search,    path: "/seo",           badge: null },
+  { key: "ads",         label: "Ads Manager",          icon: Megaphone, path: "/marketing/ads", badge: null },
+  { key: "competitors", label: "Competitor Analysis",   icon: Sparkles,  path: "/competitor-ai", badge: null },
+  { key: "backlinks",   label: "Backlink Monitor",      icon: Link,      path: "/backlinks",     badge: null },
+];
+
+const SALES_ITEMS = [
+  { key: "crm",         label: "Sales Pipeline",   icon: UserCheck,      path: "/crm",                    badge: null },
+  { key: "crm",         label: "Leads",            icon: Users,          path: "/marketing/lead-engine",  badge: null },
+  { key: "crm",         label: "Conversations",    icon: MessageSquare,  path: "/marketing/manus-inbox",  badge: null },
+];
+
+const OPERATIONS_ITEMS = [
+  { key: "outsourcer",  label: "Outsourcer Tracker",  icon: Clock,      path: "/outsourcer-tracker", badge: null },
+  { key: "business_performance", label: "Revenue & Finance", icon: DollarSign, path: "/business-pnl",  badge: null },
+  { key: "documents",   label: "Documents",           icon: FileText,   path: "/documents",          badge: null },
 ];
 
 const INTELLIGENCE_ITEMS = [
-  { key: "ai_brain",             label: "AI Brain",              icon: Brain,      path: "/ai-brain",              badge: null },
-  { key: "market_intel",         label: "Market Intelligence",   icon: Map,        path: "/market-intel",          badge: null },
-  { key: "business_performance", label: "Reports & Analytics",   icon: BarChart3,  path: "/business-performance",  badge: null },
-  { key: "insights",             label: "AI Insights",           icon: TrendingUp, path: "/insights",              badge: null },
+  { key: "ai_brain",             label: "AI Brain",             icon: Brain,      path: "/ai-brain",             badge: null },
+  { key: "insights",             label: "AI Insights & Reports",icon: TrendingUp, path: "/insights",             badge: null },
+  { key: "market_intel",         label: "Research Engine",       icon: Search,     path: "/market-intel",         badge: null },
 ];
 
 const AUTOMATION_ITEMS = [
-  { key: "ghl_auto",     label: "Automations",  icon: Zap,        path: "/marketing/ghl-automation", badge: null },
-  { key: "outsourcer",   label: "Outsourcers",  icon: Clock,      path: "/outsourcer-tracker",        badge: "4" },
-  { key: "integrations", label: "Integrations", icon: Puzzle,     path: "/integrations",              badge: null },
-  { key: "notifications",label: "Notifications",icon: Bell,       path: "/notifications",             badge: null },
+  { key: "ghl_auto",     label: "Automations",   icon: Zap,     path: "/marketing/ghl-automation", badge: null },
+  { key: "integrations", label: "Integrations",  icon: Puzzle,  path: "/integrations",              badge: null },
+  { key: "notifications",label: "Notifications", icon: Bell,    path: "/notifications",             badge: "12" },
 ];
 
-const BOTTOM_NAV_ITEMS = [
-  { key: "settings", label: "Settings",      icon: Settings,   path: "/settings" },
-  { key: "help",     label: "Help & Support",icon: HelpCircle, path: "/help" },
+const MANAGE_ITEMS = [
+  { key: "businesses",  label: "Businesses",    icon: Building2, path: "/businesses",       badge: null },
+  { key: "team_hub",    label: "Team / People", icon: Users,     path: "/team-hub",         badge: null },
+  { key: "settings",    label: "Settings",      icon: Settings,  path: "/settings",         badge: null },
 ];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-/** Badge pill — adapts colour when the parent item is active */
 function Badge({ label, isActive }) {
   return (
     <span
       className={cn(
         "text-[10px] font-semibold px-1.5 py-0.5 rounded-md leading-none",
-        isActive
-          ? "bg-white text-[#7c3aed]"
-          : "bg-bg-soft text-muted"
+        isActive ? "bg-white text-[#7c3aed]" : "bg-bg-soft text-muted"
       )}
     >
       {label}
@@ -86,7 +95,6 @@ function Badge({ label, isActive }) {
   );
 }
 
-/** Single nav item row */
 function NavItem({ item, role, collapsed }) {
   if (!canSeeSidebar(role, item.key)) return null;
   return (
@@ -97,7 +105,7 @@ function NavItem({ item, role, collapsed }) {
       className={({ isActive }) =>
         cn(
           "flex items-center gap-2.5 rounded-[7px] text-[13px] font-medium transition-colors group",
-          collapsed ? "justify-center px-0 py-2" : "px-[10px] py-[8px]",
+          collapsed ? "justify-center px-0 py-2" : "px-[10px] py-[7px]",
           isActive
             ? "bg-[#ede9fe] text-[#7c3aed]"
             : "text-ink hover:bg-bg-soft"
@@ -107,7 +115,7 @@ function NavItem({ item, role, collapsed }) {
       {({ isActive }) => (
         <>
           <span className="flex items-center justify-center w-[18px] h-[18px] shrink-0">
-            <item.icon size={16} />
+            <item.icon size={15} />
           </span>
           {!collapsed && (
             <>
@@ -121,7 +129,6 @@ function NavItem({ item, role, collapsed }) {
   );
 }
 
-/** Collapsible section header */
 function SectionHeader({ label, collapsed }) {
   if (collapsed) return <div className="my-2 border-t border-line" />;
   return (
@@ -131,7 +138,6 @@ function SectionHeader({ label, collapsed }) {
   );
 }
 
-/** Practice / business entry */
 function PracticeItem({ biz, collapsed }) {
   return (
     <NavLink
@@ -140,7 +146,7 @@ function PracticeItem({ biz, collapsed }) {
       className={({ isActive }) =>
         cn(
           "flex items-center gap-2.5 rounded-[7px] text-[13px] font-medium transition-colors",
-          collapsed ? "justify-center px-0 py-2" : "px-[10px] py-[8px]",
+          collapsed ? "justify-center px-0 py-2" : "px-[10px] py-[7px]",
           isActive
             ? "bg-[#ede9fe] text-[#7c3aed]"
             : "text-ink hover:bg-bg-soft"
@@ -169,7 +175,7 @@ export default function Sidebar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const [practicesOpen, setPracticesOpen] = useState(true);
+  const [practicesOpen, setPracticesOpen] = useState(false);
   const [marketingOpen, setMarketingOpen] = useState(false);
   const role = user?.role || "CEO";
 
@@ -178,19 +184,16 @@ export default function Sidebar() {
     navigate("/login");
   }
 
-  // ── Collapsed sidebar ──────────────────────────────────────────────────────
+  // ── Collapsed sidebar ────────────────────────────────────────────────────
   if (collapsed) {
     return (
       <aside className="w-[60px] bg-white border-r border-line h-screen sticky top-0 flex flex-col items-center py-4 gap-1 overflow-hidden">
-        {/* Logo mark */}
         <div
           className="w-[30px] h-[30px] rounded-lg flex items-center justify-center text-white font-extrabold text-sm mb-2 shrink-0"
           style={{ background: "linear-gradient(135deg, #7c3aed, #a78bfa)" }}
         >
           C
         </div>
-
-        {/* Expand button */}
         <button
           onClick={() => setCollapsed(false)}
           className="text-muted hover:text-ink mb-2"
@@ -198,13 +201,11 @@ export default function Sidebar() {
         >
           <ChevronRight size={16} />
         </button>
-
-        {/* Collapsed icons — core */}
         <div className="flex flex-col items-center gap-0.5 w-full px-1">
-          {CORE_ITEMS.map((item) =>
+          {COMMAND_ITEMS.map((item) =>
             canSeeSidebar(role, item.key) ? (
               <NavLink
-                key={item.key}
+                key={item.path}
                 to={item.path}
                 end={item.path === "/"}
                 title={item.label}
@@ -224,7 +225,7 @@ export default function Sidebar() {
     );
   }
 
-  // ── Expanded sidebar ───────────────────────────────────────────────────────
+  // ── Expanded sidebar ─────────────────────────────────────────────────────
   return (
     <aside
       className="bg-white border-r border-line h-screen sticky top-0 flex flex-col overflow-y-auto"
@@ -233,7 +234,6 @@ export default function Sidebar() {
       {/* Brand header */}
       <div className="flex items-center justify-between px-4 pt-4 pb-3 shrink-0">
         <div className="flex items-center gap-2.5">
-          {/* Logo */}
           <div
             className="w-[30px] h-[30px] rounded-lg flex items-center justify-center text-white font-extrabold text-sm shrink-0"
             style={{ background: "linear-gradient(135deg, #7c3aed, #a78bfa)" }}
@@ -242,7 +242,7 @@ export default function Sidebar() {
           </div>
           <div className="leading-tight">
             <div className="text-[13px] font-bold text-ink">CommandOS</div>
-            <div className="text-[10px] text-muted">Business Operating System</div>
+            <div className="text-[10px] text-muted">V3 · Preview</div>
           </div>
         </div>
         <button
@@ -257,32 +257,39 @@ export default function Sidebar() {
       {/* Scrollable nav */}
       <nav className="flex-1 px-2 pb-2 overflow-y-auto">
 
-        {/* ── CORE ── */}
-        <SectionHeader label="Core" />
+        {/* ── COMMAND ── */}
+        <SectionHeader label="Command" />
         <div className="space-y-0.5">
-          {CORE_ITEMS.map((item) => (
-            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+          {COMMAND_ITEMS.map((item) => (
+            <NavItem key={item.path} item={item} role={role} collapsed={false} />
           ))}
         </div>
 
-        {/* ── GROWTH ── */}
-        <SectionHeader label="Growth" />
+        {/* ── PLANS ── */}
+        <SectionHeader label="Plans" />
         <div className="space-y-0.5">
+          {PLANS_ITEMS.map((item, i) => (
+            <NavItem key={item.label + i} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
 
+        {/* ── MARKETING ── */}
+        <SectionHeader label="Marketing" />
+        <div className="space-y-0.5">
           {/* Marketing OS — expandable */}
           {canSeeSidebar(role, "marketing") && (
             <div>
               <button
                 onClick={() => setMarketingOpen(!marketingOpen)}
                 className={cn(
-                  "flex items-center gap-2.5 px-[10px] py-[8px] rounded-[7px] text-[13px] font-medium transition-colors w-full",
+                  "flex items-center gap-2.5 px-[10px] py-[7px] rounded-[7px] text-[13px] font-medium transition-colors w-full",
                   marketingOpen
                     ? "bg-[#ede9fe] text-[#7c3aed]"
                     : "text-ink hover:bg-bg-soft"
                 )}
               >
                 <span className="flex items-center justify-center w-[18px] h-[18px] shrink-0">
-                  <Globe size={16} />
+                  <Globe size={15} />
                 </span>
                 <span className="flex-1 text-left truncate">Marketing OS</span>
                 <ChevronDown
@@ -290,12 +297,11 @@ export default function Sidebar() {
                   className={cn("shrink-0 transition-transform", !marketingOpen && "-rotate-90")}
                 />
               </button>
-
               {marketingOpen && (
                 <div className="ml-4 mt-0.5 mb-0.5 space-y-0.5 border-l-2 border-line pl-2">
                   {MARKETING_SUBITEMS.map((item) => (
                     <NavLink
-                      key={item.key}
+                      key={item.path}
                       to={item.path}
                       className={({ isActive }) =>
                         cn(
@@ -315,8 +321,24 @@ export default function Sidebar() {
             </div>
           )}
 
-          {GROWTH_ITEMS.map((item) => (
-            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+          {MARKETING_TOP_ITEMS.map((item) => (
+            <NavItem key={item.path} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
+
+        {/* ── SALES ── */}
+        <SectionHeader label="Sales" />
+        <div className="space-y-0.5">
+          {SALES_ITEMS.map((item, i) => (
+            <NavItem key={item.label + i} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
+
+        {/* ── OPERATIONS ── */}
+        <SectionHeader label="Operations" />
+        <div className="space-y-0.5">
+          {OPERATIONS_ITEMS.map((item) => (
+            <NavItem key={item.path} item={item} role={role} collapsed={false} />
           ))}
         </div>
 
@@ -324,7 +346,7 @@ export default function Sidebar() {
         <SectionHeader label="Intelligence" />
         <div className="space-y-0.5">
           {INTELLIGENCE_ITEMS.map((item) => (
-            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+            <NavItem key={item.path} item={item} role={role} collapsed={false} />
           ))}
         </div>
 
@@ -332,13 +354,20 @@ export default function Sidebar() {
         <SectionHeader label="Automation" />
         <div className="space-y-0.5">
           {AUTOMATION_ITEMS.map((item) => (
-            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+            <NavItem key={item.path} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
+
+        {/* ── MANAGE ── */}
+        <SectionHeader label="Manage" />
+        <div className="space-y-0.5">
+          {MANAGE_ITEMS.map((item) => (
+            <NavItem key={item.path} item={item} role={role} collapsed={false} />
           ))}
         </div>
 
         {/* ── PRACTICES (collapsible) ── */}
-        <SectionHeader label="Practices" />
-        <div>
+        <div className="mt-2">
           <button
             onClick={() => setPracticesOpen(!practicesOpen)}
             className="flex items-center gap-2 px-[10px] py-1 text-[9.5px] font-bold text-muted uppercase tracking-widest w-full hover:text-ink transition-colors"
@@ -360,34 +389,10 @@ export default function Sidebar() {
             </div>
           )}
         </div>
-
-        {/* ── Settings + Help (pushed toward bottom) ── */}
-        <div className="mt-auto pt-4 space-y-0.5">
-          {BOTTOM_NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.key}
-              to={item.path}
-              className={({ isActive }) =>
-                cn(
-                  "flex items-center gap-2.5 px-[10px] py-[8px] rounded-[7px] text-[13px] font-medium transition-colors",
-                  isActive
-                    ? "bg-[#ede9fe] text-[#7c3aed]"
-                    : "text-ink hover:bg-bg-soft"
-                )
-              }
-            >
-              <span className="flex items-center justify-center w-[18px] h-[18px] shrink-0">
-                <item.icon size={16} />
-              </span>
-              <span className="flex-1 truncate">{item.label}</span>
-            </NavLink>
-          ))}
-        </div>
       </nav>
 
       {/* Footer — user identity */}
       <div className="shrink-0 border-t border-line px-3 py-3 flex items-center gap-2.5">
-        {/* Avatar */}
         <div
           className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0"
           style={{ background: "linear-gradient(135deg, #0e2a47, #1f6fb5)" }}
@@ -396,7 +401,7 @@ export default function Sidebar() {
         </div>
         <div className="min-w-0 flex-1">
           <div className="text-[13px] font-semibold text-ink truncate">{user?.name}</div>
-          <div className="text-[10px] text-muted truncate">{user?.role} · Admin</div>
+          <div className="text-[10px] text-muted truncate">{user?.role}</div>
         </div>
         <button
           onClick={handleSignOut}
