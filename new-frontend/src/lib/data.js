@@ -24,11 +24,11 @@ export const BUSINESSES = [
 ];
 
 export const DASHBOARD_KPIS = {
-  revenue: { label: "Monthly Revenue", value: 889489, icon: "$", delta: 12.5, target: 1000000, borderColor: "#10b981" },
+  revenue: { label: "Monthly Revenue", value: 889489, icon: "$", delta: 12.5, target: 1000000, borderColor: "#7c3aed" },
   leads: { label: "Leads Today", value: 20, icon: "people", delta: 8.3, subtitle: "117 this week", borderColor: "#14b8a6" },
   bookings: { label: "Bookings Today", value: 12, icon: "calendar", delta: null, subtitle: "38.5% conv.", extra: "47 this week", borderColor: "#14b8a6" },
   adSpend: { label: "Monthly Ad Spend", value: 18310, icon: "sparkle", delta: null, subtitle: "9.2x ROI", extra: "£598/day", borderColor: "#14b8a6" },
-  tasks: { label: "Tasks Completed", value: "20/48", icon: "check", delta: null, subtitle: "2 overdue", borderColor: "#10b981" },
+  tasks: { label: "Tasks Completed", value: "20/48", icon: "check", delta: null, subtitle: "2 overdue", borderColor: "#7c3aed" },
 };
 
 export const CRITICAL_ALERTS = [

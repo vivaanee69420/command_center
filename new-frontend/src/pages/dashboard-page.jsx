@@ -154,7 +154,7 @@ export default function DashboardPage() {
       icon: "$",
       delta: metrics.revenue.trend,
       target: metrics.revenue.target,
-      borderColor: "#10b981",
+      borderColor: "#7c3aed",
     },
     leads: {
       label: "Leads Today",
@@ -195,7 +195,7 @@ export default function DashboardPage() {
   if (loading) {
     return (
       <>
-        <Topbar title="Group Dashboard" />
+        <Topbar title="Command Centre" subtitle="Overview of your entire business ecosystem" />
         <main className="flex items-center justify-center h-96">
           <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary" />
         </main>
@@ -205,7 +205,7 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Topbar title="Group Dashboard" />
+      <Topbar title="Command Centre" subtitle="Overview of your entire business ecosystem" />
       <main className="p-6 max-w-[1500px] mx-auto w-full space-y-5">
         <PageHeader
           icon="🏢"

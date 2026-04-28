@@ -5,107 +5,165 @@ import { canSeeSidebar } from "@/lib/constants";
 import { BUSINESSES } from "@/lib/data";
 import { getInitials, cn } from "@/lib/utils";
 import {
-  LayoutGrid, Globe, Mic, ChevronRight, ChevronLeft, ChevronDown,
-  Users, Sparkles, TrendingUp, UserCircle, Settings, LogOut,
-  Search, CalendarDays, BarChart3, Receipt,
+  LayoutGrid, Globe, ChevronRight, ChevronLeft, ChevronDown,
+  Users, Sparkles, Settings, HelpCircle, LogOut,
+  Search, CalendarDays, BarChart3,
   Link, Inbox, BookOpen, PenTool, ShieldCheck, Phone, Zap, Megaphone, BarChart,
-  Kanban, ListChecks, Radar, Clock,
+  Brain, TrendingUp, Bell, Puzzle, Building2, FolderKanban, UserCheck,
+  ClipboardList, Map, Clock,
 } from "lucide-react";
 
 const practices = BUSINESSES.filter((b) => b.type === "practice");
 const otherBiz = BUSINESSES.filter((b) => b.type !== "practice");
 
-const NAV_ITEMS = [
-  { key: "home", label: "Group Dashboard", icon: LayoutGrid, path: "/", badge: "CEO" },
-  { key: "voice_tasks", label: "Voice Tasks", icon: Mic, path: "/voice-tasks", badge: "AI" },
+// ── Navigation structure matching CommandOS.html ──────────────────────────────
+
+const CORE_ITEMS = [
+  { key: "home",          label: "Command Centre",      icon: LayoutGrid,    path: "/",                  badge: null },
+  { key: "businesses",    label: "Businesses",          icon: Building2,     path: "/businesses",         badge: "9" },
+  { key: "projects",      label: "Projects & Tasks",    icon: FolderKanban,  path: "/projects",           badge: "73" },
+  { key: "crm",           label: "CRM / Sales",         icon: UserCheck,     path: "/crm",                badge: "155" },
+  { key: "team_hub",      label: "Team / People",       icon: Users,         path: "/team-hub",           badge: null },
+  { key: "daily_routines",label: "Daily Routines · 90-Day", icon: ClipboardList, path: "/daily-routines", badge: "CEO+COO" },
+  { key: "content_cal",   label: "Calendar",            icon: CalendarDays,  path: "/content-calendar",   badge: null },
+  { key: "documents",     label: "Documents",           icon: BookOpen,      path: "/documents",          badge: null },
 ];
 
 const MARKETING_SUBITEMS = [
-  { key: "lead_engine", label: "Lead Engine", icon: Link, path: "/marketing/lead-engine" },
-  { key: "manus_inbox", label: "Manus Inbox", icon: Inbox, path: "/marketing/manus-inbox" },
-  { key: "offers", label: "Offer Library", icon: BookOpen, path: "/marketing/offers" },
-  { key: "content", label: "Content Factory", icon: PenTool, path: "/marketing/content-factory" },
-  { key: "sales", label: "Sales Enablement", icon: ShieldCheck, path: "/marketing/sales" },
-  { key: "setter", label: "Setter Dashboard", icon: Phone, path: "/marketing/setter" },
-  { key: "ghl_auto", label: "GHL Automation", icon: Zap, path: "/marketing/ghl-automation" },
-  { key: "ads", label: "Ads Dashboard", icon: Megaphone, path: "/marketing/ads" },
-  { key: "ghl_dash", label: "GHL Dashboard", icon: BarChart, path: "/marketing/ghl-dashboard" },
+  { key: "lead_engine",  label: "Lead Engine",      icon: Link,       path: "/marketing/lead-engine" },
+  { key: "manus_inbox",  label: "Manus Inbox",      icon: Inbox,      path: "/marketing/manus-inbox" },
+  { key: "offers",       label: "Offer Library",    icon: BookOpen,   path: "/marketing/offers" },
+  { key: "content",      label: "Content Factory",  icon: PenTool,    path: "/marketing/content-factory" },
+  { key: "sales",        label: "Sales Enablement", icon: ShieldCheck,path: "/marketing/sales" },
+  { key: "setter",       label: "Setter Dashboard", icon: Phone,      path: "/marketing/setter" },
+  { key: "ghl_auto",     label: "GHL Automation",   icon: Zap,        path: "/marketing/ghl-automation" },
+  { key: "ads",          label: "Ads Dashboard",    icon: Megaphone,  path: "/marketing/ads" },
+  { key: "ghl_dash",     label: "GHL Dashboard",    icon: BarChart,   path: "/marketing/ghl-dashboard" },
 ];
 
-const BOTTOM_ITEMS = [
-  { key: "team_hub", label: "Team Hub", icon: Users, path: "/team-hub", badge: "TEAM" },
-  { key: "competitors", label: "Competitor AI", icon: Sparkles, path: "/competitor-ai", badge: "AI" },
+const GROWTH_ITEMS = [
+  // Marketing OS is handled separately (has submenu)
+  { key: "seo",           label: "SEO & Rankings",      icon: Search,       path: "/seo",              badge: null },
+  { key: "ads",           label: "Ads Manager",         icon: Megaphone,    path: "/marketing/ads",    badge: null },
+  { key: "competitors",   label: "Competitor Analysis", icon: Sparkles,     path: "/competitor-ai",    badge: null },
+  { key: "backlinks",     label: "Backlink Monitor",    icon: Link,         path: "/backlinks",         badge: null },
 ];
 
-const ANALYTICS_ITEMS = [
-  { key: "team_scoreboard", label: "Team Scoreboard", icon: TrendingUp, path: "/team-scoreboard", badge: "2" },
-  { key: "seo", label: "SEO Command Center", icon: Search, path: "/seo" },
-  { key: "content_cal", label: "Content Calendar", icon: CalendarDays, path: "/content-calendar" },
-  { key: "business_performance", label: "Biz Performance", icon: BarChart3, path: "/business-performance" },
-  { key: "business_pnl", label: "Business P&L", icon: Receipt, path: "/business-pnl" },
+const INTELLIGENCE_ITEMS = [
+  { key: "ai_brain",             label: "AI Brain",              icon: Brain,      path: "/ai-brain",              badge: null },
+  { key: "market_intel",         label: "Market Intelligence",   icon: Map,        path: "/market-intel",          badge: null },
+  { key: "business_performance", label: "Reports & Analytics",   icon: BarChart3,  path: "/business-performance",  badge: null },
+  { key: "insights",             label: "AI Insights",           icon: TrendingUp, path: "/insights",              badge: null },
 ];
 
-const TOOLS_ITEMS = [
-  { key: "kanban", label: "Kanban Board", icon: Kanban, path: "/kanban" },
-  { key: "simple_tasks", label: "Simple Tasks", icon: ListChecks, path: "/simple-tasks" },
-  { key: "mission_control", label: "Mission Control", icon: Radar, path: "/mission-control" },
-  { key: "outsourcer", label: "Outsourcer Portal", icon: Clock, path: "/outsourcer-tracker" },
+const AUTOMATION_ITEMS = [
+  { key: "ghl_auto",     label: "Automations",  icon: Zap,        path: "/marketing/ghl-automation", badge: null },
+  { key: "outsourcer",   label: "Outsourcers",  icon: Clock,      path: "/outsourcer-tracker",        badge: "4" },
+  { key: "integrations", label: "Integrations", icon: Puzzle,     path: "/integrations",              badge: null },
+  { key: "notifications",label: "Notifications",icon: Bell,       path: "/notifications",             badge: null },
 ];
 
-const ADMIN_ITEMS = [
-  { key: "user_management", label: "User Management", icon: UserCircle, path: "/user-management" },
-  { key: "settings", label: "Settings", icon: Settings, path: "/settings" },
+const BOTTOM_NAV_ITEMS = [
+  { key: "settings", label: "Settings",      icon: Settings,   path: "/settings" },
+  { key: "help",     label: "Help & Support",icon: HelpCircle, path: "/help" },
 ];
 
-function NavItem({ item, role }) {
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+/** Badge pill — adapts colour when the parent item is active */
+function Badge({ label, isActive }) {
+  return (
+    <span
+      className={cn(
+        "text-[10px] font-semibold px-1.5 py-0.5 rounded-md leading-none",
+        isActive
+          ? "bg-white text-[#7c3aed]"
+          : "bg-bg-soft text-muted"
+      )}
+    >
+      {label}
+    </span>
+  );
+}
+
+/** Single nav item row */
+function NavItem({ item, role, collapsed }) {
   if (!canSeeSidebar(role, item.key)) return null;
   return (
     <NavLink
       to={item.path}
       end={item.path === "/"}
+      title={collapsed ? item.label : undefined}
       className={({ isActive }) =>
         cn(
-          "flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors",
+          "flex items-center gap-2.5 rounded-[7px] text-[13px] font-medium transition-colors group",
+          collapsed ? "justify-center px-0 py-2" : "px-[10px] py-[8px]",
           isActive
-            ? "bg-primary text-white"
+            ? "bg-[#ede9fe] text-[#7c3aed]"
             : "text-ink hover:bg-bg-soft"
         )
       }
     >
-      <item.icon size={18} />
-      <span className="flex-1">{item.label}</span>
-      {item.badge && (
-        <span className={cn(
-          "text-[10px] font-bold px-2 py-0.5 rounded-md",
-          item.badge === "P4G" ? "bg-orange-soft text-orange" :
-          item.badge === "Elevate" ? "bg-primary-soft text-primary" :
-          item.badge === "TEAM" ? "bg-bg-soft text-muted" :
-          "bg-ink/10 text-ink/70"
-        )}>
-          {item.badge}
-        </span>
+      {({ isActive }) => (
+        <>
+          <span className="flex items-center justify-center w-[18px] h-[18px] shrink-0">
+            <item.icon size={16} />
+          </span>
+          {!collapsed && (
+            <>
+              <span className="flex-1 truncate">{item.label}</span>
+              {item.badge && <Badge label={item.badge} isActive={isActive} />}
+            </>
+          )}
+        </>
       )}
     </NavLink>
   );
 }
 
-function PracticeItem({ biz }) {
+/** Collapsible section header */
+function SectionHeader({ label, collapsed }) {
+  if (collapsed) return <div className="my-2 border-t border-line" />;
+  return (
+    <div className="px-[10px] pt-4 pb-1 text-[9.5px] font-bold text-muted uppercase tracking-widest">
+      {label}
+    </div>
+  );
+}
+
+/** Practice / business entry */
+function PracticeItem({ biz, collapsed }) {
   return (
     <NavLink
       to={`/practices/${biz.slug}`}
+      title={collapsed ? biz.name : undefined}
       className={({ isActive }) =>
         cn(
-          "flex items-center gap-3 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors",
-          isActive ? "bg-primary text-white" : "text-ink hover:bg-bg-soft"
+          "flex items-center gap-2.5 rounded-[7px] text-[13px] font-medium transition-colors",
+          collapsed ? "justify-center px-0 py-2" : "px-[10px] py-[8px]",
+          isActive
+            ? "bg-[#ede9fe] text-[#7c3aed]"
+            : "text-ink hover:bg-bg-soft"
         )
       }
     >
-      <span className="text-base">{biz.emoji}</span>
-      <span className="flex-1">{biz.name}</span>
-      <ChevronRight size={14} className="text-muted" />
+      <span className="text-base leading-none shrink-0">{biz.emoji}</span>
+      {!collapsed && (
+        <>
+          <span className="flex-1 truncate">{biz.name}</span>
+          {biz.type === "academy" && (
+            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md bg-bg-soft text-muted">P4G</span>
+          )}
+          {biz.slug === "accounts" && (
+            <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md bg-bg-soft text-muted">Elevate</span>
+          )}
+        </>
+      )}
     </NavLink>
   );
 }
+
+// ── Main component ────────────────────────────────────────────────────────────
 
 export default function Sidebar() {
   const { user, logout } = useAuth();
@@ -120,162 +178,232 @@ export default function Sidebar() {
     navigate("/login");
   }
 
+  // ── Collapsed sidebar ──────────────────────────────────────────────────────
   if (collapsed) {
     return (
-      <aside className="w-[60px] bg-white border-r border-line h-screen sticky top-0 flex flex-col items-center py-4">
-        <button onClick={() => setCollapsed(false)} className="text-muted hover:text-ink mb-4">
+      <aside className="w-[60px] bg-white border-r border-line h-screen sticky top-0 flex flex-col items-center py-4 gap-1 overflow-hidden">
+        {/* Logo mark */}
+        <div
+          className="w-[30px] h-[30px] rounded-lg flex items-center justify-center text-white font-extrabold text-sm mb-2 shrink-0"
+          style={{ background: "linear-gradient(135deg, #7c3aed, #a78bfa)" }}
+        >
+          C
+        </div>
+
+        {/* Expand button */}
+        <button
+          onClick={() => setCollapsed(false)}
+          className="text-muted hover:text-ink mb-2"
+          title="Expand sidebar"
+        >
           <ChevronRight size={16} />
         </button>
+
+        {/* Collapsed icons — core */}
+        <div className="flex flex-col items-center gap-0.5 w-full px-1">
+          {CORE_ITEMS.map((item) =>
+            canSeeSidebar(role, item.key) ? (
+              <NavLink
+                key={item.key}
+                to={item.path}
+                end={item.path === "/"}
+                title={item.label}
+                className={({ isActive }) =>
+                  cn(
+                    "flex items-center justify-center w-[38px] h-[34px] rounded-[7px] transition-colors",
+                    isActive ? "bg-[#ede9fe] text-[#7c3aed]" : "text-ink hover:bg-bg-soft"
+                  )
+                }
+              >
+                <item.icon size={16} />
+              </NavLink>
+            ) : null
+          )}
+        </div>
       </aside>
     );
   }
 
+  // ── Expanded sidebar ───────────────────────────────────────────────────────
   return (
-    <aside className="w-[190px] bg-white border-r border-line h-screen sticky top-0 flex flex-col overflow-y-auto">
-      {/* Brand */}
-      <div className="flex items-center justify-between px-4 pt-4 pb-2">
-        <div className="flex items-center gap-1">
-          <span className="font-extrabold text-lg text-ink">GM</span>
-          <span className="font-extrabold text-lg text-primary">OS</span>
+    <aside
+      className="bg-white border-r border-line h-screen sticky top-0 flex flex-col overflow-y-auto"
+      style={{ width: 248 }}
+    >
+      {/* Brand header */}
+      <div className="flex items-center justify-between px-4 pt-4 pb-3 shrink-0">
+        <div className="flex items-center gap-2.5">
+          {/* Logo */}
+          <div
+            className="w-[30px] h-[30px] rounded-lg flex items-center justify-center text-white font-extrabold text-sm shrink-0"
+            style={{ background: "linear-gradient(135deg, #7c3aed, #a78bfa)" }}
+          >
+            C
+          </div>
+          <div className="leading-tight">
+            <div className="text-[13px] font-bold text-ink">CommandOS</div>
+            <div className="text-[10px] text-muted">Business Operating System</div>
+          </div>
         </div>
-        <button onClick={() => setCollapsed(true)} className="text-muted hover:text-ink">
+        <button
+          onClick={() => setCollapsed(true)}
+          className="text-muted hover:text-ink shrink-0"
+          title="Collapse sidebar"
+        >
           <ChevronLeft size={16} />
         </button>
       </div>
 
-      {/* User profile */}
-      <div className="flex items-center gap-3 px-4 py-3">
-        <div
-          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
-          style={{ backgroundColor: user?.color || "#0e2a47" }}
-        >
-          {getInitials(user?.name || "U")}
-        </div>
-        <div className="min-w-0">
-          <div className="text-[13px] font-semibold text-ink truncate">{user?.name}</div>
-          <div className="text-[11px] text-muted truncate">{user?.role} · Full Access</div>
-        </div>
-      </div>
+      {/* Scrollable nav */}
+      <nav className="flex-1 px-2 pb-2 overflow-y-auto">
 
-      {/* Main nav */}
-      <nav className="flex-1 px-2 py-1 space-y-0.5">
-        {NAV_ITEMS.map((item) => (
-          <NavItem key={item.key} item={item} role={role} />
-        ))}
+        {/* ── CORE ── */}
+        <SectionHeader label="Core" />
+        <div className="space-y-0.5">
+          {CORE_ITEMS.map((item) => (
+            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
 
-        {/* Marketing OS with submenu */}
-        {canSeeSidebar(role, "marketing") && (
-          <div>
-            <button
-              onClick={() => setMarketingOpen(!marketingOpen)}
-              className={cn(
-                "flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium transition-colors w-full",
-                marketingOpen ? "bg-primary/10 text-primary" : "text-ink hover:bg-bg-soft"
+        {/* ── GROWTH ── */}
+        <SectionHeader label="Growth" />
+        <div className="space-y-0.5">
+
+          {/* Marketing OS — expandable */}
+          {canSeeSidebar(role, "marketing") && (
+            <div>
+              <button
+                onClick={() => setMarketingOpen(!marketingOpen)}
+                className={cn(
+                  "flex items-center gap-2.5 px-[10px] py-[8px] rounded-[7px] text-[13px] font-medium transition-colors w-full",
+                  marketingOpen
+                    ? "bg-[#ede9fe] text-[#7c3aed]"
+                    : "text-ink hover:bg-bg-soft"
+                )}
+              >
+                <span className="flex items-center justify-center w-[18px] h-[18px] shrink-0">
+                  <Globe size={16} />
+                </span>
+                <span className="flex-1 text-left truncate">Marketing OS</span>
+                <ChevronDown
+                  size={13}
+                  className={cn("shrink-0 transition-transform", !marketingOpen && "-rotate-90")}
+                />
+              </button>
+
+              {marketingOpen && (
+                <div className="ml-4 mt-0.5 mb-0.5 space-y-0.5 border-l-2 border-line pl-2">
+                  {MARKETING_SUBITEMS.map((item) => (
+                    <NavLink
+                      key={item.key}
+                      to={item.path}
+                      className={({ isActive }) =>
+                        cn(
+                          "flex items-center gap-2 px-2 py-1.5 rounded-[7px] text-[12px] font-medium transition-colors",
+                          isActive
+                            ? "bg-[#ede9fe] text-[#7c3aed]"
+                            : "text-muted hover:text-ink hover:bg-bg-soft"
+                        )
+                      }
+                    >
+                      <item.icon size={13} />
+                      <span>{item.label}</span>
+                    </NavLink>
+                  ))}
+                </div>
               )}
-            >
-              <Globe size={18} />
-              <span className="flex-1 text-left">Marketing OS</span>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-ink/10 text-ink/70">9M</span>
-              <ChevronDown size={14} className={cn("transition-transform", !marketingOpen && "-rotate-90")} />
-            </button>
-            {marketingOpen && (
-              <div className="ml-3 mt-0.5 space-y-0.5 border-l-2 border-line pl-2">
-                {MARKETING_SUBITEMS.map((item) => (
-                  <NavLink
-                    key={item.key}
-                    to={item.path}
-                    className={({ isActive }) =>
-                      cn(
-                        "flex items-center gap-2 px-2 py-1.5 rounded-lg text-[12px] font-medium transition-colors",
-                        isActive ? "bg-primary text-white" : "text-muted hover:text-ink hover:bg-bg-soft"
-                      )
-                    }
-                  >
-                    <item.icon size={14} />
-                    <span>{item.label}</span>
-                  </NavLink>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
 
-        {/* Practices */}
-        <div className="mt-4">
+          {GROWTH_ITEMS.map((item) => (
+            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
+
+        {/* ── INTELLIGENCE ── */}
+        <SectionHeader label="Intelligence" />
+        <div className="space-y-0.5">
+          {INTELLIGENCE_ITEMS.map((item) => (
+            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
+
+        {/* ── AUTOMATION ── */}
+        <SectionHeader label="Automation" />
+        <div className="space-y-0.5">
+          {AUTOMATION_ITEMS.map((item) => (
+            <NavItem key={item.key} item={item} role={role} collapsed={false} />
+          ))}
+        </div>
+
+        {/* ── PRACTICES (collapsible) ── */}
+        <SectionHeader label="Practices" />
+        <div>
           <button
             onClick={() => setPracticesOpen(!practicesOpen)}
-            className="flex items-center gap-2 px-3 py-1 text-[10px] font-bold text-muted uppercase tracking-wider w-full"
+            className="flex items-center gap-2 px-[10px] py-1 text-[9.5px] font-bold text-muted uppercase tracking-widest w-full hover:text-ink transition-colors"
           >
-            <span>Practices</span>
-            <ChevronRight size={12} className={cn("transition-transform", practicesOpen && "rotate-90")} />
+            <span className="flex-1 text-left">Locations</span>
+            <ChevronRight
+              size={11}
+              className={cn("transition-transform", practicesOpen && "rotate-90")}
+            />
           </button>
           {practicesOpen && (
-            <div className="mt-1 space-y-0.5">
-              {practices.map((b) => <PracticeItem key={b.slug} biz={b} />)}
+            <div className="mt-0.5 space-y-0.5">
+              {practices.map((b) => (
+                <PracticeItem key={b.slug} biz={b} collapsed={false} />
+              ))}
+              {otherBiz.map((b) => (
+                <PracticeItem key={b.slug} biz={b} collapsed={false} />
+              ))}
             </div>
           )}
         </div>
 
-        {/* Other businesses */}
-        <div className="mt-3 space-y-0.5">
-          {otherBiz.map((b) => (
+        {/* ── Settings + Help (pushed toward bottom) ── */}
+        <div className="mt-auto pt-4 space-y-0.5">
+          {BOTTOM_NAV_ITEMS.map((item) => (
             <NavLink
-              key={b.slug}
-              to={`/practices/${b.slug}`}
+              key={item.key}
+              to={item.path}
               className={({ isActive }) =>
                 cn(
-                  "flex items-center gap-3 px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors",
-                  isActive ? "bg-primary text-white" : "text-ink hover:bg-bg-soft"
+                  "flex items-center gap-2.5 px-[10px] py-[8px] rounded-[7px] text-[13px] font-medium transition-colors",
+                  isActive
+                    ? "bg-[#ede9fe] text-[#7c3aed]"
+                    : "text-ink hover:bg-bg-soft"
                 )
               }
             >
-              <span className="text-base">{b.emoji}</span>
-              <span className="flex-1">{b.name}</span>
-              {b.type === "academy" && <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-orange-soft text-orange">P4G</span>}
-              {b.slug === "accounts" && <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-primary-soft text-primary">Elevate</span>}
+              <span className="flex items-center justify-center w-[18px] h-[18px] shrink-0">
+                <item.icon size={16} />
+              </span>
+              <span className="flex-1 truncate">{item.label}</span>
             </NavLink>
           ))}
         </div>
-
-        {/* Team + Competitor */}
-        <div className="mt-3 space-y-0.5">
-          {BOTTOM_ITEMS.map((item) => (
-            <NavItem key={item.key} item={item} role={role} />
-          ))}
-        </div>
-
-        {/* Tools */}
-        <div className="mt-4">
-          <div className="px-3 py-1 text-[10px] font-bold text-muted uppercase tracking-wider">Tools</div>
-          <div className="mt-1 space-y-0.5">
-            {TOOLS_ITEMS.map((item) => (
-              <NavItem key={item.key} item={item} role={role} />
-            ))}
-          </div>
-        </div>
-
-        {/* Analytics */}
-        <div className="mt-4">
-          <div className="px-3 py-1 text-[10px] font-bold text-muted uppercase tracking-wider">Analytics</div>
-          <div className="mt-1 space-y-0.5">
-            {ANALYTICS_ITEMS.map((item) => (
-              <NavItem key={item.key} item={item} role={role} />
-            ))}
-          </div>
-        </div>
       </nav>
 
-      {/* Admin + Sign Out */}
-      <div className="px-2 pb-4 space-y-0.5 border-t border-line pt-2">
-        {ADMIN_ITEMS.map((item) => (
-          <NavItem key={item.key} item={item} role={role} />
-        ))}
+      {/* Footer — user identity */}
+      <div className="shrink-0 border-t border-line px-3 py-3 flex items-center gap-2.5">
+        {/* Avatar */}
+        <div
+          className="w-[34px] h-[34px] rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0"
+          style={{ background: "linear-gradient(135deg, #0e2a47, #1f6fb5)" }}
+        >
+          {getInitials(user?.name || "U")}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="text-[13px] font-semibold text-ink truncate">{user?.name}</div>
+          <div className="text-[10px] text-muted truncate">{user?.role} · Admin</div>
+        </div>
         <button
           onClick={handleSignOut}
-          className="flex items-center gap-3 px-3 py-2 rounded-lg text-[13px] font-medium text-primary hover:bg-primary-light transition-colors w-full"
+          title="Sign out"
+          className="shrink-0 text-muted hover:text-[#7c3aed] transition-colors"
         >
-          <LogOut size={18} />
-          Sign Out
+          <LogOut size={15} />
         </button>
       </div>
     </aside>

@@ -9,7 +9,7 @@ const ICONS = {
   check: CheckCircle,
 };
 
-export default function KpiCard({ label, value, icon, delta, subtitle, extra, target, borderColor = "#10b981" }) {
+export default function KpiCard({ label, value, icon, delta, subtitle, extra, target, borderColor = "#7c3aed" }) {
   const Icon = ICONS[icon] || DollarSign;
   const isMonetary = icon === "$" || icon === "sparkle";
   const displayValue = isMonetary ? formatCurrency(value) : typeof value === "number" ? formatNumber(value) : value;
