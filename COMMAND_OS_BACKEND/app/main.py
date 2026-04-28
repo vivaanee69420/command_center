@@ -9,6 +9,10 @@ from .routers import core as core_router
 from .routers import intel as intel_router
 from .routers import dashboard as dashboard_router
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
+
 app = FastAPI(title="Command Center OS API", version="1.0.0")
 
 app.add_middleware(
@@ -57,3 +61,13 @@ async def root():
             "POST /api/integrations/{provider}/connect",
         ],
     }
+
+# Mount frontend static files
+static_dir = "/app/static"
+if os.path.exists(static_dir):
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
+
+    # Catch-all for React Router
+    @app.exception_handler(404)
+    async def custom_404_handler(request, __):
+        return FileResponse(os.path.join(static_dir, "index.html"))
