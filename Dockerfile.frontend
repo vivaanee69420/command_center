@@ -1,0 +1,23 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+COPY new-frontend/package*.json ./
+RUN npm install
+COPY new-frontend/ ./
+
+# VITE_API_URL must be passed as a build arg so it gets baked into the bundle
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
+RUN npm run build
+
+# ---- Serve stage ----
+FROM node:20-alpine
+WORKDIR /app
+
+RUN npm install -g serve
+
+COPY --from=builder /app/dist ./dist
+
+# Railway injects $PORT at runtime
+CMD ["sh", "-c", "serve dist --listen $PORT --single"]

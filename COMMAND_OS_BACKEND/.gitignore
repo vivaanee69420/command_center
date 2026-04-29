@@ -7,3 +7,5 @@ DEPLOYMENT_GUIDE.MD
 MASTER_README.MD
 
 /venv
+
+.env.example

@@ -10,3 +10,8 @@ CLAUDE.md
 /GM_Marketing_OS
 
 /venv
+
+*.env
+*.env.example
+
+*.env.production
