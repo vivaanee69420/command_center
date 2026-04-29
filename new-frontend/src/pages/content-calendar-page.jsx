@@ -6,43 +6,7 @@ import { cn } from "@/lib/utils";
 
 // ─── Static Data ─────────────────────────────────────────────────────────────
 
-const DAYS = [
-  { label: "MON 19", key: "mon" },
-  { label: "TUE 20", key: "tue" },
-  { label: "WED 21", key: "wed" },
-  { label: "THU 22", key: "thu" },
-  { label: "FRI 23", key: "fri" },
-  { label: "SAT 24", key: "sat" },
-  { label: "SUN 25", key: "sun" },
-];
-
-const HOURS = [
-  "9 AM",
-  "10 AM",
-  "11 AM",
-  "12 PM",
-  "1 PM",
-  "2 PM",
-  "3 PM",
-  "4 PM",
-];
-
-// Events keyed by [hourIndex][dayIndex]
-// hourIndex: 0=9AM, 1=10AM, 2=11AM, 3=12PM, 4=1PM, 5=2PM, 6=3PM, 7=4PM
-// dayIndex:  0=Mon, 1=Tue, 2=Wed, 3=Thu, 4=Fri, 5=Sat, 6=Sun
-const EVENTS = {
-  "0-0": { title: "Team Standup", color: "bg-green-500" },
-  "0-3": { title: "Content Meeting", color: "bg-green-500" },
-  "1-1": { title: "Facebook Ads Review", color: "bg-amber-500" },
-  "1-5": { title: "Sat Open Day", color: "bg-blue-500" },
-  "2-2": { title: "Project Review", color: "bg-green-500" },
-  "2-4": { title: "Team Training", color: "bg-blue-500" },
-  "3-0": { title: "Client Edit · Ascend", color: "bg-green-500" },
-  "3-3": { title: "Webinar Run-thru", color: "bg-green-500" },
-  "4-1": { title: "Strategy Call", color: "bg-green-500" },
-  "5-2": { title: "Google Ads Sync", color: "bg-green-500" },
-  "5-4": { title: "Monthly Report", color: "bg-blue-500" },
-};
+// DAYS, HOURS, EVENTS removed — calendar requires a backend calendar/events endpoint.
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 
@@ -105,60 +69,12 @@ export default function ContentCalendarPage() {
               </div>
             </div>
 
-            {/* Week Grid */}
-            <div className="bg-white border border-line rounded-xl overflow-hidden">
-              {/* Day Headers */}
-              <div className="grid border-b border-line" style={{ gridTemplateColumns: "60px repeat(7, 1fr)" }}>
-                <div className="border-line" />
-                {DAYS.map((day) => (
-                  <div
-                    key={day.key}
-                    className="text-center py-3 text-[10px] font-bold text-muted uppercase tracking-wider border-l border-line"
-                  >
-                    {day.label}
-                  </div>
-                ))}
+            <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Calendar Backend</p>
+                <p className="text-xs text-amber-600 leading-relaxed">The content calendar requires a backend <code className="font-mono bg-amber-100 px-1 rounded">calendar_event</code> model and <code className="font-mono bg-amber-100 px-1 rounded">GET /api/calendar/events</code> endpoint. Connect to Google Calendar or build a native events table.</p>
               </div>
-
-              {/* Time Rows */}
-              {HOURS.map((hour, hIdx) => (
-                <div
-                  key={hour}
-                  className={cn(
-                    "grid border-line",
-                    hIdx < HOURS.length - 1 ? "border-b" : ""
-                  )}
-                  style={{ gridTemplateColumns: "60px repeat(7, 1fr)", minHeight: "44px" }}
-                >
-                  {/* Time Label */}
-                  <div className="text-xs text-muted text-right pr-3 py-2 flex-shrink-0">
-                    {hour}
-                  </div>
-
-                  {/* Day Cells */}
-                  {DAYS.map((day, dIdx) => {
-                    const event = EVENTS[`${hIdx}-${dIdx}`];
-                    return (
-                      <div
-                        key={day.key}
-                        className="border-l border-line relative"
-                        style={{ minHeight: "44px" }}
-                      >
-                        {event && (
-                          <div
-                            className={cn(
-                              "absolute inset-x-1 top-1 bottom-1 px-2 py-1 rounded text-[11px] font-semibold text-white truncate",
-                              event.color
-                            )}
-                          >
-                            {event.title}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              ))}
             </div>
           </div>
 

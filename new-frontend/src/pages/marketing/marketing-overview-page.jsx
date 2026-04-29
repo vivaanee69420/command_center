@@ -107,21 +107,7 @@ const SUB_PAGES = [
   },
 ];
 
-const RECENT_ACTIVITY = [
-  { id: 1, text: "New lead from Google Ads", practice: "Ashford", time: "2m ago", type: "lead" },
-  { id: 2, text: "Email campaign sent", practice: "Rochester", time: "14m ago", type: "campaign" },
-  { id: 3, text: "Appointment booked via GHL", practice: "Barnet", time: "31m ago", type: "booking" },
-  { id: 4, text: "Meta ad set paused (budget hit)", practice: "Bexleyheath", time: "1h ago", type: "alert" },
-  { id: 5, text: "Offer activated — Invisalign £999", practice: "Warwick Lodge", time: "2h ago", type: "offer" },
-];
-
-const ACTIVITY_COLORS = {
-  lead: "#10b981",
-  campaign: "#3b82f6",
-  booking: "#7c3aed",
-  alert: "#f59e0b",
-  offer: "#ef4444",
-};
+// RECENT_ACTIVITY removed — needs GHL + task webhook events (pending).
 
 export default function MarketingOverviewPage() {
   const navigate = useNavigate();
@@ -347,32 +333,14 @@ export default function MarketingOverviewPage() {
               <Activity size={14} className="text-purple-600" />
               <h3 className="font-bold text-ink text-sm">Recent Activity</h3>
             </div>
-            <div className="divide-y divide-line">
-              {RECENT_ACTIVITY.map((item) => (
-                <div key={item.id} className="px-5 py-4 hover:bg-bg-soft transition-colors">
-                  <div className="flex items-start gap-3">
-                    <div
-                      className="w-2 h-2 rounded-full mt-1.5 shrink-0"
-                      style={{ background: ACTIVITY_COLORS[item.type] }}
-                    />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-medium text-ink leading-relaxed">{item.text}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span
-                          className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
-                          style={{ background: "#ede9fe", color: "#7c3aed" }}
-                        >
-                          {item.practice}
-                        </span>
-                        <span className="text-[10px] text-muted flex items-center gap-1">
-                          <Clock size={9} />
-                          {item.time}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+            <div className="p-5">
+              <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+                <div>
+                  <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Event Feed</p>
+                  <p className="text-xs text-amber-600 leading-relaxed">Activity feed requires GHL webhook events and task completion events. Wire GHL contacts/campaigns webhook endpoint to populate this stream.</p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>

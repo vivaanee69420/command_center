@@ -94,14 +94,7 @@ const USER_EMAILS = {
   contractor1: "contractor@example.com",
 };
 
-// Fake last-login times (decorative)
-const LAST_LOGINS = [
-  "Just now", "5 min ago", "22 min ago", "1h ago", "3h ago", "Today 09:14", "Yesterday", "2 days ago",
-];
-
-function randomLastLogin(idx) {
-  return LAST_LOGINS[idx % LAST_LOGINS.length];
-}
+// LAST_LOGINS removed — last_login_at field not yet on Person model (pending).
 
 // ── Avatar ────────────────────────────────────────────────────────────────────
 function Avatar({ user, size = 9 }) {
@@ -537,8 +530,13 @@ export default function UserManagementPage() {
                           </span>
                         </td>
 
-                        {/* Last Login */}
-                        <td className="px-5 py-3.5 text-[12px] text-muted">{randomLastLogin(idx)}</td>
+                        {/* Last Login — pending: last_login_at not yet on Person model */}
+                        <td className="px-5 py-3.5 text-[12px] text-muted">
+                          <span className="inline-flex items-center gap-1 text-amber-600 text-[11px] font-medium">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                            Pending
+                          </span>
+                        </td>
 
                         {/* Actions */}
                         <td className="px-5 py-3.5">

@@ -1,9 +1,10 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Topbar from "@/components/layout/topbar";
 import PageHeader from "@/components/shared/page-header";
 import KpiCard from "@/components/shared/kpi-card";
 import { cn, formatCurrency, getInitials } from "@/lib/utils";
 import { BUSINESSES } from "@/lib/data";
+import { api } from "@/api/client";
 import {
   Search,
   Filter,
@@ -20,42 +21,27 @@ import {
 
 // ─── Static Data ──────────────────────────────────────────────────────────────
 
-const CONTACTS = [
-  { id: 1, name: "James Holloway", email: "j.holloway@email.com", phone: "+44 7700 900001", practice: "Ashford", stage: "Appointment Set", lastContact: "2h ago", tags: ["Implants", "High Value"], value: 3500 },
-  { id: 2, name: "Priya Sharma", email: "priya.s@email.com", phone: "+44 7700 900002", practice: "Rochester", stage: "New Lead", lastContact: "4h ago", tags: ["Invisalign"], value: 2800 },
-  { id: 3, name: "Mohammed Al-Hassan", email: "m.alhassan@email.com", phone: "+44 7700 900003", practice: "Barnet", stage: "Showed Up", lastContact: "1d ago", tags: ["General", "NHS"], value: 450 },
-  { id: 4, name: "Sarah McPherson", email: "sarah.mc@email.com", phone: "+44 7700 900004", practice: "Bexleyheath", stage: "Treatment Presented", lastContact: "3h ago", tags: ["Whitening", "Implants"], value: 4200 },
-  { id: 5, name: "Daniel Okonkwo", email: "d.okonkwo@email.com", phone: "+44 7700 900005", practice: "Warwick Lodge", stage: "Won", lastContact: "2d ago", tags: ["Braces"], value: 3100 },
-  { id: 6, name: "Emma Richardson", email: "emma.r@email.com", phone: "+44 7700 900006", practice: "Rye Dental", stage: "New Lead", lastContact: "30m ago", tags: ["Emergency"], value: 290 },
-  { id: 7, name: "Liu Wei", email: "liu.wei@email.com", phone: "+44 7700 900007", practice: "Ashford", stage: "Appointment Set", lastContact: "5h ago", tags: ["Implants"], value: 3800 },
-  { id: 8, name: "Fatima Malik", email: "f.malik@email.com", phone: "+44 7700 900008", practice: "Barnet", stage: "Won", lastContact: "1d ago", tags: ["Invisalign", "High Value"], value: 5200 },
-  { id: 9, name: "Thomas Brennan", email: "t.brennan@email.com", phone: "+44 7700 900009", practice: "Rochester", stage: "Lost", lastContact: "3d ago", tags: ["General"], value: 0 },
-  { id: 10, name: "Aisha Patel", email: "aisha.p@email.com", phone: "+44 7700 900010", practice: "Bexleyheath", stage: "Treatment Presented", lastContact: "6h ago", tags: ["Veneers", "High Value"], value: 6000 },
-  { id: 11, name: "George Stavros", email: "g.stavros@email.com", phone: "+44 7700 900011", practice: "Warwick Lodge", stage: "Showed Up", lastContact: "8h ago", tags: ["Whitening"], value: 380 },
-  { id: 12, name: "Nkechi Obi", email: "nkechi.o@email.com", phone: "+44 7700 900012", practice: "Ashford", stage: "New Lead", lastContact: "1h ago", tags: ["Implants"], value: 3500 },
-  { id: 13, name: "Ryan Patel", email: "ryan.p@email.com", phone: "+44 7700 900013", practice: "Rye Dental", stage: "Appointment Set", lastContact: "45m ago", tags: ["Emergency", "NHS"], value: 150 },
-  { id: 14, name: "Olivia Chen", email: "olivia.c@email.com", phone: "+44 7700 900014", practice: "Barnet", stage: "Treatment Presented", lastContact: "2h ago", tags: ["Braces", "Invisalign"], value: 4800 },
-  { id: 15, name: "Samuel Adeyemi", email: "s.adeyemi@email.com", phone: "+44 7700 900015", practice: "Rochester", stage: "Appointment Set", lastContact: "3h ago", tags: ["General"], value: 620 },
-];
+const STAGE_MAP = {
+  lead: "New Lead",
+  new: "New Lead",
+  contacted: "New Lead",
+  booked: "Appointment Set",
+  proposal: "Treatment Presented",
+  won: "Won",
+  lost: "Lost",
+};
 
-const APPOINTMENTS = [
-  { id: 1, time: "09:00", patient: "James Holloway", practice: "Ashford", type: "Implant Consultation", status: "Confirmed", duration: "60 min" },
-  { id: 2, time: "09:30", patient: "Priya Sharma", practice: "Rochester", type: "Invisalign Assessment", status: "Confirmed", duration: "45 min" },
-  { id: 3, time: "10:15", patient: "Sarah McPherson", practice: "Bexleyheath", type: "Treatment Planning", status: "Confirmed", duration: "90 min" },
-  { id: 4, time: "11:00", patient: "Emma Richardson", practice: "Rye Dental", type: "Emergency Appointment", status: "Pending", duration: "30 min" },
-  { id: 5, time: "11:30", patient: "George Stavros", practice: "Warwick Lodge", type: "Whitening Consult", status: "No-show", duration: "30 min" },
-  { id: 6, time: "13:00", patient: "Liu Wei", practice: "Ashford", type: "Implant Review", status: "Confirmed", duration: "60 min" },
-  { id: 7, time: "14:00", patient: "Ryan Patel", practice: "Rye Dental", type: "NHS Checkup", status: "Confirmed", duration: "30 min" },
-  { id: 8, time: "15:30", patient: "Olivia Chen", practice: "Barnet", type: "Braces Consultation", status: "Pending", duration: "60 min" },
-];
+function timeAgo(ts) {
+  if (!ts) return "—";
+  const diff = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  return `${Math.floor(diff / 86400)}d ago`;
+}
 
-const CAMPAIGNS = [
-  { id: 1, name: "Implant Lead Nurture", type: "Both", enrolled: 142, active: 89, conv: 24.6, status: "Active", practice: "All" },
-  { id: 2, name: "Invisalign Awareness Drip", type: "Email", enrolled: 98, active: 72, conv: 18.2, status: "Active", practice: "Rochester" },
-  { id: 3, name: "No-Show Re-engagement", type: "SMS", enrolled: 45, active: 31, conv: 33.3, status: "Active", practice: "All" },
-  { id: 4, name: "Post-Treatment Follow-up", type: "Both", enrolled: 210, active: 58, conv: 41.0, status: "Active", practice: "Ashford" },
-  { id: 5, name: "Whitening Promo Blast", type: "SMS", enrolled: 320, active: 0, conv: 12.5, status: "Ended", practice: "All" },
-];
+// APPOINTMENTS, CAMPAIGNS removed — requires GHL appointments/campaigns API integration.
+const APPOINTMENTS = [];
+const CAMPAIGNS = [];
 
 // Pipeline stages and their order
 const PIPELINE_STAGES = [
@@ -171,9 +157,48 @@ export default function GhlDashboardPage() {
   const [activeTab, setActiveTab] = useState("Pipeline");
   const [practiceFilter, setPracticeFilter] = useState("All Practices");
   const [search, setSearch] = useState("");
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    // Fetch contacts + opportunities live from GHL API
+    Promise.allSettled([
+      api.liveGhlContacts(),
+      api.liveGhlOpportunities(),
+    ]).then(([contactsRes, oppsRes]) => {
+      const liveContacts = contactsRes.status === "fulfilled"
+        ? (contactsRes.value?.contacts || [])
+        : [];
+      const liveOpps = oppsRes.status === "fulfilled"
+        ? (oppsRes.value?.opportunities || [])
+        : [];
+
+      // Build value/stage map from opportunities keyed by contact_id
+      const oppByContact = {};
+      for (const opp of liveOpps) {
+        if (opp.contact_id) {
+          oppByContact[opp.contact_id] = opp;
+        }
+      }
+
+      setContacts(liveContacts.map((c, i) => {
+        const opp = oppByContact[c.id] || {};
+        return {
+          id: c.id || i,
+          name: c.name || "Unknown",
+          email: c.email || "",
+          phone: c.phone || "",
+          practice: c.business || c.slug || "Unknown",
+          stage: opp.stage || STAGE_MAP[c.stage?.toLowerCase()] || "New Lead",
+          lastContact: c.last_activity ? timeAgo(c.last_activity) : "—",
+          tags: c.tags?.length ? c.tags : (c.source ? [c.source] : []),
+          value: opp.value || 0,
+        };
+      }));
+    }).catch(console.error);
+  }, []);
 
   const filteredContacts = useMemo(() => {
-    return CONTACTS.filter((c) => {
+    return contacts.filter((c) => {
       if (practiceFilter !== "All Practices" && c.practice !== practiceFilter) return false;
       if (search) {
         const q = search.toLowerCase();
@@ -186,7 +211,7 @@ export default function GhlDashboardPage() {
       }
       return true;
     });
-  }, [practiceFilter, search]);
+  }, [contacts, practiceFilter, search]);
 
   const filteredAppointments = useMemo(() => {
     return APPOINTMENTS.filter((a) => practiceFilter === "All Practices" || a.practice === practiceFilter);
@@ -196,9 +221,9 @@ export default function GhlDashboardPage() {
     return CAMPAIGNS.filter((c) => practiceFilter === "All Practices" || c.practice === "All" || c.practice === practiceFilter);
   }, [practiceFilter]);
 
-  const totalContacts = CONTACTS.length;
-  const pipelineValue = CONTACTS.filter((c) => !["Won", "Lost"].includes(c.stage)).reduce((s, c) => s + c.value, 0);
-  const openOpps = CONTACTS.filter((c) => !["Won", "Lost"].includes(c.stage)).length;
+  const totalContacts = contacts.length;
+  const pipelineValue = contacts.filter((c) => !["Won", "Lost"].includes(c.stage)).reduce((s, c) => s + c.value, 0);
+  const openOpps = contacts.filter((c) => !["Won", "Lost"].includes(c.stage)).length;
   const apptToday = APPOINTMENTS.length;
   const smsSent = 148;
 
@@ -360,134 +385,22 @@ export default function GhlDashboardPage() {
 
         {/* ── APPOINTMENTS TAB ─────────────────────────────────── */}
         {activeTab === "Appointments" && (
-          <div className="space-y-4">
-            <div className="bg-white border border-line rounded-xl overflow-hidden">
-              <div className="px-5 py-4 border-b border-line flex items-center justify-between">
-                <div>
-                  <h3 className="text-sm font-bold text-ink">Today's Appointments</h3>
-                  <p className="text-xs text-muted mt-0.5">28 April 2026</p>
-                </div>
-                <div className="flex items-center gap-3 text-xs">
-                  {Object.entries(APPT_STATUS_STYLES).map(([s, st]) => {
-                    const count = filteredAppointments.filter((a) => a.status === s).length;
-                    return (
-                      <span key={s} className="flex items-center gap-1 font-semibold px-2.5 py-1 rounded-full" style={{ background: st.bg, color: st.color }}>
-                        {count} {s}
-                      </span>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="divide-y divide-line">
-                {filteredAppointments.map((a) => {
-                  const s = APPT_STATUS_STYLES[a.status] || APPT_STATUS_STYLES.Pending;
-                  const Icon = s.icon;
-                  return (
-                    <div key={a.id} className="px-5 py-4 flex items-center gap-5 hover:bg-bg-soft transition-colors">
-                      <div className="w-14 shrink-0 text-center">
-                        <div className="text-base font-bold text-ink">{a.time}</div>
-                        <div className="text-[10px] text-muted">{a.duration}</div>
-                      </div>
-                      <div className="w-px h-10 bg-line shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-ink text-sm">{a.patient}</div>
-                        <div className="text-xs text-muted mt-0.5">{a.type}</div>
-                      </div>
-                      <div
-                        className="hidden sm:flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full shrink-0"
-                        style={{ background: "#ede9fe", color: "#7c3aed" }}
-                      >
-                        {a.practice}
-                      </div>
-                      <div
-                        className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full shrink-0"
-                        style={{ background: s.bg, color: s.color }}
-                      >
-                        <Icon size={11} /> {a.status}
-                      </div>
-                      <button className="ml-2 p-2 rounded-lg hover:bg-bg-soft border border-line text-muted hover:text-ink transition-colors shrink-0">
-                        <ChevronRight size={13} />
-                      </button>
-                    </div>
-                  );
-                })}
-                {filteredAppointments.length === 0 && (
-                  <div className="px-5 py-10 text-center text-sm text-muted">No appointments for this practice today.</div>
-                )}
-              </div>
+          <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — GHL Appointments Integration</p>
+              <p className="text-xs text-amber-600 leading-relaxed">Appointments require a <code className="font-mono bg-amber-100 px-1 rounded">GET /api/ghl/appointments</code> endpoint that fetches today's bookings from the GHL calendar API per sub-account. Each record needs time, patient name, appointment type, practice, status, and duration.</p>
             </div>
           </div>
         )}
 
         {/* ── CAMPAIGNS TAB ────────────────────────────────────── */}
         {activeTab === "Campaigns" && (
-          <div className="space-y-4">
-            <div className="bg-white border border-line rounded-xl overflow-hidden">
-              <div className="px-5 py-4 border-b border-line flex items-center justify-between">
-                <h3 className="text-sm font-bold text-ink">Automation Campaigns</h3>
-                <span className="text-xs text-muted">{filteredCampaigns.filter((c) => c.status === "Active").length} active</span>
-              </div>
-              <div className="divide-y divide-line">
-                {filteredCampaigns.map((c) => {
-                  const typeStyle = CAMPAIGN_TYPE_STYLES[c.type] || CAMPAIGN_TYPE_STYLES.Both;
-                  const enrolledPct = Math.round((c.active / Math.max(c.enrolled, 1)) * 100);
-                  return (
-                    <div key={c.id} className="px-5 py-5 hover:bg-bg-soft transition-colors">
-                      <div className="flex items-start gap-4">
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                          style={{ background: typeStyle.bg }}
-                        >
-                          <MessageSquare size={16} style={{ color: typeStyle.color }} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-3 mb-1 flex-wrap">
-                            <span className="font-semibold text-ink text-sm">{c.name}</span>
-                            <span
-                              className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                              style={typeStyle}
-                            >
-                              {c.type}
-                            </span>
-                            <span
-                              className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                              style={{
-                                background: c.status === "Active" ? "#ecfdf5" : "#f1f5f9",
-                                color: c.status === "Active" ? "#10b981" : "#64748b",
-                              }}
-                            >
-                              {c.status}
-                            </span>
-                            {c.practice !== "All" && (
-                              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-bg-soft text-muted">
-                                {c.practice}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex items-center gap-6 text-xs text-muted mb-3">
-                            <span><span className="font-semibold text-ink">{c.enrolled}</span> enrolled</span>
-                            <span><span className="font-semibold text-ink">{c.active}</span> active</span>
-                            <span><span className="font-semibold text-green-600">{c.conv}%</span> conversion</span>
-                          </div>
-                          {/* Progress bar: active / enrolled */}
-                          <div className="flex items-center gap-3">
-                            <div className="flex-1 h-1.5 bg-line rounded-full overflow-hidden">
-                              <div
-                                className="h-full rounded-full"
-                                style={{ width: `${enrolledPct}%`, background: typeStyle.color }}
-                              />
-                            </div>
-                            <span className="text-[10px] text-muted shrink-0">{enrolledPct}% active</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-                {filteredCampaigns.length === 0 && (
-                  <div className="px-5 py-10 text-center text-sm text-muted">No campaigns for this practice.</div>
-                )}
-              </div>
+          <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — GHL Campaigns Integration</p>
+              <p className="text-xs text-amber-600 leading-relaxed">Campaigns require a <code className="font-mono bg-amber-100 px-1 rounded">GET /api/ghl/campaigns</code> endpoint fetching automation workflows from GHL per sub-account. Each campaign needs name, type (Email/SMS/Both), enrolled count, active count, conversion rate, status, and practice.</p>
             </div>
           </div>
         )}

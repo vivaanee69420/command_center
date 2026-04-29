@@ -1,27 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "@/components/layout/topbar";
 import ModeFilter from "@/components/shared/mode-filter";
 import RightSidebar from "@/components/shared/right-sidebar";
 import { cn } from "@/lib/utils";
+import { api } from "@/api/client";
 
-const NOTIFICATIONS = [
-  { id: 1, emoji: "⚠️", text: "Low leads today at Ashford — only 2 leads received. Daily target is 20+.", time: "2 min ago", read: false },
-  { id: 2, emoji: "✅", text: "Task completed: Fix Rochester funnel — marked done by Ruhith Pasha.", time: "8 min ago", read: false },
-  { id: 3, emoji: "🧠", text: "AI Brain regenerated — 5 new directives and 2 warnings generated.", time: "1 hour ago", read: false },
-  { id: 4, emoji: "📥", text: "New lead from Google Ads — Priya Mehta via Campaign: Ashford Implants. CPL: £62.", time: "1 hour ago", read: true },
-  { id: 5, emoji: "🔴", text: "Automation failed: SMS quota exceeded — 'No-show follow-up' failed for 3 contacts.", time: "2 hours ago", read: true },
-  { id: 6, emoji: "📊", text: "Weekly report ready — performance report for 21–27 April. Revenue +8.3% vs last week.", time: "3 hours ago", read: true },
-];
+const KIND_EMOJI = {
+  task: "✅",
+  warning: "⚠️",
+  lead: "📥",
+  automation: "🔴",
+  report: "📊",
+  brain: "🧠",
+};
+
+function timeAgo(ts) {
+  if (!ts) return "";
+  const diff = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+  if (diff < 60) return `${diff}s ago`;
+  if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+  return `${Math.floor(diff / 86400)}d ago`;
+}
 
 export default function NotificationsPage() {
   const [mode, setMode] = useState("simple");
   const [activeBiz, setActiveBiz] = useState("all");
-  const [notifications, setNotifications] = useState(NOTIFICATIONS);
+  const [notifications, setNotifications] = useState([]);
+  const [readIds, setReadIds] = useState(new Set());
+  const [loading, setLoading] = useState(true);
 
-  const unreadCount = notifications.filter((n) => !n.read).length;
+  useEffect(() => {
+    api.notifications()
+      .then(setNotifications)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
 
   function markRead(id) {
-    setNotifications((prev) => prev.map((n) => n.id === id ? { ...n, read: true } : n));
+    setReadIds((prev) => new Set([...prev, id]));
   }
 
   return (
@@ -43,31 +60,41 @@ export default function NotificationsPage() {
                 <span className="text-xs text-muted">{notifications.length} total</span>
               </div>
 
-              <div className="divide-y divide-line">
-                {notifications.map((n) => (
-                  <div
-                    key={n.id}
-                    onClick={() => markRead(n.id)}
-                    className={cn(
-                      "flex items-start gap-3 px-5 py-4 cursor-pointer hover:bg-bg-soft/50 transition",
-                      !n.read && "border-l-[3px] border-l-primary"
-                    )}
-                  >
-                    <span className="text-base mt-0.5 shrink-0">{n.emoji}</span>
-                    <div className="flex-1 min-w-0">
-                      <p className={cn("text-sm text-ink leading-snug", !n.read && "font-semibold")}>
-                        {n.text}
-                      </p>
-                      <p className="text-[11px] text-muted mt-1">{n.time}</p>
-                    </div>
-                    {!n.read && (
-                      <span className="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary">
-                        Unread
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
+              {loading ? (
+                <div className="px-5 py-6 text-sm text-muted">Loading notifications...</div>
+              ) : notifications.length === 0 ? (
+                <div className="px-5 py-6 text-sm text-muted">No notifications yet.</div>
+              ) : (
+                <div className="divide-y divide-line">
+                  {notifications.map((n) => {
+                    const isRead = readIds.has(n.id);
+                    const emoji = KIND_EMOJI[n.kind] || "🔔";
+                    return (
+                      <div
+                        key={n.id}
+                        onClick={() => markRead(n.id)}
+                        className={cn(
+                          "flex items-start gap-3 px-5 py-4 cursor-pointer hover:bg-bg-soft/50 transition",
+                          !isRead && "border-l-[3px] border-l-primary"
+                        )}
+                      >
+                        <span className="text-base mt-0.5 shrink-0">{emoji}</span>
+                        <div className="flex-1 min-w-0">
+                          <p className={cn("text-sm text-ink leading-snug", !isRead && "font-semibold")}>
+                            {n.title}{n.body ? ` — ${n.body}` : ""}
+                          </p>
+                          <p className="text-[11px] text-muted mt-1">{timeAgo(n.sent_at)}</p>
+                        </div>
+                        {!isRead && (
+                          <span className="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary">
+                            Unread
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
 

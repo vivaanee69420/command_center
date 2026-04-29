@@ -11,86 +11,9 @@ const TABS = ["Active Offers", "Drafts", "Expired", "Templates"];
 
 const PRACTICES = ["GM Dental - Luton", "GM Dental - Watford", "GM Dental - Harrow", "GM Dental - Wembley"];
 
-const ALL_OFFERS = [
-  {
-    id: 1, title: "Free Consultation", desc: "No-obligation consultation for any treatment. Includes X-rays and full treatment plan discussion.",
-    type: "Free", value: "Free", validFrom: "2026-01-01", validTo: "2026-06-30",
-    practices: ["GM Dental - Luton", "GM Dental - Watford", "GM Dental - Harrow", "GM Dental - Wembley"],
-    status: "Active", usageCount: 312, views: 4820, clicks: 892, conversions: 312, revenue: 0,
-    color: "#10b981",
-  },
-  {
-    id: 2, title: "20% Off Invisalign", desc: "Limited-time discount on all Invisalign packages. Finance available from £89/month.",
-    type: "Percentage", value: "20%", validFrom: "2026-04-01", validTo: "2026-05-31",
-    practices: ["GM Dental - Luton", "GM Dental - Harrow"],
-    status: "Active", usageCount: 47, views: 2140, clicks: 387, conversions: 47, revenue: 164050,
-    color: "#7c3aed",
-  },
-  {
-    id: 3, title: "Implant Package £2,499", desc: "Single dental implant including titanium post, abutment, and ceramic crown. CT scan included.",
-    type: "Fixed", value: "£2,499", validFrom: "2026-03-01", validTo: "2026-05-31",
-    practices: ["GM Dental - Luton", "GM Dental - Watford"],
-    status: "Active", usageCount: 28, views: 3670, clicks: 641, conversions: 28, revenue: 69972,
-    color: "#3b82f6",
-  },
-  {
-    id: 4, title: "Whitening Special £199", desc: "Professional teeth whitening including home whitening kit to maintain results.",
-    type: "Fixed", value: "£199", validFrom: "2026-04-01", validTo: "2026-04-30",
-    practices: ["GM Dental - Luton", "GM Dental - Watford", "GM Dental - Harrow", "GM Dental - Wembley"],
-    status: "Active", usageCount: 93, views: 5210, clicks: 1043, conversions: 93, revenue: 18507,
-    color: "#f59e0b",
-  },
-  {
-    id: 5, title: "Family Check-Up Bundle", desc: "Two adult check-ups + two children's check-ups + X-rays for the whole family in one visit.",
-    type: "Bundle", value: "£249", validFrom: "2026-01-01", validTo: "2026-12-31",
-    practices: ["GM Dental - Luton", "GM Dental - Watford", "GM Dental - Harrow", "GM Dental - Wembley"],
-    status: "Active", usageCount: 154, views: 2890, clicks: 512, conversions: 154, revenue: 38346,
-    color: "#10b981",
-  },
-  {
-    id: 6, title: "Composite Bonding £299/tooth", desc: "Direct composite bonding to repair chips, close gaps, and reshape teeth with no drilling.",
-    type: "Fixed", value: "£299/tooth", validFrom: "2026-04-15", validTo: "2026-06-15",
-    practices: ["GM Dental - Harrow", "GM Dental - Wembley"],
-    status: "Active", usageCount: 31, views: 1820, clicks: 294, conversions: 31, revenue: 28582,
-    color: "#ef4444",
-  },
-  {
-    id: 7, title: "New Patient Welcome Offer", desc: "New patients only — free check-up, X-rays, and hygiene clean on your first visit.",
-    type: "Free", value: "Free first visit", validFrom: "2026-05-01", validTo: "2026-07-31",
-    practices: ["GM Dental - Wembley"],
-    status: "Draft", usageCount: 0, views: 0, clicks: 0, conversions: 0, revenue: 0,
-    color: "#64748b",
-  },
-  {
-    id: 8, title: "All-on-4 Spring Special", desc: "Full arch restoration with All-on-4 implants — fixed price includes all components and aftercare.",
-    type: "Fixed", value: "£11,995", validFrom: "2026-05-01", validTo: "2026-06-30",
-    practices: ["GM Dental - Luton"],
-    status: "Draft", usageCount: 0, views: 0, clicks: 0, conversions: 0, revenue: 0,
-    color: "#64748b",
-  },
-  {
-    id: 9, title: "January Smile Reset", desc: "New year, new smile. Package including whitening, hygiene, and smile assessment.",
-    type: "Bundle", value: "£349", validFrom: "2026-01-01", validTo: "2026-01-31",
-    practices: ["GM Dental - Luton", "GM Dental - Watford", "GM Dental - Harrow", "GM Dental - Wembley"],
-    status: "Expired", usageCount: 203, views: 6120, clicks: 1102, conversions: 203, revenue: 70847,
-    color: "#94a3b8",
-  },
-  {
-    id: 10, title: "Black Friday Implant Deal", desc: "One day only — single implant at £1,999 with full treatment plan.",
-    type: "Fixed", value: "£1,999", validFrom: "2025-11-29", validTo: "2025-11-29",
-    practices: ["GM Dental - Luton"],
-    status: "Expired", usageCount: 14, views: 8940, clicks: 1204, conversions: 14, revenue: 27986,
-    color: "#94a3b8",
-  },
-];
-
-const OFFER_TEMPLATES = [
-  { id: 1, name: "Percentage Discount", desc: "X% off a specific treatment for a limited time." },
-  { id: 2, name: "Fixed Price Package", desc: "Set price for a bundled treatment package." },
-  { id: 3, name: "Free Consultation", desc: "No-cost initial consultation to lower barrier to entry." },
-  { id: 4, name: "Seasonal Bundle", desc: "Tied to a season or event (New Year, Easter, Christmas)." },
-  { id: 5, name: "Referral Reward", desc: "Reward existing patients for referring new patients." },
-];
+// ALL_OFFERS, OFFER_TEMPLATES removed — requires offers backend endpoint.
+const ALL_OFFERS = [];
+const OFFER_TEMPLATES = [];
 
 const TYPE_BADGE = {
   "Percentage": "bg-purple-50 text-purple-600",
@@ -154,6 +77,14 @@ export default function OfferLibraryPage() {
             { label: "+ Create Offer", variant: "primary", onClick: () => setShowModal(true) },
           ]}
         />
+
+        <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl mb-4">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+          <div>
+            <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Offers Backend</p>
+            <p className="text-xs text-amber-600 leading-relaxed">Offer library requires an <code className="font-mono bg-amber-100 px-1 rounded">offer</code> model and <code className="font-mono bg-amber-100 px-1 rounded">GET /api/offers</code> endpoint. Each offer should include title, description, type, value, validity dates, applicable practices, and performance metrics (views, clicks, conversions, revenue).</p>
+          </div>
+        </div>
 
         {/* Tabs */}
         <div className="flex items-center gap-1 bg-bg-shell rounded-lg p-1 mb-4 w-fit">
@@ -300,21 +231,12 @@ export default function OfferLibraryPage() {
 
         {/* Templates Tab */}
         {activeTab === "Templates" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {OFFER_TEMPLATES.map((tpl) => (
-              <div key={tpl.id} className="bg-white border border-line rounded-xl p-5 hover:shadow-sm transition">
-                <div className="flex items-center gap-2 mb-2">
-                  <Gift size={16} className="text-primary" />
-                  <span className="text-sm font-bold text-ink">{tpl.name}</span>
-                </div>
-                <p className="text-xs text-muted mb-4">{tpl.desc}</p>
-                <button
-                  onClick={() => { setForm({ ...EMPTY_FORM }); setShowModal(true); }}
-                  className="text-xs font-semibold text-primary hover:underline">
-                  Use Template
-                </button>
-              </div>
-            ))}
+          <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Offer Templates Backend</p>
+              <p className="text-xs text-amber-600 leading-relaxed">Offer templates require a <code className="font-mono bg-amber-100 px-1 rounded">GET /api/offers/templates</code> endpoint returning template definitions (name, description, default fields). Templates can then pre-fill the create offer form.</p>
+            </div>
           </div>
         )}
 

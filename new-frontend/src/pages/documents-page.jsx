@@ -7,78 +7,7 @@ import { Upload } from "lucide-react";
 
 const TABS = ["All Documents", "Reports", "Contracts", "SOPs", "Invoices", "Others"];
 
-const DOCUMENTS = [
-  {
-    id: 1,
-    emoji: "📊",
-    name: "Marketing Report — May",
-    business: "All Businesses",
-    type: "Report",
-    typeBadge: "bg-blue-50 text-blue-600",
-    uploadedBy: "Zeeshan Ahmed",
-    date: "19 May 2025",
-  },
-  {
-    id: 2,
-    emoji: "🔍",
-    name: "SEO Audit Report",
-    business: "Prime Wellness",
-    type: "Report",
-    typeBadge: "bg-blue-50 text-blue-600",
-    uploadedBy: "Sarah Khan",
-    date: "17 May 2025",
-  },
-  {
-    id: 3,
-    emoji: "📈",
-    name: "Google Ads Performance",
-    business: "Ascend Dental",
-    type: "Report",
-    typeBadge: "bg-blue-50 text-blue-600",
-    uploadedBy: "Sarah Khan",
-    date: "15 May 2025",
-  },
-  {
-    id: 4,
-    emoji: "📄",
-    name: "Client Contract — Ascend",
-    business: "Ascend Dental",
-    type: "Contract",
-    typeBadge: "bg-amber-50 text-amber-600",
-    uploadedBy: "Maria Ahmad",
-    date: "14 May 2025",
-  },
-  {
-    id: 5,
-    emoji: "📋",
-    name: "SOP — Onboarding",
-    business: "All Businesses",
-    type: "SOP",
-    typeBadge: "bg-green-50 text-green-600",
-    uploadedBy: "Maria Ahmad",
-    date: "13 May 2025",
-  },
-  {
-    id: 6,
-    emoji: "🧾",
-    name: "Invoice #INV-1003",
-    business: "Elite Aesthetics",
-    type: "Invoice",
-    typeBadge: "bg-purple-50 text-purple-600",
-    uploadedBy: "Ayesha Malik",
-    date: "12 May 2025",
-  },
-  {
-    id: 7,
-    emoji: "📅",
-    name: "Content Calendar — June",
-    business: "All Businesses",
-    type: "Calendar",
-    typeBadge: "bg-teal-50 text-teal-600",
-    uploadedBy: "Ayesha Malik",
-    date: "11 May 2025",
-  },
-];
+// DOCUMENTS removed — requires file upload backend endpoint (GET/POST /api/documents).
 
 const TAB_TYPE_MAP = {
   "All Documents": null,
@@ -92,14 +21,7 @@ const TAB_TYPE_MAP = {
 export default function DocumentsPage() {
   const [activeTab, setActiveTab] = useState("All Documents");
 
-  const filtered =
-    activeTab === "All Documents"
-      ? DOCUMENTS
-      : activeTab === "Others"
-      ? DOCUMENTS.filter(
-          (d) => !["Report", "Contract", "SOP", "Invoice"].includes(d.type)
-        )
-      : DOCUMENTS.filter((d) => d.type === TAB_TYPE_MAP[activeTab]);
+  // filtered would compute from DOCUMENTS — pending backend
 
   return (
     <>
@@ -138,63 +60,12 @@ export default function DocumentsPage() {
               ))}
             </div>
 
-            {/* Documents Table */}
-            <div className="bg-white border border-line rounded-xl overflow-hidden">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-line">
-                    <th className="text-left text-[10px] font-bold text-muted uppercase tracking-wider px-5 py-3.5">
-                      Document
-                    </th>
-                    <th className="text-left text-[10px] font-bold text-muted uppercase tracking-wider px-5 py-3.5">
-                      Business
-                    </th>
-                    <th className="text-left text-[10px] font-bold text-muted uppercase tracking-wider px-5 py-3.5">
-                      Type
-                    </th>
-                    <th className="text-left text-[10px] font-bold text-muted uppercase tracking-wider px-5 py-3.5">
-                      Uploaded By
-                    </th>
-                    <th className="text-left text-[10px] font-bold text-muted uppercase tracking-wider px-5 py-3.5">
-                      Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filtered.map((doc) => (
-                    <tr
-                      key={doc.id}
-                      className="border-b border-line hover:bg-bg-soft/50 transition"
-                    >
-                      <td className="px-5 py-3.5">
-                        <div className="flex items-center gap-3">
-                          <span className="text-xl">{doc.emoji}</span>
-                          <span className="text-sm font-semibold text-ink">{doc.name}</span>
-                        </div>
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <span className="text-sm text-muted">{doc.business}</span>
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <span
-                          className={cn(
-                            "rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase",
-                            doc.typeBadge
-                          )}
-                        >
-                          {doc.type}
-                        </span>
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <span className="text-sm text-muted">{doc.uploadedBy}</span>
-                      </td>
-                      <td className="px-5 py-3.5">
-                        <span className="text-sm text-muted">{doc.date}</span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+              <div>
+                <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — File Upload Backend</p>
+                <p className="text-xs text-amber-600 leading-relaxed">Documents require a file upload endpoint. Add a <code className="font-mono bg-amber-100 px-1 rounded">document</code> model, S3/Cloudflare R2 storage integration, and <code className="font-mono bg-amber-100 px-1 rounded">POST /api/documents</code> upload + <code className="font-mono bg-amber-100 px-1 rounded">GET /api/documents</code> list endpoints.</p>
+              </div>
             </div>
           </div>
 

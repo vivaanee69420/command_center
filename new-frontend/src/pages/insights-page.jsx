@@ -1,71 +1,65 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "@/components/layout/topbar";
 import ModeFilter from "@/components/shared/mode-filter";
 import RightSidebar from "@/components/shared/right-sidebar";
-import { Sparkles } from "lucide-react";
+import { Sparkles, RefreshCw } from "lucide-react";
+import { api } from "@/api/client";
 
-const INSIGHT_CARDS = [
-  {
-    id: 1,
-    emoji: "📊",
-    emojiBg: "bg-amber-50",
-    title: "Revenue Insight",
-    description:
-      "Revenue is up 18.6% MoM driven by Plan4Growth Academy. Recommend doubling academy ad spend.",
-    metric: "+£124k MoM",
-    metricColor: "text-green-600",
-  },
-  {
-    id: 2,
-    emoji: "👋",
-    emojiBg: "bg-orange-50",
-    title: "Marketing Insight",
-    description:
-      "Composite Bonding ads outperform implants on Meta by 2.3x ROAS. Reallocate £40/day budget.",
-    metric: "+34% leads",
-    metricColor: "text-green-600",
-  },
-  {
-    id: 3,
-    emoji: "🔍",
-    emojiBg: "bg-blue-50",
-    title: "SEO Insight",
-    description:
-      "Page 'invisalign-maidstone' jumped from #7→#5. Add FAQ schema to push to #3 by next week.",
-    metric: "+540 visits",
-    metricColor: "text-green-600",
-  },
-  {
-    id: 4,
-    emoji: "⚙️",
-    emojiBg: "bg-gray-50",
-    title: "Operations Insight",
-    description:
-      "FTS no-show rate is 3.4x normal. Recommend mandatory £50 deposit policy review.",
-    metric: "4 no-shows",
-    metricColor: "text-red-500",
-  },
-];
+const KIND_META = {
+  ad_cpl_drift: { emoji: "📊", emojiBg: "bg-amber-50", title: "Marketing Insight" },
+  dentally_no_show: { emoji: "⚙️", emojiBg: "bg-gray-50", title: "Operations Insight" },
+  gsc_drop: { emoji: "🔍", emojiBg: "bg-blue-50", title: "SEO Insight" },
+  revenue_below_pace: { emoji: "💰", emojiBg: "bg-green-50", title: "Revenue Insight" },
+  lead_silence: { emoji: "👋", emojiBg: "bg-orange-50", title: "Lead Insight" },
+};
 
-const REPORTS = [
-  { id: 1, name: "Monthly Business Report — May", date: "19 May 2025" },
-  { id: 2, name: "Marketing Performance — May", date: "19 May 2025" },
-  { id: 3, name: "SEO Audit Report", date: "17 May 2025" },
-  { id: 4, name: "Sales Pipeline Report", date: "15 May 2025" },
-];
+const defaultMeta = { emoji: "✨", emojiBg: "bg-purple-50", title: "AI Insight" };
 
 export default function InsightsPage() {
   const [mode, setMode] = useState("all");
+  const [directives, setDirectives] = useState([]);
+  const [warnings, setWarnings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [regenerating, setRegenerating] = useState(false);
+
+  const loadData = async () => {
+    try {
+      const [dirs, warns] = await Promise.all([api.directives(), api.warnings()]);
+      setDirectives(dirs.filter((d) => !d.dismissed_at));
+      setWarnings(warns.filter((w) => !w.closed_at));
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => { loadData(); }, []);
+
+  const handleRegenerate = async () => {
+    setRegenerating(true);
+    try {
+      await api.regenerate();
+      setLoading(true);
+      await loadData();
+    } finally {
+      setRegenerating(false);
+    }
+  };
 
   return (
     <>
       <Topbar
         title="AI Insights & Reports"
         subtitle="AI-generated insights and automated reports"
-        right={
-          <button className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 transition">
-            <Sparkles size={13} />
-            ✨ Generate Report
+        actions={
+          <button
+            onClick={handleRegenerate}
+            disabled={regenerating}
+            className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-700 hover:to-purple-600 transition disabled:opacity-60"
+          >
+            {regenerating ? <RefreshCw size={13} className="animate-spin" /> : <Sparkles size={13} />}
+            {regenerating ? "Regenerating..." : "✨ Regenerate Insights"}
           </button>
         }
       />
@@ -74,70 +68,56 @@ export default function InsightsPage() {
         <ModeFilter mode={mode} onChange={setMode} />
 
         <div className="flex gap-6 mt-6">
-          {/* Main Content */}
           <div className="flex-1 min-w-0">
-            {/* AI Insights Section */}
+            {/* AI Insights from Directives */}
             <p className="text-base font-bold text-ink mb-4">AI Insights</p>
 
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              {INSIGHT_CARDS.map((card) => (
-                <div
-                  key={card.id}
-                  className="bg-white border border-line rounded-xl p-5"
-                >
-                  <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center ${card.emojiBg}`}
-                  >
-                    <span className="text-lg">{card.emoji}</span>
-                  </div>
-                  <p className="text-sm font-bold text-ink mt-3">{card.title}</p>
-                  <p className="text-xs text-muted mt-1 leading-relaxed">
-                    {card.description}
-                  </p>
-                  <p className={`text-sm font-bold mt-2 ${card.metricColor}`}>
-                    {card.metric}
-                  </p>
-                </div>
-              ))}
-            </div>
+            {loading ? (
+              <div className="text-sm text-muted py-4">Loading insights...</div>
+            ) : directives.length === 0 ? (
+              <div className="bg-white border border-line rounded-xl p-8 text-center text-sm text-muted mb-6">
+                No insights yet. Click Regenerate Insights to generate AI directives from your telemetry.
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                {directives.slice(0, 6).map((d) => {
+                  const meta = KIND_META[d.kind] || defaultMeta;
+                  return (
+                    <div key={d.id} className="bg-white border border-line rounded-xl p-5">
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${meta.emojiBg}`}>
+                        <span className="text-lg">{meta.emoji}</span>
+                      </div>
+                      <p className="text-sm font-bold text-ink mt-3">{meta.title}</p>
+                      <p className="text-xs text-muted mt-1 leading-relaxed">{d.text}</p>
+                      <p className={`text-sm font-bold mt-2 ${d.score >= 0.85 ? "text-green-600" : "text-amber-600"}`}>
+                        Score: {d.score.toFixed(2)}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
 
-            {/* Recent Reports Section */}
-            <div className="flex items-center justify-between mb-3">
-              <p className="text-base font-bold text-ink">Recent Reports</p>
-              <a
-                href="#"
-                className="text-xs text-primary font-semibold hover:underline"
-              >
-                View All Reports →
-              </a>
-            </div>
-
-            <div className="bg-white border border-line rounded-xl divide-y divide-line">
-              {REPORTS.map((report) => (
-                <div
-                  key={report.id}
-                  className="px-5 py-4 flex items-center justify-between"
-                >
-                  <div>
-                    <p className="text-sm font-semibold text-ink">
-                      {report.name}
-                    </p>
-                    <p className="text-xs text-muted mt-0.5">
-                      📅 {report.date}
-                    </p>
-                  </div>
-                  <a
-                    href="#"
-                    className="text-xs text-primary font-semibold hover:underline"
-                  >
-                    View →
-                  </a>
+            {/* Active Warnings */}
+            {warnings.length > 0 && (
+              <>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-base font-bold text-ink">Active Warnings</p>
                 </div>
-              ))}
-            </div>
+                <div className="bg-white border border-line rounded-xl divide-y divide-line mb-6">
+                  {warnings.map((w) => (
+                    <div key={w.id} className="px-5 py-4 flex items-center justify-between">
+                      <div>
+                        <p className="text-sm font-semibold text-ink">{w.text}</p>
+                        <p className="text-xs text-muted mt-0.5">severity {w.severity} · {w.kind}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
 
-          {/* Right Sidebar */}
           <RightSidebar />
         </div>
       </main>

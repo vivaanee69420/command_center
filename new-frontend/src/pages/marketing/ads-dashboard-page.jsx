@@ -14,9 +14,6 @@ import { Button } from "@/components/ui/button";
 import {
   Plus,
   Loader2,
-  Trash2,
-  Pause,
-  Play,
   DollarSign,
   MousePointerClick,
   Target,
@@ -137,26 +134,38 @@ const TABS = ["All Campaigns", "Google", "Meta"];
 export default function AdsDashboardPage() {
   const [accounts, setAccounts] = useState([]);
   const [campaigns, setCampaigns] = useState([]);
-  const [metrics, setMetrics] = useState([]);
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState("All Campaigns");
   const [addOpen, setAddOpen] = useState(false);
 
   const load = async () => {
+    setError(null);
     try {
-      const [acc, camps, mets, sum] = await Promise.all([
+      // Fetch live data from Meta + Google APIs directly
+      const [metaData, googleData, sum, acc] = await Promise.allSettled([
+        api.liveMetaCampaigns("last_30d"),
+        api.liveGoogleCampaigns(),
+        api.liveAdsSummary("last_30d"),
         api.adAccounts(),
-        api.adCampaigns(),
-        api.adMetrics(),
-        api.adsSummary(),
       ]);
-      setAccounts(acc);
-      setCampaigns(camps);
-      setMetrics(mets);
-      setSummary(sum);
+
+      const metaCampaigns = metaData.status === "fulfilled" ? (metaData.value?.campaigns || []) : [];
+      const googleCampaigns = googleData.status === "fulfilled" ? (googleData.value?.campaigns || []) : [];
+      setCampaigns([...metaCampaigns, ...googleCampaigns]);
+      setSummary(sum.status === "fulfilled" ? sum.value : null);
+      setAccounts(acc.status === "fulfilled" ? acc.value : []);
+
+      // Surface API errors if both failed
+      const metaErr = metaData.value?.error;
+      const googleErr = googleData.value?.error;
+      if (metaErr && googleErr) setError(`Meta: ${metaErr} | Google: ${googleErr}`);
+      else if (metaErr) setError(`Meta: ${metaErr}`);
+      else if (googleErr) setError(`Google: ${googleErr}`);
     } catch (err) {
       console.error("Load ads failed:", err);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -164,57 +173,12 @@ export default function AdsDashboardPage() {
 
   useEffect(() => { load(); }, []);
 
-  // Build account map for platform lookup
-  const accountMap = useMemo(() => {
-    const m = {};
-    accounts.forEach((a) => { m[a.id] = a; });
-    return m;
-  }, [accounts]);
-
-  // Build per-campaign metrics aggregation
-  const campMetrics = useMemo(() => {
-    const m = {};
-    metrics.forEach((met) => {
-      if (!m[met.campaign_id]) m[met.campaign_id] = { spend: 0, clicks: 0, impressions: 0, conversions: 0, roas_sum: 0, roas_count: 0 };
-      const c = m[met.campaign_id];
-      c.spend += Number(met.spend);
-      c.clicks += met.clicks;
-      c.impressions += met.impressions;
-      c.conversions += met.conversions;
-      if (met.roas) { c.roas_sum += Number(met.roas); c.roas_count++; }
-    });
-    return m;
-  }, [metrics]);
-
-  // Filter campaigns by platform tab
+  // Filter campaigns by platform tab — live campaigns have .platform directly
   const filtered = useMemo(() => {
     if (activeTab === "All Campaigns") return campaigns;
     const platformKey = activeTab.toLowerCase();
-    return campaigns.filter((c) => {
-      const acc = accountMap[c.ad_account_id];
-      return acc && acc.platform === platformKey;
-    });
-  }, [campaigns, activeTab, accountMap]);
-
-  const handleToggleStatus = async (camp) => {
-    const newStatus = camp.status === "active" ? "paused" : "active";
-    try {
-      await api.patchAdCampaign(camp.id, { status: newStatus });
-      await load();
-    } catch (err) {
-      alert(err.message);
-    }
-  };
-
-  const handleDelete = async (camp) => {
-    if (!confirm(`Delete campaign "${camp.name}"?`)) return;
-    try {
-      await api.deleteAdCampaign(camp.id);
-      await load();
-    } catch (err) {
-      alert(err.message);
-    }
-  };
+    return campaigns.filter((c) => c.platform === platformKey);
+  }, [campaigns, activeTab]);
 
   return (
     <>
@@ -237,6 +201,14 @@ export default function AdsDashboardPage() {
             {loading && (
               <div className="flex items-center justify-center py-20">
                 <Loader2 className="w-6 h-6 animate-spin text-primary" />
+              </div>
+            )}
+
+            {/* API error banner */}
+            {!loading && error && (
+              <div className="flex items-start gap-3 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl mb-4 text-xs text-amber-700">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-0.5 shrink-0" />
+                <span>{error}</span>
               </div>
             )}
 
@@ -319,16 +291,16 @@ export default function AdsDashboardPage() {
                       <table className="w-full">
                         <thead>
                           <tr className="border-b border-line bg-bg-soft">
-                            {["CAMPAIGN", "PLATFORM", "SPEND", "CLICKS", "CONVERSIONS", "ROAS", "STATUS", ""].map((col) => (
+                            {["CAMPAIGN", "PLATFORM", "SPEND", "CLICKS", "CONVERSIONS", "ROAS", "STATUS", "SOURCE"].map((col) => (
                               <th key={col} className="text-[10px] font-bold text-muted uppercase tracking-wider px-5 py-3.5 text-left">{col}</th>
                             ))}
                           </tr>
                         </thead>
                         <tbody>
                           {filtered.map((c, i) => {
-                            const acc = accountMap[c.ad_account_id];
-                            const cm = campMetrics[c.id] || {};
-                            const avgRoas = cm.roas_count ? (cm.roas_sum / cm.roas_count).toFixed(1) : "—";
+                            const roas = c.spend > 0 && c.conversions > 0
+                              ? ((c.conversions * 100) / c.spend).toFixed(1)
+                              : null;
                             return (
                               <tr
                                 key={c.id}
@@ -339,46 +311,34 @@ export default function AdsDashboardPage() {
                               >
                                 <td className="px-5 py-4">
                                   <span className="text-sm font-semibold text-ink">{c.name}</span>
-                                  {c.daily_budget && (
-                                    <div className="text-[10px] text-muted">£{Number(c.daily_budget).toFixed(0)}/day</div>
+                                  {c.account_name && (
+                                    <div className="text-[10px] text-muted">{c.account_name}</div>
                                   )}
                                 </td>
                                 <td className="px-5 py-4">
                                   <span className={cn(
                                     "inline-flex px-2 py-0.5 rounded text-[10px] font-bold uppercase",
-                                    acc?.platform === "google" ? "bg-blue-50 text-blue-600" : "bg-indigo-50 text-indigo-600"
+                                    c.platform === "google" ? "bg-blue-50 text-blue-600" : "bg-indigo-50 text-indigo-600"
                                   )}>
-                                    {acc?.platform || "—"}
+                                    {c.platform || "—"}
                                   </span>
                                 </td>
-                                <td className="px-5 py-4 text-sm text-muted">{fmtCurrency(cm.spend)}</td>
-                                <td className="px-5 py-4 text-sm text-muted">{fmt(cm.clicks)}</td>
-                                <td className="px-5 py-4 text-sm text-muted">{fmt(cm.conversions)}</td>
-                                <td className="px-5 py-4 text-sm font-semibold text-ink">{avgRoas !== "—" ? `${avgRoas}x` : "—"}</td>
+                                <td className="px-5 py-4 text-sm text-muted">{fmtCurrency(c.spend)}</td>
+                                <td className="px-5 py-4 text-sm text-muted">{fmt(c.clicks)}</td>
+                                <td className="px-5 py-4 text-sm text-muted">{fmt(c.conversions)}</td>
+                                <td className="px-5 py-4 text-sm font-semibold text-ink">{roas ? `${roas}x` : "—"}</td>
                                 <td className="px-5 py-4">
                                   <span className={cn(
                                     "inline-flex px-2.5 py-0.5 rounded-full text-[10px] font-semibold",
-                                    c.status === "active" ? "bg-green-50 text-green-600" : "bg-gray-100 text-gray-500"
+                                    c.status === "active" || c.status === "enabled"
+                                      ? "bg-green-50 text-green-600"
+                                      : "bg-gray-100 text-gray-500"
                                   )}>
                                     {c.status}
                                   </span>
                                 </td>
                                 <td className="px-5 py-4">
-                                  <div className="flex items-center gap-1">
-                                    <button
-                                      onClick={() => handleToggleStatus(c)}
-                                      className="p-1.5 rounded-lg text-gray-400 hover:text-primary hover:bg-primary/10"
-                                      title={c.status === "active" ? "Pause" : "Resume"}
-                                    >
-                                      {c.status === "active" ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                                    </button>
-                                    <button
-                                      onClick={() => handleDelete(c)}
-                                      className="p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50"
-                                    >
-                                      <Trash2 className="w-3.5 h-3.5" />
-                                    </button>
-                                  </div>
+                                  <span className="text-[10px] text-muted">Live</span>
                                 </td>
                               </tr>
                             );

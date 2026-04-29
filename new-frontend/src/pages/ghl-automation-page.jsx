@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "@/components/layout/topbar";
 import ModeFilter from "@/components/shared/mode-filter";
 import RightSidebar from "@/components/shared/right-sidebar";
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
-
-const AUTOMATIONS = [
-  { name: "No-show SMS follow-up", trigger: "appointment_noshow", action: "send_sms", status: "active" },
-  { name: "New lead auto-assign", trigger: "new_lead", action: "assign_contact", status: "active" },
-  { name: "Appointment reminder 24h", trigger: "appointment_24h_before", action: "send_sms_email", status: "active" },
-  { name: "Review request after visit", trigger: "appointment_completed", action: "send_review_request", status: "active" },
-  { name: "Birthday greeting", trigger: "contact_birthday", action: "send_sms", status: "paused" },
-  { name: "Inactive patient re-engagement", trigger: "contact_inactive_180d", action: "send_email_sequence", status: "active" },
-  { name: "Treatment plan follow-up", trigger: "treatment_plan_sent", action: "send_sms", status: "active" },
-];
+import { api } from "@/api/client";
 
 export default function GhlAutomationPage() {
   const [mode, setMode] = useState("simple");
   const [activeBiz, setActiveBiz] = useState("all");
+  const [automations, setAutomations] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    api.automations()
+      .then(setAutomations)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <>
@@ -44,40 +44,46 @@ export default function GhlAutomationPage() {
             <div className="bg-white border border-line rounded-xl overflow-hidden">
               <div className="px-5 py-4 border-b border-line flex items-center justify-between">
                 <h2 className="text-sm font-bold text-ink">All Automations</h2>
-                <span className="text-xs text-muted">{AUTOMATIONS.length} total</span>
+                <span className="text-xs text-muted">{automations.length} total</span>
               </div>
 
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-line">
-                    <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Automation Name</th>
-                    <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Trigger</th>
-                    <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Action</th>
-                    <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {AUTOMATIONS.map((auto) => (
-                    <tr key={auto.name} className="border-b border-line last:border-b-0 hover:bg-bg-soft/50 transition">
-                      <td className="px-5 py-3.5 text-sm font-semibold text-ink">{auto.name}</td>
-                      <td className="px-5 py-3.5 text-sm text-muted font-mono">{auto.trigger}</td>
-                      <td className="px-5 py-3.5 text-sm text-muted font-mono">{auto.action}</td>
-                      <td className="px-5 py-3.5">
-                        <span
-                          className={cn(
-                            "inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold",
-                            auto.status === "active"
-                              ? "bg-green-50 text-green-600"
-                              : "bg-gray-100 text-gray-500"
-                          )}
-                        >
-                          {auto.status === "active" ? "Active" : "Paused"}
-                        </span>
-                      </td>
+              {loading ? (
+                <div className="px-5 py-6 text-sm text-muted">Loading automations...</div>
+              ) : automations.length === 0 ? (
+                <div className="px-5 py-6 text-sm text-muted">No automation rules yet. Click New Automation to create one.</div>
+              ) : (
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-line">
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Automation Name</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Trigger</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Action</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Last Fired</th>
+                      <th className="text-left px-5 py-3.5 text-[10px] font-bold text-muted uppercase tracking-wider">Status</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {automations.map((auto) => (
+                      <tr key={auto.id} className="border-b border-line last:border-b-0 hover:bg-bg-soft/50 transition">
+                        <td className="px-5 py-3.5 text-sm font-semibold text-ink">{auto.name}</td>
+                        <td className="px-5 py-3.5 text-sm text-muted font-mono">{auto.trigger_kind}</td>
+                        <td className="px-5 py-3.5 text-sm text-muted font-mono">{auto.action_kind}</td>
+                        <td className="px-5 py-3.5 text-sm text-muted">
+                          {auto.last_fired_at ? new Date(auto.last_fired_at).toLocaleDateString() : "Never"}
+                        </td>
+                        <td className="px-5 py-3.5">
+                          <span className={cn(
+                            "inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold",
+                            auto.enabled ? "bg-green-50 text-green-600" : "bg-gray-100 text-gray-500"
+                          )}>
+                            {auto.enabled ? "Active" : "Paused"}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
             </div>
           </div>
 

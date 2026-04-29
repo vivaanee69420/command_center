@@ -63,9 +63,39 @@ export default function LeadEnginePage() {
   const load = async () => {
     setLoading(true);
     try {
-      const [lds, biz] = await Promise.all([api.leads(), api.businesses()]);
-      setLeads(lds || []);
-      setBusinesses(biz || []);
+      const [contactsRes, oppsRes] = await Promise.allSettled([
+        api.liveGhlContacts(),
+        api.liveGhlOpportunities(),
+      ]);
+      const contacts = contactsRes.status === "fulfilled" ? (contactsRes.value?.contacts || []) : [];
+      const opps = oppsRes.status === "fulfilled" ? (oppsRes.value?.opportunities || []) : [];
+
+      // Index first opportunity per contact
+      const oppByContact = {};
+      for (const opp of opps) {
+        if (opp.contact_id && !oppByContact[opp.contact_id]) oppByContact[opp.contact_id] = opp;
+      }
+
+      const merged = contacts.map((c) => {
+        const opp = oppByContact[c.id] || {};
+        return {
+          id: c.id,
+          name: c.name || "Unknown",
+          email: c.email || "",
+          phone: c.phone || "",
+          source: c.source || "",
+          stage: opp.stage || c.stage || "lead",
+          business: c.business || c.slug || "",
+          value_est: opp.value || 0,
+          persona: c.tags?.length ? c.tags[0] : "",
+          created_at: c.created_at || "",
+        };
+      });
+
+      setLeads(merged);
+      // Derive unique practices from live contacts
+      const bizNames = [...new Set(merged.map((l) => l.business).filter(Boolean))].sort();
+      setBusinesses(bizNames.map((name) => ({ id: name, name })));
     } catch (err) {
       console.error("Lead Engine load failed:", err);
     } finally {
@@ -75,12 +105,6 @@ export default function LeadEnginePage() {
 
   useEffect(() => { load(); }, []);
 
-  const bizMap = useMemo(() => {
-    const m = {};
-    businesses.forEach((b) => { m[b.id] = b; });
-    return m;
-  }, [businesses]);
-
   // All unique sources from real data
   const allSources = useMemo(() =>
     [...new Set(leads.map(l => l.source).filter(Boolean))].sort(),
@@ -89,7 +113,7 @@ export default function LeadEnginePage() {
 
   // Filtered leads
   const filtered = useMemo(() => leads.filter((l) => {
-    const matchBiz    = bizFilter === "all" || l.business_id === bizFilter;
+    const matchBiz    = bizFilter === "all" || l.business === bizFilter;
     const matchSource = sourceFilter === "all" || l.source === sourceFilter;
     const matchSearch = !search ||
       (l.name || "").toLowerCase().includes(search.toLowerCase()) ||
@@ -327,12 +351,11 @@ export default function LeadEnginePage() {
                       </td></tr>
                     ) : filtered.map((lead) => {
                       const quality = STAGE_QUALITY[lead.stage] || "Cold";
-                      const biz = bizMap[lead.business_id];
                       return (
                         <tr key={lead.id} className="hover:bg-bg-soft transition">
                           <td className="px-4 py-3 font-semibold text-ink">{lead.name || "—"}</td>
                           <td className="px-4 py-3 text-muted">{lead.source || "—"}</td>
-                          <td className="px-4 py-3 text-muted whitespace-nowrap">{biz?.name || "—"}</td>
+                          <td className="px-4 py-3 text-muted whitespace-nowrap">{lead.business || "—"}</td>
                           <td className="px-4 py-3 text-ink">{lead.persona || "—"}</td>
                           <td className="px-4 py-3 font-semibold text-primary">
                             {lead.value_est ? `£${Number(lead.value_est).toLocaleString()}` : "—"}

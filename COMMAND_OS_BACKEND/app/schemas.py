@@ -367,6 +367,18 @@ class AdMetricIn(BaseModel):
     roas: Optional[float] = None
 
 
+# ----------------- NOTIFICATIONS -----------------
+class NotificationOut(_Base):
+    id: UUID
+    person_id: UUID
+    kind: str
+    severity: int
+    title: str
+    body: Optional[str] = None
+    url: Optional[str] = None
+    sent_at: Optional[datetime] = None
+
+
 # ----------------- INTEGRATIONS -----------------
 class IntegStatus(BaseModel):
     provider: str

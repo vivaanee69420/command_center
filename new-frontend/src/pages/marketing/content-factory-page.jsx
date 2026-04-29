@@ -30,84 +30,8 @@ const STATUS_STYLE = {
   Published: "bg-green-50 text-green-600",
 };
 
-const CONTENT_ITEMS = [
-  {
-    id: 1, title: "5 Signs You Need a Dental Implant", type: "Blog Posts", platform: "Blog",
-    status: "Published", author: "Priya Kapoor", practice: "GM Dental - Luton",
-    createdDate: "24 Apr 2026", likes: 142, comments: 28, shares: 56, views: 3840,
-  },
-  {
-    id: 2, title: "Before & After: Invisalign 6-Month Transformation", type: "Social Media", platform: "Instagram",
-    status: "Published", author: "Riya Shah", practice: "GM Dental - Harrow",
-    createdDate: "22 Apr 2026", likes: 389, comments: 47, shares: 91, views: 12400,
-  },
-  {
-    id: 3, title: "April Newsletter — Spring Smile Offers", type: "Email Campaigns", platform: "Email",
-    status: "Published", author: "Tom Brennan", practice: "GM Dental - Watford",
-    createdDate: "21 Apr 2026", likes: 0, comments: 0, shares: 0, views: 4201,
-  },
-  {
-    id: 4, title: "What is All-on-4? A Complete Guide", type: "Videos", platform: "YouTube",
-    status: "Scheduled", author: "Priya Kapoor", practice: "GM Dental - Luton",
-    createdDate: "20 Apr 2026", likes: 0, comments: 0, shares: 0, views: 0,
-    scheduledFor: "30 Apr 2026",
-  },
-  {
-    id: 5, title: "Why Choose a BACD-Accredited Practice", type: "Blog Posts", platform: "Blog",
-    status: "In Review", author: "Riya Shah", practice: "GM Dental - Harrow",
-    createdDate: "19 Apr 2026", likes: 0, comments: 0, shares: 0, views: 0,
-  },
-  {
-    id: 6, title: "Dental Anxiety: Our Gentle Approach", type: "Social Media", platform: "Facebook",
-    status: "Published", author: "Tom Brennan", practice: "GM Dental - Wembley",
-    createdDate: "18 Apr 2026", likes: 214, comments: 33, shares: 42, views: 7120,
-  },
-  {
-    id: 7, title: "How to Finance Your Implant Treatment", type: "Blog Posts", platform: "Blog",
-    status: "Approved", author: "Priya Kapoor", practice: "GM Dental - Luton",
-    createdDate: "17 Apr 2026", likes: 0, comments: 0, shares: 0, views: 0,
-  },
-  {
-    id: 8, title: "Patient Testimonial: Emma's Implant Journey", type: "Videos", platform: "YouTube",
-    status: "Published", author: "Riya Shah", practice: "GM Dental - Luton",
-    createdDate: "15 Apr 2026", likes: 312, comments: 61, shares: 88, views: 18900,
-  },
-  {
-    id: 9, title: "Teeth Whitening: In-Chair vs Take-Home", type: "Social Media", platform: "Instagram",
-    status: "Draft", author: "Tom Brennan", practice: "GM Dental - Watford",
-    createdDate: "14 Apr 2026", likes: 0, comments: 0, shares: 0, views: 0,
-  },
-  {
-    id: 10, title: "Meet the Team: Dr Patel at Harrow", type: "Social Media", platform: "LinkedIn",
-    status: "Published", author: "Priya Kapoor", practice: "GM Dental - Harrow",
-    createdDate: "12 Apr 2026", likes: 98, comments: 15, shares: 22, views: 2890,
-  },
-  {
-    id: 11, title: "May Newsletter — Implant Month", type: "Email Campaigns", platform: "Email",
-    status: "Draft", author: "Tom Brennan", practice: "GM Dental - Luton",
-    createdDate: "28 Apr 2026", likes: 0, comments: 0, shares: 0, views: 0,
-  },
-  {
-    id: 12, title: "Composite Bonding — No Drill, No Needles", type: "Social Media", platform: "Instagram",
-    status: "Scheduled", author: "Riya Shah", practice: "GM Dental - Wembley",
-    createdDate: "27 Apr 2026", scheduledFor: "5 May 2026", likes: 0, comments: 0, shares: 0, views: 0,
-  },
-  {
-    id: 13, title: "Practice Tour: New Luton Clinic Walkthrough", type: "Videos", platform: "YouTube",
-    status: "Published", author: "Tom Brennan", practice: "GM Dental - Luton",
-    createdDate: "10 Apr 2026", likes: 187, comments: 29, shares: 41, views: 9640,
-  },
-  {
-    id: 14, title: "5 Questions to Ask Your Implant Dentist", type: "Blog Posts", platform: "Blog",
-    status: "Published", author: "Priya Kapoor", practice: "GM Dental - Watford",
-    createdDate: "8 Apr 2026", likes: 76, comments: 12, shares: 19, views: 2140,
-  },
-  {
-    id: 15, title: "Instagram Reel: Smile Transformation Loop", type: "Social Media", platform: "Instagram",
-    status: "In Review", author: "Riya Shah", practice: "GM Dental - Harrow",
-    createdDate: "27 Apr 2026", likes: 0, comments: 0, shares: 0, views: 0,
-  },
-];
+// CONTENT_ITEMS removed — requires content backend endpoint.
+const CONTENT_ITEMS = [];
 
 const TYPE_MAP = {
   "Social Media": ["Instagram", "Facebook", "LinkedIn"],
@@ -172,14 +96,12 @@ export default function ContentFactoryPage() {
           ]}
         />
 
-        {/* KPI Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-          {KPI.map((k) => (
-            <div key={k.label} className="bg-white border border-line rounded-xl p-4" style={{ borderLeftWidth: 3, borderLeftColor: k.color }}>
-              <div className="text-2xl font-bold text-ink mb-0.5">{k.value}</div>
-              <div className="text-[11px] font-medium text-muted">{k.label}</div>
-            </div>
-          ))}
+        <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl mb-6">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+          <div>
+            <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Content Backend</p>
+            <p className="text-xs text-amber-600 leading-relaxed">Content factory requires a <code className="font-mono bg-amber-100 px-1 rounded">content_item</code> model and <code className="font-mono bg-amber-100 px-1 rounded">GET /api/content</code> endpoint. Each item should include title, type, platform, status, author, practice, and engagement metrics (views, likes, comments, shares). Connect to a social media scheduling platform (e.g. Buffer, Sprout Social) or build a native approval workflow.</p>
+          </div>
         </div>
 
         {/* Tabs + Filters */}

@@ -11,6 +11,7 @@ from .routers import dashboard as dashboard_router
 from .routers import routines as routines_router
 from .routers import ads as ads_router
 from .routers import conversations as conversations_router
+from .routers import live as live_router
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -35,6 +36,7 @@ app.include_router(dashboard_router.router, prefix="/api/dashboard",     tags=["
 app.include_router(routines_router.router,  prefix="/api",               tags=["routines"])
 app.include_router(ads_router.router,      prefix="/api",               tags=["ads"])
 app.include_router(conversations_router.router, prefix="/api",          tags=["conversations"])
+app.include_router(live_router.router,          prefix="/api",          tags=["live"])
 
 
 @app.get("/api/health")

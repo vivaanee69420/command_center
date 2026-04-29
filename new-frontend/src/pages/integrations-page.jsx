@@ -1,31 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Topbar from "@/components/layout/topbar";
 import ModeFilter from "@/components/shared/mode-filter";
 import RightSidebar from "@/components/shared/right-sidebar";
 import { cn } from "@/lib/utils";
 import { RefreshCw } from "lucide-react";
+import { api } from "@/api/client";
 
-const INTEGRATIONS = [
-  { name: "GoHighLevel", desc: "CRM, automations, pipelines", color: "#f59e0b", status: "connected" },
-  { name: "Google Ads", desc: "Ad spend and campaign performance", color: "#3b82f6", status: "connected" },
-  { name: "Meta Ads", desc: "Facebook and Instagram campaigns", color: "#6366f1", status: "connected" },
-  { name: "Google Search Console", desc: "Organic search performance", color: "#10b981", status: "connected" },
-  { name: "Google Calendar", desc: "Appointment scheduling sync", color: "#0ea5e9", status: "connected" },
-  { name: "Gmail", desc: "Email tracking and follow-ups", color: "#ef4444", status: "off" },
-  { name: "Dentally", desc: "Practice management system", color: "#7c3aed", status: "connected" },
-  { name: "Stripe", desc: "Payment processing and revenue", color: "#6366f1", status: "connected" },
-  { name: "WhatsApp", desc: "Patient messaging", color: "#10b981", status: "connected" },
-  { name: "Slack", desc: "Internal team notifications", color: "#9333ea", status: "connected" },
-  { name: "Zapier", desc: "Connect to 5,000+ apps", color: "#f97316", status: "connected" },
-  { name: "Google Sheets", desc: "Export reports and KPIs", color: "#16a34a", status: "off" },
+// Canonical integration list — status merged from backend
+const INTEGRATION_CATALOG = [
+  { name: "GoHighLevel", provider: "ghl_static", desc: "CRM, automations, pipelines", color: "#f59e0b" },
+  { name: "Google Ads", provider: "google", desc: "Ad spend and campaign performance", color: "#3b82f6" },
+  { name: "Meta Ads", provider: "meta_system_user", desc: "Facebook and Instagram campaigns", color: "#6366f1" },
+  { name: "Google Search Console", provider: "google", desc: "Organic search performance", color: "#10b981" },
+  { name: "Google Calendar", provider: "google", desc: "Appointment scheduling sync", color: "#0ea5e9" },
+  { name: "Gmail", provider: "google", desc: "Email tracking and follow-ups", color: "#ef4444" },
+  { name: "Dentally", provider: "dentally", desc: "Practice management system", color: "#7c3aed" },
+  { name: "WhatsApp", provider: "twilio_whatsapp", desc: "Patient messaging", color: "#10b981" },
+  { name: "AI Brain", provider: "anthropic", desc: "Claude AI directives and brain", color: "#9333ea" },
 ];
 
 export default function IntegrationsPage() {
   const [mode, setMode] = useState("simple");
   const [activeBiz, setActiveBiz] = useState("all");
+  const [connectedProviders, setConnectedProviders] = useState(new Set());
+  const [loading, setLoading] = useState(true);
 
-  const connected = INTEGRATIONS.filter((i) => i.status === "connected").length;
-  const disconnected = INTEGRATIONS.filter((i) => i.status === "off").length;
+  const loadStatus = () => {
+    setLoading(true);
+    api.integStatus()
+      .then((statuses) => {
+        setConnectedProviders(new Set(statuses.map((s) => s.provider)));
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => { loadStatus(); }, []);
+
+  const integrations = INTEGRATION_CATALOG.map((i) => ({
+    ...i,
+    status: connectedProviders.has(i.provider) ? "connected" : "off",
+  }));
+
+  const connected = integrations.filter((i) => i.status === "connected").length;
+  const disconnected = integrations.filter((i) => i.status === "off").length;
 
   return (
     <>
@@ -38,10 +56,12 @@ export default function IntegrationsPage() {
           setActiveBiz={setActiveBiz}
           rightAction={
             <button
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-white transition hover:opacity-90"
+              onClick={loadStatus}
+              disabled={loading}
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-white transition hover:opacity-90 disabled:opacity-60"
               style={{ background: "linear-gradient(135deg, #7c3aed, #6d28d9)" }}
             >
-              <RefreshCw size={14} />
+              <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
               Refresh All
             </button>
           }
@@ -66,7 +86,7 @@ export default function IntegrationsPage() {
 
             {/* Integration Cards Grid */}
             <div className="grid grid-cols-3 gap-4">
-              {INTEGRATIONS.map((integ) => (
+              {integrations.map((integ) => (
                 <div key={integ.name} className="bg-white border border-line rounded-xl p-5 hover:shadow-sm transition">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3">

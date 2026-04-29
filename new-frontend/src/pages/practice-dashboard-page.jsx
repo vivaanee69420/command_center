@@ -171,22 +171,7 @@ function generateMetrics(slug) {
   };
 }
 
-// ─── Static seed content ─────────────────────────────────────────────────────
-const SEED_TASKS = [
-  { id: 1, title: "Follow up with no-shows from last 14 days", status: "in_progress", due: "Today", priority: "high" },
-  { id: 2, title: "Review Google Ads performance report", status: "todo", due: "Tomorrow", priority: "medium" },
-  { id: 3, title: "Update treatment plan templates", status: "done", due: "Yesterday", priority: "low" },
-  { id: 4, title: "Set up new patient welcome sequence in GHL", status: "todo", due: "This week", priority: "high" },
-  { id: 5, title: "Audit Facebook ad creatives — A/B test launch", status: "in_progress", due: "Today", priority: "medium" },
-];
-
-const SEED_LEADS = [
-  { id: 1, name: "James Rutherford", service: "Implant Consultation", stage: "consultation_booked", source: "Google Ads", value: 3200, daysAgo: 1 },
-  { id: 2, name: "Sarah Mitchell", service: "Invisalign", stage: "contacted", source: "Facebook", value: 2800, daysAgo: 2 },
-  { id: 3, name: "Tobi Okonkwo", service: "Composite Bonding", stage: "new_lead", source: "Referral", value: 1200, daysAgo: 0 },
-  { id: 4, name: "Alex Pierce", service: "Full Mouth Rehab", stage: "treatment_accepted", source: "Google Ads", value: 8500, daysAgo: 3 },
-  { id: 5, name: "Mrs. Cartwright", service: "Veneers", stage: "contacted", source: "SEO", value: 4200, daysAgo: 1 },
-];
+// Seed arrays removed — tasks and leads now fetched from API.
 
 const SDR_SCRIPTS = [
   { name: "Initial Enquiry Follow-Up", call_type: "Outbound" },
@@ -207,13 +192,7 @@ const VOICE_SCRIPTS = [
   { name: "Appointment Reminder" },
 ];
 
-const APPOINTMENTS_TODAY = [
-  { title: "Implant Consultation — James R.", time: "09:00 AM", type: "Consultation" },
-  { title: "Invisalign Review — Sarah M.", time: "10:30 AM", type: "Review" },
-  { title: "New Patient Exam — T. Okonkwo", time: "11:45 AM", type: "New Patient" },
-  { title: "Composite Bonding — Alex P.", time: "02:00 PM", type: "Treatment" },
-  { title: "Follow-up — Mrs. Cartwright", time: "03:30 PM", type: "Follow-up" },
-];
+// APPOINTMENTS_TODAY removed — requires Dentally API integration (pending).
 
 const STRATEGY_OUTPUT = {
   summary:
@@ -740,19 +719,12 @@ function TabOperations({ metrics, navigate }) {
 
       <Card className="p-5">
         <SectionTitle icon={CalendarCheck} title="Today's Appointments" iconColor="text-green-600" />
-        <div className="space-y-2">
-          {APPOINTMENTS_TODAY.map((apt) => (
-            <div key={apt.title} className="flex items-center justify-between px-4 py-3 rounded-lg border border-line hover:bg-soft transition">
-              <div className="flex items-center gap-3">
-                <Clock size={14} className="text-muted shrink-0" />
-                <span className="text-sm font-medium text-ink">{apt.title}</span>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <span className="text-xs text-muted">{apt.time}</span>
-                <span className="text-[10px] font-semibold bg-blue-100 text-blue-700 rounded-full px-2 py-0.5">{apt.type}</span>
-              </div>
-            </div>
-          ))}
+        <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+          <div>
+            <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Dentally Integration</p>
+            <p className="text-xs text-amber-600 leading-relaxed">Appointment data requires Dentally API. Add DENTALLY_API_KEY and wire the Dentally worker to unlock this section.</p>
+          </div>
         </div>
       </Card>
 
@@ -961,8 +933,8 @@ export default function PracticeDashboardPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Dashboard");
-  const [tasks, setTasks] = useState(SEED_TASKS);
-  const [leads, setLeads] = useState(SEED_LEADS);
+  const [tasks, setTasks] = useState([]);
+  const [leads, setLeads] = useState([]);
   const [tasksLoading, setTasksLoading] = useState(false);
   const [leadsLoading, setLeadsLoading] = useState(false);
   const [bizData, setBizData] = useState(null);

@@ -12,9 +12,9 @@ from ..ai_brain import generate_directives
 from ..config import settings
 from ..db import get_db
 from ..deps import current_user
-from ..models import AiDirective, AiWarning, AutomationRule, OAuthToken, Person
+from ..models import AiDirective, AiWarning, AutomationRule, Notification, OAuthToken, Person
 from ..schemas import (
-    AskBrainIn, AskBrainOut, DirectiveOut, IntegStatus, RuleIn, RuleOut, WarningOut,
+    AskBrainIn, AskBrainOut, DirectiveOut, IntegStatus, NotificationOut, RuleIn, RuleOut, WarningOut,
 )
 
 router = APIRouter()
@@ -77,6 +77,15 @@ async def ask_brain(body: AskBrainIn, p: Person = Depends(current_user)):
         answer="No LLM key configured. Add ANTHROPIC_API_KEY or OPENAI_API_KEY to .env to enable real Brain answers.",
         used_llm=False,
     )
+
+
+# ---------------- Notifications ----------------
+@router.get("/notifications", response_model=list[NotificationOut])
+async def list_notifications(db: AsyncSession = Depends(get_db), p: Person = Depends(current_user)):
+    return (await db.execute(
+        select(Notification).where(Notification.person_id == p.id)
+        .order_by(Notification.sent_at.desc()).limit(50)
+    )).scalars().all()
 
 
 # ---------------- Automations ----------------

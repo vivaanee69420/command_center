@@ -54,6 +54,7 @@ class CommandOSAPI {
   async dismissDirective(id) { return this._req(`/directives/${id}/dismiss`, { method: "POST" }); }
   async regenerate() { return this._req("/brain/regenerate", { method: "POST" }); }
   async askBrain(question, businessId) { return this._req("/ask-brain", { method: "POST", body: JSON.stringify({ question, business_id: businessId }) }); }
+  async notifications() { return this._req("/notifications"); }
   async automations() { return this._req("/automations"); }
   async addAutomation(rule) { return this._req("/automations", { method: "POST", body: JSON.stringify(rule) }); }
   async integStatus() { return this._req("/integrations/status"); }
@@ -113,6 +114,31 @@ class CommandOSAPI {
   }
   async conversationMessages(conversationId, slug) {
     return this._req(`/conversations/${conversationId}/messages?slug=${slug}`);
+  }
+
+  // Live API proxies (fetch direct from Meta / Google Ads / GHL — no DB)
+  async liveMetaCampaigns(datePreset = "last_30d") {
+    return this._req(`/live/meta/campaigns?date_preset=${datePreset}`);
+  }
+  async liveGoogleCampaigns() {
+    return this._req("/live/google/campaigns");
+  }
+  async liveAdsSummary(datePreset = "last_30d") {
+    return this._req(`/live/ads/summary?date_preset=${datePreset}`);
+  }
+  async liveGhlContacts(slug, limit = 100) {
+    const q = new URLSearchParams();
+    if (slug) q.set("slug", slug);
+    if (limit !== 100) q.set("limit", limit);
+    const qs = q.toString();
+    return this._req("/live/ghl/contacts" + (qs ? "?" + qs : ""));
+  }
+  async liveGhlOpportunities(slug, limit = 100) {
+    const q = new URLSearchParams();
+    if (slug) q.set("slug", slug);
+    if (limit !== 100) q.set("limit", limit);
+    const qs = q.toString();
+    return this._req("/live/ghl/opportunities" + (qs ? "?" + qs : ""));
   }
 
   // Dashboard

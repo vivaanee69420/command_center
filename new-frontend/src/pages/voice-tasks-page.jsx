@@ -40,43 +40,7 @@ const STATUS_COLORS = {
   failed: "bg-red-100 text-red-700",
 };
 
-const HISTORY_SEED = [
-  {
-    id: "h1",
-    timestamp: "Apr 28, 2026 · 09:14",
-    preview: "Team standup — Bexleyheath ads, no-show recovery, GHL pipeline",
-    taskCount: 6,
-    status: "approved",
-  },
-  {
-    id: "h2",
-    timestamp: "Apr 25, 2026 · 16:02",
-    preview: "Weekly marketing review — SEO backlinks, Meta ad creative refresh",
-    taskCount: 4,
-    status: "approved",
-  },
-  {
-    id: "h3",
-    timestamp: "Apr 23, 2026 · 11:30",
-    preview: "Ops call — Dentally data sync, Academy course launch checklist",
-    taskCount: 7,
-    status: "approved",
-  },
-  {
-    id: "h4",
-    timestamp: "Apr 21, 2026 · 14:55",
-    preview: "Lab BD — Pricing update, new referral partner onboarding",
-    taskCount: 3,
-    status: "approved",
-  },
-  {
-    id: "h5",
-    timestamp: "Apr 18, 2026 · 10:10",
-    preview: "CEO debrief — Revenue pacing, Rochester growth plan Q2",
-    taskCount: 5,
-    status: "pending",
-  },
-];
+// HISTORY_SEED removed — voice session history requires a backend voice_session table (pending).
 
 function SelectField({ value, onChange, options, className }) {
   return (
@@ -106,7 +70,6 @@ export default function VoiceTasksPage() {
   const [approving, setApproving] = useState(false);
   const [approveError, setApproveError] = useState(null);
   const [approveSuccess, setApproveSuccess] = useState(null);
-  const [history, setHistory] = useState(HISTORY_SEED);
   const [expandedHistory, setExpandedHistory] = useState(null);
 
   const ownerOptions = USERS_DEFAULT.map((u) => ({ value: u.u, label: u.name }));
@@ -404,51 +367,13 @@ export default function VoiceTasksPage() {
         {/* History section */}
         <div className="bg-white border border-line rounded-xl p-5">
           <h2 className="text-sm font-bold text-ink mb-4">Recent Voice Sessions</h2>
-          {history.length === 0 ? (
-            <p className="text-xs text-muted">No sessions yet.</p>
-          ) : (
-            <div className="flex flex-col divide-y divide-line">
-              {history.map((entry) => (
-                <div key={entry.id} className="py-3 first:pt-0 last:pb-0">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <Clock size={13} className="text-muted shrink-0" />
-                      <span className="text-[11px] text-muted shrink-0">{entry.timestamp}</span>
-                      <span className="text-xs text-ink truncate">{entry.preview}</span>
-                    </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <span
-                        className={cn(
-                          "text-[10px] font-semibold px-2 py-0.5 rounded-full",
-                          STATUS_COLORS[entry.status]
-                        )}
-                      >
-                        {entry.status}
-                      </span>
-                      <span className="text-[11px] font-semibold text-ink">{entry.taskCount} tasks</span>
-                      <button
-                        onClick={() =>
-                          setExpandedHistory(expandedHistory === entry.id ? null : entry.id)
-                        }
-                        className="text-muted hover:text-ink"
-                      >
-                        {expandedHistory === entry.id ? (
-                          <ChevronUp size={14} />
-                        ) : (
-                          <ChevronDown size={14} />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                  {expandedHistory === entry.id && (
-                    <div className="mt-2 pl-5 text-xs text-muted bg-bg-soft rounded-lg px-3 py-2">
-                      {entry.preview}
-                    </div>
-                  )}
-                </div>
-              ))}
+          <div className="flex items-start gap-3 px-4 py-4 bg-amber-50 border border-amber-200 rounded-xl">
+            <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse mt-1 shrink-0" />
+            <div>
+              <p className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-0.5">Pending — Voice Session History</p>
+              <p className="text-xs text-amber-600 leading-relaxed">Session history requires a <code className="font-mono bg-amber-100 px-1 rounded">voice_session</code> table in the database. Add the model, migration, and endpoint to persist and retrieve past voice sessions.</p>
             </div>
-          )}
+          </div>
         </div>
       </main>
     </>
