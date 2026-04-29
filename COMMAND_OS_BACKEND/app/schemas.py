@@ -1,5 +1,5 @@
 """Pydantic v2 contracts."""
-from datetime import datetime, date
+from datetime import datetime, date, time
 from typing import Optional, Any
 from uuid import UUID
 
@@ -125,6 +125,52 @@ class ProjectOut(_Base):
     kpi_target: Optional[float] = None
     progress_pct: int
     status: str
+    created_at: datetime
+
+
+class ProjectPatch(BaseModel):
+    name: Optional[str] = None
+    business_id: Optional[UUID] = None
+    owner_id: Optional[UUID] = None
+    deadline: Optional[date] = None
+    kpi_metric: Optional[str] = None
+    kpi_target: Optional[float] = None
+    progress_pct: Optional[int] = None
+    status: Optional[str] = None
+
+
+# ----------------- DAILY ROUTINES -----------------
+class RoutineTemplateOut(_Base):
+    id: UUID
+    role: str
+    time_local: time
+    title: str
+    detail: Optional[str] = None
+    week_phase: Optional[int] = None
+
+
+class RoutineTemplateIn(BaseModel):
+    role: str
+    time_local: time
+    title: str
+    detail: Optional[str] = None
+    week_phase: Optional[int] = None
+
+
+class RoutineLogOut(_Base):
+    id: UUID
+    person_id: UUID
+    template_id: UUID
+    date: date
+    completed_at: Optional[datetime] = None
+    notes: Optional[str] = None
+    voice_url: Optional[str] = None
+
+
+class RoutineLogIn(BaseModel):
+    template_id: UUID
+    date: date
+    notes: Optional[str] = None
 
 
 # ----------------- VOICE → TASKS -----------------
@@ -199,6 +245,16 @@ class LeadOut(_Base):
     last_touched_at: datetime
 
 
+class LeadPatch(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    stage: Optional[str] = None
+    value_est: Optional[float] = None
+    source: Optional[str] = None
+    owner_id: Optional[UUID] = None
+
+
 # ----------------- AI -----------------
 class DirectiveOut(_Base):
     id: UUID
@@ -253,6 +309,62 @@ class RuleOut(_Base):
     action_config: dict
     enabled: bool
     last_fired_at: Optional[datetime] = None
+
+
+# ----------------- ADS / MARKETING -----------------
+class AdAccountOut(_Base):
+    id: UUID
+    business_id: UUID
+    platform: str
+    account_id: str
+    expires_at: Optional[datetime] = None
+
+class AdAccountIn(BaseModel):
+    business_id: UUID
+    platform: str
+    account_id: str
+
+class AdCampaignOut(_Base):
+    id: UUID
+    ad_account_id: UUID
+    ext_id: str
+    name: str
+    status: Optional[str] = None
+    daily_budget: Optional[float] = None
+    last_synced_at: Optional[datetime] = None
+
+class AdCampaignIn(BaseModel):
+    ad_account_id: UUID
+    ext_id: str
+    name: str
+    status: Optional[str] = "active"
+    daily_budget: Optional[float] = None
+
+class AdCampaignPatch(BaseModel):
+    name: Optional[str] = None
+    status: Optional[str] = None
+    daily_budget: Optional[float] = None
+
+class AdMetricOut(_Base):
+    id: UUID
+    campaign_id: UUID
+    date: date
+    spend: float
+    impressions: int
+    clicks: int
+    conversions: int
+    cpa: Optional[float] = None
+    roas: Optional[float] = None
+
+class AdMetricIn(BaseModel):
+    campaign_id: UUID
+    date: date
+    spend: float = 0
+    impressions: int = 0
+    clicks: int = 0
+    conversions: int = 0
+    cpa: Optional[float] = None
+    roas: Optional[float] = None
 
 
 # ----------------- INTEGRATIONS -----------------

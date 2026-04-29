@@ -76,7 +76,7 @@ ROLE_SCOPES = {
 }
 
 
-def can(role: str, layer: str | None = None, module: str | None = None) -> bool:
+def can(role: str, layer: Optional[str] = None, module: Optional[str] = None) -> bool:
     sc = ROLE_SCOPES.get(role, ROLE_SCOPES["General Outsourcer"])
     if layer is not None:
         if "*" not in sc["layers"] and layer not in sc["layers"]:

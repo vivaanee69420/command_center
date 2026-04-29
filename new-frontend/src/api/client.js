@@ -41,7 +41,13 @@ class CommandOSAPI {
   async businesses() { return this._req("/businesses"); }
   async people() { return this._req("/people"); }
   async projects() { return this._req("/projects"); }
+  async createProject(data) { return this._req("/projects", { method: "POST", body: JSON.stringify(data) }); }
+  async patchProject(id, data) { return this._req(`/projects/${id}`, { method: "PATCH", body: JSON.stringify(data) }); }
+  async deleteProject(id) { return this._req(`/projects/${id}`, { method: "DELETE" }); }
   async leads(stage) { return this._req("/leads" + (stage ? `?stage=${stage}` : "")); }
+  async createLead(data) { return this._req("/leads", { method: "POST", body: JSON.stringify(data) }); }
+  async patchLead(id, data) { return this._req(`/leads/${id}`, { method: "PATCH", body: JSON.stringify(data) }); }
+  async deleteLead(id) { return this._req(`/leads/${id}`, { method: "DELETE" }); }
   async revenue(businessId) { return this._req("/revenue" + (businessId ? `?business_id=${businessId}` : "")); }
   async directives() { return this._req("/directives"); }
   async warnings() { return this._req("/warnings"); }
@@ -53,7 +59,52 @@ class CommandOSAPI {
   async integStatus() { return this._req("/integrations/status"); }
   async integConnect(provider) { return this._req(`/integrations/${provider}/connect`); }
 
+  // Routines
+  async routineTemplates(role) { return this._req("/routines/templates" + (role ? `?role=${role}` : "")); }
+  async createRoutineTemplate(data) { return this._req("/routines/templates", { method: "POST", body: JSON.stringify(data) }); }
+  async deleteRoutineTemplate(id) { return this._req(`/routines/templates/${id}`, { method: "DELETE" }); }
+  async routineLogs(date, personId) {
+    const q = new URLSearchParams();
+    if (date) q.set("date", date);
+    if (personId) q.set("person_id", personId);
+    const qs = q.toString();
+    return this._req("/routines/logs" + (qs ? "?" + qs : ""));
+  }
+  async logRoutine(data) { return this._req("/routines/logs", { method: "POST", body: JSON.stringify(data) }); }
+
+  // Ads
+  async adAccounts(businessId) { return this._req("/ads/accounts" + (businessId ? `?business_id=${businessId}` : "")); }
+  async createAdAccount(data) { return this._req("/ads/accounts", { method: "POST", body: JSON.stringify(data) }); }
+  async deleteAdAccount(id) { return this._req(`/ads/accounts/${id}`, { method: "DELETE" }); }
+  async adCampaigns(accountId, platform) {
+    const q = new URLSearchParams();
+    if (accountId) q.set("account_id", accountId);
+    if (platform) q.set("platform", platform);
+    const qs = q.toString();
+    return this._req("/ads/campaigns" + (qs ? "?" + qs : ""));
+  }
+  async createAdCampaign(data) { return this._req("/ads/campaigns", { method: "POST", body: JSON.stringify(data) }); }
+  async patchAdCampaign(id, data) { return this._req(`/ads/campaigns/${id}`, { method: "PATCH", body: JSON.stringify(data) }); }
+  async deleteAdCampaign(id) { return this._req(`/ads/campaigns/${id}`, { method: "DELETE" }); }
+  async adMetrics(campaignId, dateFrom, dateTo) {
+    const q = new URLSearchParams();
+    if (campaignId) q.set("campaign_id", campaignId);
+    if (dateFrom) q.set("date_from", dateFrom);
+    if (dateTo) q.set("date_to", dateTo);
+    const qs = q.toString();
+    return this._req("/ads/metrics" + (qs ? "?" + qs : ""));
+  }
+  async adsSummary(businessId, dateFrom, dateTo) {
+    const q = new URLSearchParams();
+    if (businessId) q.set("business_id", businessId);
+    if (dateFrom) q.set("date_from", dateFrom);
+    if (dateTo) q.set("date_to", dateTo);
+    const qs = q.toString();
+    return this._req("/ads/summary" + (qs ? "?" + qs : ""));
+  }
+
   // Dashboard
+  async dashboardSidebar() { return this._req("/dashboard/sidebar"); }
   async dashboardSummary() { return this._req("/dashboard/summary"); }
   async aiCeoInsights(context, focusArea = "overall") {
     return this._req("/dashboard/ai-ceo/insights", { method: "POST", body: JSON.stringify({ context, focusArea }) });

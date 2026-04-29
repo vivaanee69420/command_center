@@ -1,4 +1,5 @@
 """FastAPI dependencies — auth, current user, role guard."""
+from typing import Optional
 from fastapi import Depends, HTTPException, status, Header
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
@@ -8,7 +9,7 @@ from .security import decode_token, can
 
 
 async def current_user(
-    authorization: str | None = Header(default=None),
+    authorization: Optional[str] = Header(default=None),
     db: AsyncSession = Depends(get_db),
 ) -> Person:
     if not authorization or not authorization.lower().startswith("bearer "):

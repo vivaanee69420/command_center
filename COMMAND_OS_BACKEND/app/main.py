@@ -8,6 +8,8 @@ from .routers import voice as voice_router
 from .routers import core as core_router
 from .routers import intel as intel_router
 from .routers import dashboard as dashboard_router
+from .routers import routines as routines_router
+from .routers import ads as ads_router
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -29,6 +31,8 @@ app.include_router(voice_router.router, prefix="/api/voice",         tags=["voic
 app.include_router(core_router.router,  prefix="/api",               tags=["core"])
 app.include_router(intel_router.router,      prefix="/api",               tags=["intel"])
 app.include_router(dashboard_router.router, prefix="/api/dashboard",     tags=["dashboard"])
+app.include_router(routines_router.router,  prefix="/api",               tags=["routines"])
+app.include_router(ads_router.router,      prefix="/api",               tags=["ads"])
 
 
 @app.get("/api/health")

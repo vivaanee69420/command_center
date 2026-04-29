@@ -1,4 +1,5 @@
 """SQLAlchemy 2.0 ORM — mirrors migrations/001_init.sql."""
+from __future__ import annotations
 from datetime import datetime, date, time
 from typing import Optional
 import uuid
@@ -193,6 +194,67 @@ class AutomationRule(Base):
     owner_id: Mapped[Optional[uuid.UUID]] = mapped_column(UUID(as_uuid=True), ForeignKey("person.id"))
     created_at = _ts()
     last_fired_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+
+
+# ----------------- MARKETING / ADS -----------------
+class AdAccount(Base):
+    __tablename__ = "ad_account"
+    id = _id()
+    business_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("business.id", ondelete="CASCADE"), nullable=False)
+    platform: Mapped[str] = mapped_column(Text, nullable=False)
+    account_id: Mapped[str] = mapped_column(Text, nullable=False)
+    oauth_token_enc: Mapped[Optional[str]] = mapped_column(Text)
+    expires_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+    __table_args__ = (UniqueConstraint("platform", "account_id"),)
+
+
+class AdCampaign(Base):
+    __tablename__ = "ad_campaign"
+    id = _id()
+    ad_account_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("ad_account.id", ondelete="CASCADE"), nullable=False)
+    ext_id: Mapped[str] = mapped_column(Text, nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    status: Mapped[Optional[str]] = mapped_column(Text)
+    daily_budget: Mapped[Optional[float]] = mapped_column(Numeric(10, 2))
+    last_synced_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+    __table_args__ = (UniqueConstraint("ad_account_id", "ext_id"),)
+
+
+class AdMetric(Base):
+    __tablename__ = "ad_metric"
+    id = _id()
+    campaign_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("ad_campaign.id", ondelete="CASCADE"), nullable=False)
+    date: Mapped[date] = mapped_column(Date, nullable=False)
+    spend: Mapped[float] = mapped_column(Numeric(12, 2), default=0)
+    impressions: Mapped[int] = mapped_column(Integer, default=0)
+    clicks: Mapped[int] = mapped_column(Integer, default=0)
+    conversions: Mapped[int] = mapped_column(Integer, default=0)
+    cpa: Mapped[Optional[float]] = mapped_column(Numeric(10, 2))
+    roas: Mapped[Optional[float]] = mapped_column(Numeric(8, 2))
+    __table_args__ = (UniqueConstraint("campaign_id", "date"),)
+
+
+# ----------------- DAILY ROUTINES -----------------
+class RoutineTemplate(Base):
+    __tablename__ = "routine_template"
+    id = _id()
+    role: Mapped[str] = mapped_column(Text, nullable=False)
+    time_local: Mapped[time] = mapped_column(Time, nullable=False)
+    title: Mapped[str] = mapped_column(Text, nullable=False)
+    detail: Mapped[Optional[str]] = mapped_column(Text)
+    week_phase: Mapped[Optional[int]] = mapped_column(Integer)
+
+
+class RoutineLog(Base):
+    __tablename__ = "routine_log"
+    id = _id()
+    person_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("person.id"), nullable=False)
+    template_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("routine_template.id", ondelete="CASCADE"), nullable=False)
+    date: Mapped[date] = mapped_column(Date, nullable=False)
+    completed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True))
+    notes: Mapped[Optional[str]] = mapped_column(Text)
+    voice_url: Mapped[Optional[str]] = mapped_column(Text)
+    __table_args__ = (UniqueConstraint("person_id", "template_id", "date"),)
 
 
 # ----------------- NOTIFICATIONS -----------------

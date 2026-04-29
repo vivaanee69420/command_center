@@ -10,7 +10,7 @@ from ..db import get_db
 from ..deps import current_user
 from ..models import Business, Lead, Person, Project, RevenueSnapshot, Task
 from ..schemas import (
-    BusinessOut, LeadIn, LeadOut, PersonIn, PersonOut, ProjectIn, ProjectOut,
+    BusinessOut, LeadIn, LeadOut, LeadPatch, PersonIn, PersonOut, ProjectIn, ProjectOut, ProjectPatch,
     RevenueIn, RevenueOut,
 )
 from ..security import hash_password
@@ -64,6 +64,23 @@ async def create_project(body: ProjectIn, db: AsyncSession = Depends(get_db), p:
     return pr
 
 
+@router.patch("/projects/{pid}", response_model=ProjectOut)
+async def patch_project(pid: UUID, body: ProjectPatch, db: AsyncSession = Depends(get_db), p: Person = Depends(current_user)):
+    pr = (await db.execute(select(Project).where(Project.id == pid))).scalar_one_or_none()
+    if not pr: raise HTTPException(404, "project not found")
+    for k, v in body.model_dump(exclude_unset=True).items():
+        setattr(pr, k, v)
+    await db.commit(); await db.refresh(pr)
+    return pr
+
+
+@router.delete("/projects/{pid}", status_code=204)
+async def delete_project(pid: UUID, db: AsyncSession = Depends(get_db), p: Person = Depends(current_user)):
+    pr = (await db.execute(select(Project).where(Project.id == pid))).scalar_one_or_none()
+    if not pr: raise HTTPException(404, "project not found")
+    await db.delete(pr); await db.commit()
+
+
 # ---------------- Revenue ----------------
 @router.get("/revenue", response_model=list[RevenueOut])
 async def list_revenue(business_id: UUID = Query(None), db: AsyncSession = Depends(get_db), p: Person = Depends(current_user)):
@@ -92,6 +109,28 @@ async def add_lead(body: LeadIn, db: AsyncSession = Depends(get_db), p: Person =
     L = Lead(**body.model_dump())
     db.add(L); await db.commit(); await db.refresh(L)
     return L
+
+
+@router.patch("/leads/{lid}", response_model=LeadOut)
+async def patch_lead(lid: UUID, body: LeadPatch, db: AsyncSession = Depends(get_db), p: Person = Depends(current_user)):
+    lead = (await db.execute(select(Lead).where(Lead.id == lid))).scalar_one_or_none()
+    if not lead:
+        raise HTTPException(404, "lead not found")
+    for k, v in body.model_dump(exclude_unset=True).items():
+        setattr(lead, k, v)
+    lead.last_touched_at = datetime.utcnow()
+    await db.commit()
+    await db.refresh(lead)
+    return lead
+
+
+@router.delete("/leads/{lid}", status_code=204)
+async def delete_lead(lid: UUID, db: AsyncSession = Depends(get_db), p: Person = Depends(current_user)):
+    lead = (await db.execute(select(Lead).where(Lead.id == lid))).scalar_one_or_none()
+    if not lead:
+        raise HTTPException(404, "lead not found")
+    await db.delete(lead)
+    await db.commit()
 
 
 # ---------------- Today's plate ----------------

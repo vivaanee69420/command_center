@@ -26,9 +26,8 @@ const COMMAND_ITEMS = [
 ];
 
 const PLANS_ITEMS = [
-  { key: "projects",      label: "£250k Recovery",    icon: TrendingUp,   path: "/projects",        badge: null },
-  { key: "daily_routines",label: "90-Day Plan",        icon: ClipboardList, path: "/daily-routines",  badge: null },
-  { key: "daily_routines",label: "Daily Routines",     icon: Clock,         path: "/daily-routines",  badge: null },
+  { key: "projects",       label: "90-Day Plan",       icon: ClipboardList, path: "/projects",        badge: null },
+  { key: "daily_routines", label: "Daily Routines",    icon: Clock,         path: "/daily-routines",  badge: null },
 ];
 
 const MARKETING_SUBITEMS = [

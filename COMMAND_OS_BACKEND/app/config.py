@@ -28,12 +28,17 @@ class Settings(BaseSettings):
     GOOGLE_REDIRECT_URI: str = "http://localhost:8765/api/integrations/google/callback"
     GOOGLE_ADS_DEVELOPER_TOKEN: str = ""
     GOOGLE_ADS_LOGIN_CUSTOMER_ID: str = ""
+    GOOGLE_ADS_REFRESH_TOKEN: str = ""
 
     # meta
     META_APP_ID: str = ""
     META_APP_SECRET: str = ""
     META_REDIRECT_URI: str = "http://localhost:8765/api/integrations/meta/callback"
     META_SYSTEM_USER_TOKEN: str = ""
+    META_TOKEN_ELEVATE: str = ""
+    META_TOKEN_P4G: str = ""
+    META_TOKEN_FTS: str = ""
+    META_TOKEN_WL: str = ""
 
     GHL_TOKENS: str = ""
     DENTALLY_API_KEY: str = ""
@@ -50,6 +55,7 @@ class Settings(BaseSettings):
 
     SENDGRID_API_KEY: str = ""
     SENDER_EMAIL: str = ""
+    RESEND_API_KEY: str = ""
 
     @property
     def cors_list(self) -> list[str]:
