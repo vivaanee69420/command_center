@@ -103,6 +103,18 @@ class CommandOSAPI {
     return this._req("/ads/summary" + (qs ? "?" + qs : ""));
   }
 
+  // Conversations (GHL)
+  async conversations(slug, limit = 50) {
+    const q = new URLSearchParams();
+    if (slug) q.set("slug", slug);
+    if (limit !== 50) q.set("limit", limit);
+    const qs = q.toString();
+    return this._req("/conversations" + (qs ? "?" + qs : ""));
+  }
+  async conversationMessages(conversationId, slug) {
+    return this._req(`/conversations/${conversationId}/messages?slug=${slug}`);
+  }
+
   // Dashboard
   async dashboardSidebar() { return this._req("/dashboard/sidebar"); }
   async dashboardSummary() { return this._req("/dashboard/summary"); }

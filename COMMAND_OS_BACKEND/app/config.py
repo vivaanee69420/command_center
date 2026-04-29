@@ -61,6 +61,13 @@ class Settings(BaseSettings):
     def cors_list(self) -> list[str]:
         return [s.strip() for s in self.CORS_ORIGINS.split(",") if s.strip()]
 
+    @property
+    def async_db_url(self) -> str:
+        url = self.DATABASE_URL
+        if url.startswith("postgresql://") and "+asyncpg" not in url:
+            return url.replace("postgresql://", "postgresql+asyncpg://", 1)
+        return url
+
 
 @lru_cache
 def settings() -> Settings:
